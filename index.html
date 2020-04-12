@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>MySoul</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="MySoul">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="MySoul">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Tal">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="MySoul" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -54,65 +54,25 @@
         
           <a class="main-nav-link" href="/about">关于</a>
         
+          <a class="main-nav-link" href="/test">测试</a>
+        
       </nav>
       
     </div>
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">MySoul</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">杭州雨季里的星期天</a>
+        </h2>
       
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
-  
-    <article id="post-网易游戏" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/04/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/" class="article-date">
-  <time datetime="2020-03-03T23:46:43.268Z" itemprop="datePublished">2020-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/">网易游戏</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="网易游戏实习"><a href="#网易游戏实习" class="headerlink" title="网易游戏实习"></a>网易游戏实习</h1><p>还是写一点网易游戏暑期实习的经历吧<br>首先是笔试，三道题，两个半小时，前两道题比较基础，最后一道题比较难，但是听说AC一道就给面试机会，当时做出来两道，我觉得前两道题难的不是思路，而是调试的过程，一个小错误就能让你调试半天，时间就是这么浪费掉的，以至于做完前两道题就没多少时间了，还是代码敲得少。<br>然后是面试，主要分为几大块：问项目，问c++，操作系统，网络（tcp/ip）,算法。</p>
-<p>首先问的是项目，因为本科毕业设计做的是一个基于unity3d的设计游戏，面试官比较感兴趣，上来就问我怎么实现的，比如对话，模型怎么来的等一些细节问题，项目比较简单，所以也没再问，然后问的现在实验室的项目，介绍一下这个项目，用没用网络通信方面的知识，然后客户端和服务端是怎么通信的，直接用socket通信不行吗，为什么要把数据存数据库等等，要对自己做过的项目洞若观火。</p>
-<p>c++问的static关键字，静态成员，静态函数，构造函数能不能声明为虚函数，析构函数呢，如果在构造函数里抛出一个异常，会发生什么事情，new的时候发生什么，delete的时候发生什么，然后是vector怎么增长的，push_back发生什么事情。<br>网络部分：tcp和udp的区别，如何保证可靠，超时重传，客户端怎么知道收到的报文是服务器传过来的（seq,ack），seq是怎么产生的，HTTPS，SSL加密原理</p>
-<p>操作系统：线程进程区别，线程的好处，共享内存，32位电脑能申请最大内存，64位电脑呢。</p>
-<p>算法：几乎剩下半小时都在问算法，首先问的是n个数取前k大数，想到三种方法，一种是排序，比较排序的上界是nlgn,然后是堆排序，优先队列，建一个k个元素的小顶堆，时间复杂度是nlgk，最后面试官问还有没有效率更高的算法，最后想了半天，想到算法导论有一章讲的是顺序统计量，里面有一种方法是基于快排思想的，平均时间复杂度是n.<br>接下来问的是上楼梯问题，一次一阶或者两阶，经典动态规划问题，我把自顶向下，俗称记忆化方法，自底向上，方法说了一下，算是比较简单的。<br>然后问的n个不重复的数（1-n）中丢了一个数怎么办，想了半天，想复杂了，其实直接两个序列相减就行,然后问少了两个数呢，x+y还可以根据上面的方法求出来，还得找到另外一个式子，于是想到了异或的方法，面试官说可行，但是三个数呢？我就晕了。后来查了一下用各个数的平方，三次方来构建等式。</p>
-<p>总之面试的过程还是很愉快的，网易游戏会看中你的思考能力，解题的方法，你不会，但是经过面试官点拨，你想起来了，说明你是个会思考的人，但是基础还是要牢固。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/" data-id="ck8v91zq00000agu6auje7h57" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
   
     <article id="post-计算机英语单词" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -143,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ck8v91zq60001agu6emvea8pr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ck8wex8px0003zcu6gioaabzr" class="article-share-link">Share</a>
       
       
       
@@ -186,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ck8v9cya60001oou6f1xz6rcw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ck8wex8qw000lzcu6hut18tak" class="article-share-link">Share</a>
       
       
       
@@ -236,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python(8)/" data-id="ck8v91zr5000bagu67ti807ar" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python(8)/" data-id="ck8wex8qv000jzcu618b06dih" class="article-share-link">Share</a>
       
       
       
@@ -291,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python(7)/" data-id="ck8v91zr4000aagu61x1n5j5b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python(7)/" data-id="ck8wex8qt000fzcu63rtze5p4" class="article-share-link">Share</a>
       
       
       
@@ -349,7 +309,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python(6)/" data-id="ck8v91zr10006agu6cg9u80xj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python(6)/" data-id="ck8wex8qv000izcu63olz663e" class="article-share-link">Share</a>
       
       
       
@@ -403,7 +363,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/python%E4%BB%8B%E7%BB%8D/" data-id="ck8v9d2qt0002oou64bu789e5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/python%E4%BB%8B%E7%BB%8D/" data-id="ck8wex8po0000zcu607ij9gj7" class="article-share-link">Share</a>
       
       
       
@@ -490,7 +450,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20string(2)/" data-id="ck8v91zr10005agu63mgyd956" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20string(2)/" data-id="ck8wex8qs000ezcu6gn1p6n6i" class="article-share-link">Share</a>
       
       
       
@@ -543,7 +503,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20list(3)/" data-id="ck8v91zr20007agu6ddr58wk7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20list(3)/" data-id="ck8wex8qq000bzcu60ymp11vu" class="article-share-link">Share</a>
       
       
       
@@ -592,11 +552,84 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20function(5)/" data-id="ck8v91zqy0003agu69daedtat" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20function(5)/" data-id="ck8wex8qr000dzcu6gkmk0m0i" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-PythonLearning/python dic tuple（4）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" class="article-date">
+  <time datetime="2020-03-03T23:46:42.799Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/04/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/">python 字典元组（4）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><p>字典是键值对模型，键是字符串，值任意，有点像json。</p>
+<ul>
+<li><p>支持嵌套</p>
+</li>
+<li><p>不排序，如果想排序就把键放到一个list里面，调用list的sort方法排序，也可以用内置的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; D</span><br><span class="line">&#123;&#39;a&#39;: 97, &#39;c&#39;: 99, &#39;b&#39;: 98&#125;</span><br><span class="line">&gt;&gt;&gt; for k in sorted(D):</span><br><span class="line">	print (k, &#39;&#x3D;&gt;&#39;, D[k])</span><br></pre></td></tr></table></figure></li>
+<li><p>访问，直接使用中括号，里面是键</p>
+</li>
+<li><p>判断一个键是否在字典中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; if not &#39;F&#39; in D:</span><br><span class="line">	print(&#39;missing&#39;)</span><br><span class="line">	&gt;&gt;&gt; value &#x3D; D[&#39;x&#39;] if &#39;x&#39; in D else 0</span><br><span class="line">&gt;&gt;&gt; value</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="iteration-protocol"><a href="#iteration-protocol" class="headerlink" title="iteration protocol"></a>iteration protocol</h2><p>这种机制只对序列式容器有效，例如list、string、tuple，而对dictionary、set无效</p>
+<blockquote>
+<p>   Let’s redefine iterables from Python’s perspective.</p>
+</blockquote>
+<p>  Iterables:</p>
+<p>  1.Can be passed to the iter function to get an iterator for them.<br>  2.There is no 2. That’s really all that’s needed to be an iterable.<br>  Iterators:</p>
+<p>  1.Can be passed to the next function which gives their next item or raises StopIteration<br>  2.Return themselves when passed to the iter function.<br>  The inverse of these statements should also hold true. Which means:</p>
+<p>  1.Anything that can be passed to iter without an error is an iterable.<br>  2.Anything that can be passed to next without an error (except for StopIteration) is an iterator.<br>  3.Anything that returns itself when passed to iter is an iterator.</p>
+</li>
+</ul>
+<p>例如可以这样实现for循环而不使用for关键字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	list&#x3D;[1, 2, 3, 4]</span><br><span class="line">	it&#x3D;iter(list)</span><br><span class="line">	while(True):</span><br><span class="line">		try :</span><br><span class="line">			item&#x3D;next(it)</span><br><span class="line">		except StopIteration:</span><br><span class="line">			print(&quot;end&quot;)</span><br><span class="line">			break</span><br><span class="line">		else:</span><br><span class="line">			print(item)</span><br><span class="line">&#96;&#96;&#96;	</span><br><span class="line"></span><br><span class="line">## tuple</span><br><span class="line">* 逗号隔开的元素默认形成元组</span><br><span class="line">* 最重要的是immutable</span><br><span class="line">* 两个特有的方法：index(&#39;f&#39;),count(&#39;f&#39;),分别获取某个元素的下标，获取某个元素出现的次数。</span><br><span class="line">* packing and unpacking</span><br></pre></td></tr></table></figure>
+<pre><code>#packing
+&gt;&gt;&gt; T = 1, &apos;a&apos;, [{&apos;NAME&apos;:&apos;Serah&apos;, &apos;Age&apos;:25}]
+&gt;&gt;&gt; T
+(1, &apos;a&apos;, [{&apos;Age&apos;: 25, &apos;NAME&apos;: &apos;Serah&apos;}])
+&gt;&gt;&gt; 
+#unpacking
+&gt;&gt;&gt; x,y,z = T
+&gt;&gt;&gt; x,y,z
+(1, &apos;a&apos;, [{&apos;Age&apos;: 25, &apos;NAME&apos;: &apos;Serah&apos;}])
+&gt;&gt;&gt; </code></pre><pre><code></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck8wex8qp000azcu6e1xs8bua" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
 
     </footer>
   </div>
@@ -622,16 +655,10 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
      
     <div class="widget follow">
       
-              <a class="github" aria-hidden="true" href="https://github.com/giscafer" target="_blank" title="Github"></a>
+              <a class="github" aria-hidden="true" href="https://github.com/welovebeer" target="_blank" title="Github"></a>
       
       
-            <a class="weibo" aria-hidden="true"  href="http://weibo.com/laohoubin" target="_blank" title="微博"></a>
       
-      
-              <a class="zhihu" aria-hidden="true"  href="http://www.zhihu.com/people/giscafer" target="_blank" title="知乎"></a>
-      
-      
-            <a class="email" aria-hidden="true"  href="mailto:youemail@outlook.com" target="_blank" title="邮箱"></a>
       
     </div>
   </div>
@@ -641,6 +668,13 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title categories">Categories</h3>
+    <div class="widget" id="categories">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/foo/">foo</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/foo/bar/">bar</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
 
   
     
@@ -659,10 +693,6 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       <ul>
         
           <li>
-            <a href="/2020/03/04/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/">网易游戏</a>
-          </li>
-        
-          <li>
             <a href="/2020/03/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/">计算机英语单词</a>
           </li>
         
@@ -678,6 +708,10 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
             <a href="/2020/03/04/PythonLearning/python(7)/">PythonLearning/python(7)</a>
           </li>
         
+          <li>
+            <a href="/2020/03/04/PythonLearning/python(6)/">PythonLearning/python(6)</a>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -687,7 +721,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -730,11 +764,11 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
   
   <div class="outer">
     <div id="footer-left">
-      &copy; 2014 - 2020 John Doe&nbsp;|&nbsp;
+      &copy; 2014 - 2020 Tal&nbsp;|&nbsp;
       Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;youemail@outlook.com
+      Contact&nbsp;|&nbsp;707601602@qq.com
     </div>
   </div>
 </footer>
@@ -749,6 +783,8 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
     <a href="/archives" class="mobile-nav-link">归档</a>
   
     <a href="/about" class="mobile-nav-link">关于</a>
+  
+    <a href="/test" class="mobile-nav-link">测试</a>
   
 </nav>
     <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
