@@ -74,6 +74,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PythonLearning/python list(3)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/PythonLearning/python%20list(3)/" class="article-date">
+  <time datetime="2020-03-03T23:46:42.894Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/04/PythonLearning/python%20list(3)/">PythonLearning/python list(3)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="python-list"><a href="#python-list" class="headerlink" title="python list"></a>python list</h2><p>list是可变数据类型，no fixed type constraint，no fixed size</p>
+<ul>
+<li>插入，insert在任意位置插入，指定offset，append在列表后面插入。</li>
+<li>每次remove只删除第一个object</li>
+<li>删除，remove根据指定的值删除，pop根据指定的offset删除。</li>
+<li>sort只能排序相同类型对象，reverse倒序。</li>
+<li>支持嵌套</li>
+<li>列表推导（list comprehension）dictionary和tuple都可以这样  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; col2 &#x3D; [A[1] for A in M]</span><br><span class="line">&gt;&gt;&gt; col2</span><br><span class="line">[2, 5, 8]</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; M</span><br><span class="line">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; # Add 10 to each item in column 2</span><br><span class="line">&gt;&gt;&gt; [A[1] + 10 for A in M]</span><br><span class="line">[12, 15, 18]</span><br><span class="line">&gt;&gt;&gt; # Filter out odd items</span><br><span class="line">&gt;&gt;&gt; [A[1] for A in M if A[1] % 2 &#x3D;&#x3D; 0]</span><br><span class="line">[2, 8]</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; # Collect a diagonal from matrix</span><br><span class="line">&gt;&gt;&gt; diag &#x3D; [M[i][i] for i in [0, 1, 2]]</span><br><span class="line">&gt;&gt;&gt; diag</span><br><span class="line">[1, 5, 9]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # Repeat characters in a string</span><br><span class="line">&gt;&gt;&gt; doubles &#x3D; [ c * 2 for c in &#39;blah&#39;]</span><br><span class="line">&gt;&gt;&gt; doubles</span><br><span class="line">[&#39;bb&#39;, &#39;ll&#39;, &#39;aa&#39;, &#39;hh&#39;]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; M</span><br><span class="line">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; # Create a generator of row sums</span><br><span class="line">&gt;&gt;&gt; G &#x3D; (sum(A) for A in M)</span><br><span class="line">&gt;&gt;&gt; # iter(G) not required here</span><br><span class="line">&gt;&gt;&gt; next(G)</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt; # Run the iteration protocol</span><br><span class="line">&gt;&gt;&gt; next(G)</span><br><span class="line">15</span><br><span class="line">&gt;&gt;&gt; next(G)</span><br><span class="line">24</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20list(3)/" data-id="ck9iip674000ojwu68fr1ch6r" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-PythonLearning/python function(5)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/04/PythonLearning/python%20function(5)/" class="article-date">
@@ -111,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20function(5)/" data-id="ck9h76hye000hsku64g3afu1n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20function(5)/" data-id="ck9iip673000mjwu60qym4gdo" class="article-share-link">Share</a>
       
       
       
@@ -184,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck9h76hyd000gsku62uy31nqo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck9iip672000ljwu60xkee4rw" class="article-share-link">Share</a>
       
       
       
@@ -238,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/07/14/test/" data-id="ck9h76hxc0003sku6ginv44ko" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/07/14/test/" data-id="ck9iip66b0006jwu6bzc5hfo3" class="article-share-link">Share</a>
       
       
       
@@ -276,6 +329,10 @@
       <ul>
         
           <li>
+            <a href="/2020/04/27/20200427/">雷雨天气没打伞的下班路</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/26/20200426/">平庸的一天</a>
           </li>
         
@@ -289,10 +346,6 @@
         
           <li>
             <a href="/2020/03/04/PythonLearning/python%E5%A4%9A%E6%80%81/">PythonLearning/python多态</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/04/PythonLearning/python(8)/">PythonLearning/python(8)</a>
           </li>
         
       </ul>
