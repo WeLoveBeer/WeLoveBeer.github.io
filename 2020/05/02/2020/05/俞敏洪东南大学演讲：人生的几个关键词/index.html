@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/" data-id="ck9pe7lfs000ndcu6099x4pc5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/" data-id="ck9pk0nvq000su4u64fzlbsiy" class="article-share-link">Share</a>
       
       
       
@@ -187,6 +187,8 @@
        
       
       
+           <div id="gitment_comments"></div>
+    
   </div>
  
   
@@ -310,6 +312,22 @@ window.onload = function() {
 
 <!-- author:forvoid begin -->
 <!-- author:forvoid begin -->
+
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> 
+  <script>
+  var gitment = new Gitment({
+    // id: '页面 ID', // 可选。默认为 location.href
+    owner: 'WeLoveBeer',
+    repo: 'BlogGitment',
+    oauth: {
+    client_id: '168dee6d9d1e41514364',
+    client_secret: '4b4bf4a208befe7f36ee67b6aec3a3b9c8ce4245',
+    }
+  })
+  gitment.render(document.getElementById("gitment_comments"))
+</script>
+
 
 <!-- author:forvoid end -->
 
