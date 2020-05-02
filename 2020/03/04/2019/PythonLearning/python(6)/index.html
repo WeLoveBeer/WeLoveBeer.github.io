@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2019/PythonLearning/python(6) | MySoul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="python数据结构一些总结map,filter,reducemap 不是c++中的map，函数式编程，面向表达式编程：  map(aFunction, aSequence) filter(aFunction, aSequence) reduce(aFunction, aSequence) lambda list comprehension简单的map应用：1234567&gt;&gt;&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019&#x2F;PythonLearning&#x2F;python(6)">
+<meta property="og:url" content="http://yoursite.com/2020/03/04/2019/PythonLearning/python(6)/index.html">
+<meta property="og:site_name" content="MySoul">
+<meta property="og:description" content="python数据结构一些总结map,filter,reducemap 不是c++中的map，函数式编程，面向表达式编程：  map(aFunction, aSequence) filter(aFunction, aSequence) reduce(aFunction, aSequence) lambda list comprehension简单的map应用：1234567&gt;&gt;&gt;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-03T23:46:43.037Z">
+<meta property="article:modified_time" content="2018-04-28T02:36:06.126Z">
+<meta property="article:author" content="Tal">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MySoul" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/test">测试</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MySoul</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">杭州雨季里的星期天</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019/PythonLearning/python(6)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/2019/PythonLearning/python(6)/" class="article-date">
+  <time datetime="2020-03-03T23:46:43.037Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2019/PythonLearning/python(6)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python数据结构一些总结"><a href="#python数据结构一些总结" class="headerlink" title="python数据结构一些总结"></a>python数据结构一些总结</h1><h2 id="map-filter-reduce"><a href="#map-filter-reduce" class="headerlink" title="map,filter,reduce"></a>map,filter,reduce</h2><p>map 不是c++中的map，函数式编程，面向表达式编程：</p>
+<ul>
+<li>map(aFunction, aSequence)</li>
+<li>filter(aFunction, aSequence)</li>
+<li>reduce(aFunction, aSequence)</li>
+<li>lambda</li>
+<li>list comprehension<br>简单的map应用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; items &#x3D; [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; def sqr(x): return x ** 2</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(map(sqr, items))</span><br><span class="line">[1, 4, 9, 16, 25]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+过滤器通过一个函数对象把sequence中的东西过滤一遍：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(-5,5))</span><br><span class="line">[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; list( filter((lambda x: x &lt; 0), range(-5,5)))</span><br><span class="line">[-5, -4, -3, -2, -1]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+reduce是functool模块的一个工具，返回一个值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; from functools import reduce</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x * y), [1, 2, 3, 4] )</span><br><span class="line">24</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x &#x2F; y), [1, 2, 3, 4] )</span><br><span class="line">0.041666666666666664</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="decrator-装饰器"><a href="#decrator-装饰器" class="headerlink" title="decrator(装饰器)"></a>decrator(装饰器)</h2>类似设计模式的装饰器模式，装饰器都是为了给当前函数添加功能或者修改行为；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def dollar(fn):</span><br><span class="line">	def new(*args):</span><br><span class="line">		return &#39;$&#39; + str(fn(*args))</span><br><span class="line">	return new</span><br><span class="line"></span><br><span class="line">@dollar</span><br><span class="line">def price(amount, tax_rate):</span><br><span class="line">	return amount + amount*tax_rate</span><br><span class="line">   </span><br><span class="line">print price(100,0.1)</span><br></pre></td></tr></table></figure>
+上面代码的功能是给参数前面加一个dollar符号，@符号是装饰器的语法<br>new 函数是一个wrapper<br>@dollar这一句话相当于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price&#x3D;dollar(price)</span><br></pre></td></tr></table></figure>
+判断一个函数运行完消耗的时间：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def timer(f):</span><br><span class="line">	def inner(*args, **kargs):</span><br><span class="line">		t &#x3D; time.time()</span><br><span class="line">		ret &#x3D; f(*args, **kargs)</span><br><span class="line">		print &#39;timer &#x3D; %s&#39; %(time.time()-t) </span><br><span class="line">		return ret</span><br><span class="line">	return inner</span><br><span class="line"></span><br><span class="line">@timer</span><br><span class="line">def my_fnc():</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	my_fnc()</span><br></pre></td></tr></table></figure>
+<h2 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h2>map，filter都可以使用list comprehension实现。<br>缺点是可读性不如for循环好。<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2>里面的值都是immutable的，而且都是不重复的。<br>set本身也是mutable的。<br>set简单操作：<br>根据list初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L &#x3D; [1,2,3]</span><br><span class="line">&gt;&gt;&gt; s &#x3D; set(L)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">set([1, 2, 3])</span><br><span class="line"># init an empty set</span><br><span class="line">&gt;&gt;&gt; s1 &#x3D; set()</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([])</span><br></pre></td></tr></table></figure>
+添加元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># add single element</span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;first&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;first&#39;])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;2nd&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;2nd&#39;, &#39;first&#39;])</span><br><span class="line">#add multi elements</span><br><span class="line">&gt;&gt;&gt; s1.update( [&quot;3rd&quot;, &quot;4th&quot;] )</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;4th&#39;, &#39;2nd&#39;, &#39;3rd&#39;, &#39;first&#39;])</span><br></pre></td></tr></table></figure>
+集合操作交并补：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sets1 &amp; sets2  #(elements in set1,&amp;&amp; in set2)</span><br><span class="line">   sets1 | sets2  #(elements in set1,|| in set2)</span><br><span class="line">   sets1 - sets2  #(elements in set1,&amp;&amp;not in set2)</span><br></pre></td></tr></table></figure>
+Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import division</span><br><span class="line">import itertools</span><br><span class="line"></span><br><span class="line">def jaccard(s1, s2):</span><br><span class="line">	&quot; takes two lists as input and returns Jaccard coefficient&quot;</span><br><span class="line">	st1&#x3D;set(s1)</span><br><span class="line">	st2&#x3D;set(s2)</span><br><span class="line">	u &#x3D; set(st1).union(st2)</span><br><span class="line">	i &#x3D; set(st1).intersection(st2)</span><br><span class="line">	return len(i)&#x2F;len(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">	s &#x3D; [];</span><br><span class="line">	s.append([1,2,3,4])</span><br><span class="line">	s.append([2,3,5,7])</span><br><span class="line">	s.append([2,4,6])  </span><br><span class="line">	s.append([8,9,10,11,12])</span><br><span class="line"></span><br><span class="line">	print(&quot;input set : %s&quot;) %(s)</span><br><span class="line"></span><br><span class="line">	combinations &#x3D; list( itertools.combinations([x for x in range(len(s))], 2) )</span><br><span class="line">	print(&quot;combinations&#x3D;%s&quot;) %(combinations)</span><br><span class="line"></span><br><span class="line">	for c in combinations:</span><br><span class="line">		i1 &#x3D; c[0]</span><br><span class="line">		i2 &#x3D; c[1]</span><br><span class="line">		jac &#x3D; jaccard(s[i1], s[i2])</span><br><span class="line">		print(&quot;%s : %s,%s : jaccard&#x3D;%s&quot;) %(c, s[i1],s[i2],jac)</span><br><span class="line">Output:</span><br><span class="line"></span><br><span class="line">input set : [[1, 2, 3, 4], [2, 3, 5, 7], [2, 4, 6], [8, 9, 10, 11, 12]]</span><br><span class="line">combinations&#x3D;[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]</span><br><span class="line">(0, 1) : [1, 2, 3, 4],[2, 3, 5, 7] : jaccard&#x3D;0.333333333333</span><br><span class="line">(0, 2) : [1, 2, 3, 4],[2, 4, 6] : jaccard&#x3D;0.4</span><br><span class="line">(0, 3) : [1, 2, 3, 4],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(1, 2) : [2, 3, 5, 7],[2, 4, 6] : jaccard&#x3D;0.166666666667</span><br><span class="line">(1, 3) : [2, 3, 5, 7],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(2, 3) : [2, 4, 6],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br></pre></td></tr></table></figure>
+<h2 id="一个小总结"><a href="#一个小总结" class="headerlink" title="一个小总结"></a>一个小总结</h2>string，list，dictionary，tuple，set<br>都不是有序的<br>set里面的值唯一不重复<br>dictionary是基于哈希表的<br>list用中括号，dict用大括号，tuple用小括号，set也用大括号<br>可变的：list，dictionary,set<br>不可变的：tuple，numbers,string,frozenset<br>（All of Python’s immutable built-in objects are hashable）<br>一个小例外，tuple是immutable的，当tuple中所有对象都是immutable的时候可以求哈希，当里面有个list的时候就不可以求哈希<br>（An object is hashable if it has a hash value which never changes during its lifetime ）</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python(6)/" data-id="ck9p809t0000c2wu63hrfdn16" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>Recommended Posts</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/04/2019/PythonLearning/python(7)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2019/PythonLearning/python(7)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2019/PythonLearning/python介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python数据结构一些总结"><span class="toc-number">1.</span> <span class="toc-text">python数据结构一些总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#map-filter-reduce"><span class="toc-number">1.1.</span> <span class="toc-text">map,filter,reduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decrator-装饰器"><span class="toc-number">1.2.</span> <span class="toc-text">decrator(装饰器)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list-comprehension"><span class="toc-number">1.3.</span> <span class="toc-text">list comprehension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">1.4.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个小总结"><span class="toc-number">1.5.</span> <span class="toc-text">一个小总结</span></a></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+    <!--微信公众号二维码-->
+
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2020 Tal&nbsp;|&nbsp;
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;707601602@qq.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+    <a href="/test" class="mobile-nav-link">测试</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>
