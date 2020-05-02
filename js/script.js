@@ -64,7 +64,7 @@
           '<input class="article-share-input" value="' + url + '">',
           '<div class="article-share-links">',
             '<a href="http://v.t.sina.com.cn/share/share.php?url=' + encodedUrl + '&title='+sTitle+'&pic='+sPic+'" class="article-share-weibo" target="_blank" title="微博"></a>',
-            '<a href="http://s.jiathis.com/qrcode.php?url='  + encodedUrl + '&title='+sTitle+'" class="article-share-wechat" target="_blank" title="微信"></a>',
+            '<a href="http://qr.liantu.com/api.php?text='  + encodedUrl + '&title='+sTitle+'" class="article-share-wechat" target="_blank" title="微信"></a>',
             '<a href="http://connect.qq.com/widget/shareqq/index.html?url=' + encodedUrl + '&title='+sTitle+'&source='+sTitle+'" class="article-share-qq" target="_blank" title="QQ"></a>',
             '<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='  + encodedUrl + '&title='+sTitle+'&pics='+sPic+'&summary='+sTitle+'" class="article-share-qqzone" target="_blank" title="QQ空间"></a>',
             '<br/><a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
