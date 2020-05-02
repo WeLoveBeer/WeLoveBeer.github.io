@@ -74,6 +74,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019/PythonLearning/python(6)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/2019/PythonLearning/python(6)/" class="article-date">
+  <time datetime="2020-03-03T23:46:43.037Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/04/2019/PythonLearning/python(6)/">2019/PythonLearning/python(6)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python数据结构一些总结"><a href="#python数据结构一些总结" class="headerlink" title="python数据结构一些总结"></a>python数据结构一些总结</h1><h2 id="map-filter-reduce"><a href="#map-filter-reduce" class="headerlink" title="map,filter,reduce"></a>map,filter,reduce</h2><p>map 不是c++中的map，函数式编程，面向表达式编程：</p>
+<ul>
+<li>map(aFunction, aSequence)</li>
+<li>filter(aFunction, aSequence)</li>
+<li>reduce(aFunction, aSequence)</li>
+<li>lambda</li>
+<li>list comprehension<br>简单的map应用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; items &#x3D; [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; def sqr(x): return x ** 2</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(map(sqr, items))</span><br><span class="line">[1, 4, 9, 16, 25]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+过滤器通过一个函数对象把sequence中的东西过滤一遍：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(-5,5))</span><br><span class="line">[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; list( filter((lambda x: x &lt; 0), range(-5,5)))</span><br><span class="line">[-5, -4, -3, -2, -1]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+reduce是functool模块的一个工具，返回一个值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; from functools import reduce</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x * y), [1, 2, 3, 4] )</span><br><span class="line">24</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x &#x2F; y), [1, 2, 3, 4] )</span><br><span class="line">0.041666666666666664</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="decrator-装饰器"><a href="#decrator-装饰器" class="headerlink" title="decrator(装饰器)"></a>decrator(装饰器)</h2>类似设计模式的装饰器模式，装饰器都是为了给当前函数添加功能或者修改行为；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def dollar(fn):</span><br><span class="line">	def new(*args):</span><br><span class="line">		return &#39;$&#39; + str(fn(*args))</span><br><span class="line">	return new</span><br><span class="line"></span><br><span class="line">@dollar</span><br><span class="line">def price(amount, tax_rate):</span><br><span class="line">	return amount + amount*tax_rate</span><br><span class="line">   </span><br><span class="line">print price(100,0.1)</span><br></pre></td></tr></table></figure>
+上面代码的功能是给参数前面加一个dollar符号，@符号是装饰器的语法<br>new 函数是一个wrapper<br>@dollar这一句话相当于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price&#x3D;dollar(price)</span><br></pre></td></tr></table></figure>
+判断一个函数运行完消耗的时间：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def timer(f):</span><br><span class="line">	def inner(*args, **kargs):</span><br><span class="line">		t &#x3D; time.time()</span><br><span class="line">		ret &#x3D; f(*args, **kargs)</span><br><span class="line">		print &#39;timer &#x3D; %s&#39; %(time.time()-t) </span><br><span class="line">		return ret</span><br><span class="line">	return inner</span><br><span class="line"></span><br><span class="line">@timer</span><br><span class="line">def my_fnc():</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	my_fnc()</span><br></pre></td></tr></table></figure>
+<h2 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h2>map，filter都可以使用list comprehension实现。<br>缺点是可读性不如for循环好。<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2>里面的值都是immutable的，而且都是不重复的。<br>set本身也是mutable的。<br>set简单操作：<br>根据list初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L &#x3D; [1,2,3]</span><br><span class="line">&gt;&gt;&gt; s &#x3D; set(L)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">set([1, 2, 3])</span><br><span class="line"># init an empty set</span><br><span class="line">&gt;&gt;&gt; s1 &#x3D; set()</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([])</span><br></pre></td></tr></table></figure>
+添加元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># add single element</span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;first&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;first&#39;])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;2nd&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;2nd&#39;, &#39;first&#39;])</span><br><span class="line">#add multi elements</span><br><span class="line">&gt;&gt;&gt; s1.update( [&quot;3rd&quot;, &quot;4th&quot;] )</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;4th&#39;, &#39;2nd&#39;, &#39;3rd&#39;, &#39;first&#39;])</span><br></pre></td></tr></table></figure>
+集合操作交并补：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sets1 &amp; sets2  #(elements in set1,&amp;&amp; in set2)</span><br><span class="line">   sets1 | sets2  #(elements in set1,|| in set2)</span><br><span class="line">   sets1 - sets2  #(elements in set1,&amp;&amp;not in set2)</span><br></pre></td></tr></table></figure>
+Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import division</span><br><span class="line">import itertools</span><br><span class="line"></span><br><span class="line">def jaccard(s1, s2):</span><br><span class="line">	&quot; takes two lists as input and returns Jaccard coefficient&quot;</span><br><span class="line">	st1&#x3D;set(s1)</span><br><span class="line">	st2&#x3D;set(s2)</span><br><span class="line">	u &#x3D; set(st1).union(st2)</span><br><span class="line">	i &#x3D; set(st1).intersection(st2)</span><br><span class="line">	return len(i)&#x2F;len(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">	s &#x3D; [];</span><br><span class="line">	s.append([1,2,3,4])</span><br><span class="line">	s.append([2,3,5,7])</span><br><span class="line">	s.append([2,4,6])  </span><br><span class="line">	s.append([8,9,10,11,12])</span><br><span class="line"></span><br><span class="line">	print(&quot;input set : %s&quot;) %(s)</span><br><span class="line"></span><br><span class="line">	combinations &#x3D; list( itertools.combinations([x for x in range(len(s))], 2) )</span><br><span class="line">	print(&quot;combinations&#x3D;%s&quot;) %(combinations)</span><br><span class="line"></span><br><span class="line">	for c in combinations:</span><br><span class="line">		i1 &#x3D; c[0]</span><br><span class="line">		i2 &#x3D; c[1]</span><br><span class="line">		jac &#x3D; jaccard(s[i1], s[i2])</span><br><span class="line">		print(&quot;%s : %s,%s : jaccard&#x3D;%s&quot;) %(c, s[i1],s[i2],jac)</span><br><span class="line">Output:</span><br><span class="line"></span><br><span class="line">input set : [[1, 2, 3, 4], [2, 3, 5, 7], [2, 4, 6], [8, 9, 10, 11, 12]]</span><br><span class="line">combinations&#x3D;[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]</span><br><span class="line">(0, 1) : [1, 2, 3, 4],[2, 3, 5, 7] : jaccard&#x3D;0.333333333333</span><br><span class="line">(0, 2) : [1, 2, 3, 4],[2, 4, 6] : jaccard&#x3D;0.4</span><br><span class="line">(0, 3) : [1, 2, 3, 4],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(1, 2) : [2, 3, 5, 7],[2, 4, 6] : jaccard&#x3D;0.166666666667</span><br><span class="line">(1, 3) : [2, 3, 5, 7],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(2, 3) : [2, 4, 6],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br></pre></td></tr></table></figure>
+<h2 id="一个小总结"><a href="#一个小总结" class="headerlink" title="一个小总结"></a>一个小总结</h2>string，list，dictionary，tuple，set<br>都不是有序的<br>set里面的值唯一不重复<br>dictionary是基于哈希表的<br>list用中括号，dict用大括号，tuple用小括号，set也用大括号<br>可变的：list，dictionary,set<br>不可变的：tuple，numbers,string,frozenset<br>（All of Python’s immutable built-in objects are hashable）<br>一个小例外，tuple是immutable的，当tuple中所有对象都是immutable的时候可以求哈希，当里面有个list的时候就不可以求哈希<br>（An object is hashable if it has a hash value which never changes during its lifetime ）</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python(6)/" data-id="ck9pe7lfp000hdcu61k7nhggb" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-2019/PythonLearning/python介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" class="article-date">
@@ -116,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ck9p809t6000h2wu6bof1388y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ck9pe7lfr000kdcu6b6hycsak" class="article-share-link">Share</a>
       
       
       
@@ -203,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20string(2)/" data-id="ck9p809sz000b2wu6emyife9e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20string(2)/" data-id="ck9pe7lfn000ddcu69ok1f80y" class="article-share-link">Share</a>
       
       
       
@@ -256,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20list(3)/" data-id="ck9p809sx00092wu6bhuq8g4t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20list(3)/" data-id="ck9pe7lfm000cdcu6ff5z9hvm" class="article-share-link">Share</a>
       
       
       
@@ -305,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20function(5)/" data-id="ck9p809td000p2wu65b8j0tb2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20function(5)/" data-id="ck9pe7lfk0009dcu69blpfcqb" class="article-share-link">Share</a>
       
       
       
@@ -378,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck9p809sv00082wu6gp5zflbz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/04/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck9pe7lfi0008dcu6f0xk4zva" class="article-share-link">Share</a>
       
       
       
@@ -432,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/07/14/test/" data-id="ck9p809n400002wu6c8co5dxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/07/14/test/" data-id="ck9pe7ldh0000dcu6goskhk8q" class="article-share-link">Share</a>
       
       
       
@@ -470,6 +528,10 @@
       <ul>
         
           <li>
+            <a href="/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/">俞敏洪东南大学演讲：人生的几个关键词</a>
+          </li>
+        
+          <li>
             <a href="/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/">从源码编译Qt5.8</a>
           </li>
         
@@ -483,10 +545,6 @@
         
           <li>
             <a href="/2020/04/26/2020/04/20200426/">平庸的一天</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/18/2020/04/20200418/">2020/04/20200418</a>
           </li>
         
       </ul>
