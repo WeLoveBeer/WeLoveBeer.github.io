@@ -74,6 +74,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019/PythonLearning/python(8)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/2019/PythonLearning/python(8)/" class="article-date">
+  <time datetime="2020-03-03T23:46:43.135Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/04/2019/PythonLearning/python(8)/">2019/PythonLearning/python(8)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python-generator-and-expression"><a href="#python-generator-and-expression" class="headerlink" title="python generator and expression"></a>python generator and expression</h1><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>生成器和返回一个数组的函数类似，但是和一下子返回一个数组不一样的是，生成器一次返回一个值，优点就是需要更少的内存。<br>所以特别适合使用它的场景是操作一个特别大的数组。<br>生成器看起来像是一个函数，但是它的行为像一个迭代器。</p>
+<ul>
+<li>生成器函数</li>
+<li>生成器表达式<h3 id="生成器表达式与列表推导"><a href="#生成器表达式与列表推导" class="headerlink" title="生成器表达式与列表推导"></a>生成器表达式与列表推导</h3>一个用中括号，一个用小括号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def repeat5times(x):</span><br><span class="line">	for c in x:</span><br><span class="line">		yield c * 5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; # Generator functions work the same way		</span><br><span class="line">&gt;&gt;&gt; G &#x3D; repeat5times(&#39;Python&#39;)</span><br><span class="line">&gt;&gt;&gt; iter(G) is G</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; I1, I2 &#x3D; iter(G), iter(G)</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">&#39;PPPPP&#39;</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">&#39;yyyyy&#39;</span><br><span class="line">&gt;&gt;&gt; # I2 at same position I1</span><br><span class="line">&gt;&gt;&gt; next(I2)</span><br><span class="line">&#39;ttttt&#39;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>和普通迭代器之间的区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; L &#x3D; [1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt; I1, I2 &#x3D; iter(L), iter(L)</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; # Lists support multiple iterators</span><br><span class="line">&gt;&gt;&gt; next(I2)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; # Changes reflected in iterators</span><br><span class="line">&gt;&gt;&gt; del L[2:]</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#21&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">	next(I1)</span><br><span class="line">StopIteration</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="send"><a href="#send" class="headerlink" title="send"></a>send</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">def cf():</span><br><span class="line">	while True:</span><br><span class="line">		val &#x3D; yield</span><br><span class="line">		print val,</span><br><span class="line"></span><br><span class="line">def pf(c):</span><br><span class="line">	while True:</span><br><span class="line">	val &#x3D; random.randint(1,10)</span><br><span class="line">	c.send(val)</span><br><span class="line">	yield</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	c &#x3D; cf()</span><br><span class="line">	c.send(None)</span><br><span class="line">	p &#x3D; pf(c)</span><br><span class="line"></span><br><span class="line">	for wow in range(10):</span><br><span class="line">		next(p)</span><br></pre></td></tr></table></figure>
+<p>自己对send的一些理解：<br>首先遇到yield就会返回，就阻塞了；<br>next和send(None)道理一样，用于第一次调用；<br>send之后会作为yield的返回值，然后程序就接着运行；<br>那个生成器发送的，哪个生成器接收；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(8)/" data-id="ck9skw6u3000gqsu65r1q2eyx" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
     <article id="post-2019/PythonLearning/python(7)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/04/2019/PythonLearning/python(7)/" class="article-date">
@@ -117,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(7)/" data-id="ck9qs7zv40008n8u64tacdqce" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(7)/" data-id="ck9skw6u3000fqsu6abit9wg3" class="article-share-link">Share</a>
       
       
       
@@ -179,7 +233,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(6)/" data-id="ck9qs7zv5000an8u6ah9lemnc" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(6)/" data-id="ck9skw6tx0007qsu6bc8w5to5" class="article-share-link">Share</a>
       
       
       
@@ -237,7 +291,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ck9qs7zv8000gn8u6co310sfq" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ck9skw6ud000iqsu64md57en1" class="article-share-link">Share</a>
       
       
       
@@ -328,7 +382,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20string(2)/" data-id="ck9qs7zv40009n8u67u5q7t64" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20string(2)/" data-id="ck9skw6tz0009qsu6f7m0cfpv" class="article-share-link">Share</a>
       
       
       
@@ -385,7 +439,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20list(3)/" data-id="ck9qs7zuz0004n8u6dy9u2i9r" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20list(3)/" data-id="ck9skw6ty0008qsu69tg93fv9" class="article-share-link">Share</a>
       
       
       
@@ -438,7 +492,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20function(5)/" data-id="ck9qs7zv00005n8u689cnd8ge" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20function(5)/" data-id="ck9skw6tw0005qsu64ua40dwq" class="article-share-link">Share</a>
       
       
       
@@ -515,7 +569,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck9qs7zv10006n8u68xnd5lcp" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ck9skw6tv0004qsu6hp3hdy60" class="article-share-link">Share</a>
       
       
       
@@ -628,7 +682,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2013/07/14/test/" data-id="ck9qs7zt40000n8u6b7bneeif" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2013/07/14/test/" data-id="ck9skw6rj0000qsu63qyu0h3o" class="article-share-link">Share</a>
       
       
       
@@ -670,6 +724,10 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       <ul>
         
           <li>
+            <a href="/2020/05/04/2020/05/%E4%BA%94%E5%9B%9B%E9%9D%92%E5%B9%B4%E8%8A%82/">五四青年节</a>
+          </li>
+        
+          <li>
             <a href="/2020/05/03/2020/05/%E4%BD%BF%E7%94%A8obs%E7%9B%B4%E6%92%AD%E3%80%81%E5%BD%95%E8%A7%86%E9%A2%91/">使用obs直播、录视频</a>
           </li>
         
@@ -683,10 +741,6 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
         
           <li>
             <a href="/2020/05/01/2020/05/20200501/">自由之理财</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/27/2020/04/20200427/">雷雨天气没打伞的下班路</a>
           </li>
         
       </ul>
