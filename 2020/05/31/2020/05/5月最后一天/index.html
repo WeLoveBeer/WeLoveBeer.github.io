@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>从源码编译Qt5.8 | MySoul</title>
+  <title>5月最后一天 | MySoul</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编译参考的这两个blog: Qt官网链接 CSDN的一个blog 过程：  下载qtsource 到本地  visual studio 2015；ActivePerl; python2  打开vs的命令行工具 然后执行：configure -prefix E:\QtSource\build -debug-and-release -opensource -static -force-debug-in">
+  <meta name="description" content="赶在5月的最后一天来一发日记。不知不觉，这一年又快一半了，感觉自己的成长真的很慢，学习新的东西没灵性，自己的逻辑思维能力真的有限，比不了江涛他们。而且从长远来看，这种缓慢的成长又对自己很不利，只能说逆水行舟，不进则退。自己写的代码总是有问题很容易让人有自卑感，确实，让人感到累的不是繁重的工作，而是不快乐。我又一次感到不快乐，感到孤独，千辛万苦等到周末，而周末又是这么无聊地度过，像是打球不开心的缘故">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从源码编译Qt5.8">
-<meta property="og:url" content="https://welovebeer.github.io/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/index.html">
+<meta property="og:title" content="5月最后一天">
+<meta property="og:url" content="https://welovebeer.github.io/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/index.html">
 <meta property="og:site_name" content="MySoul">
-<meta property="og:description" content="编译参考的这两个blog: Qt官网链接 CSDN的一个blog 过程：  下载qtsource 到本地  visual studio 2015；ActivePerl; python2  打开vs的命令行工具 然后执行：configure -prefix E:\QtSource\build -debug-and-release -opensource -static -force-debug-in">
+<meta property="og:description" content="赶在5月的最后一天来一发日记。不知不觉，这一年又快一半了，感觉自己的成长真的很慢，学习新的东西没灵性，自己的逻辑思维能力真的有限，比不了江涛他们。而且从长远来看，这种缓慢的成长又对自己很不利，只能说逆水行舟，不进则退。自己写的代码总是有问题很容易让人有自卑感，确实，让人感到累的不是繁重的工作，而是不快乐。我又一次感到不快乐，感到孤独，千辛万苦等到周末，而周末又是这么无聊地度过，像是打球不开心的缘故">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-02T04:00:47.000Z">
-<meta property="article:modified_time" content="2020-05-02T04:48:23.387Z">
+<meta property="article:published_time" content="2020-05-31T12:13:33.000Z">
+<meta property="article:modified_time" content="2020-05-31T13:16:29.971Z">
 <meta property="article:author" content="Tal">
-<meta property="article:tag" content="tech">
+<meta property="article:tag" content="mood">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="MySoul" type="application/atom+xml">
@@ -77,14 +77,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2020/05/编译Qt58" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2020/05/5月最后一天" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/" class="article-date">
-  <time datetime="2020-05-02T04:00:47.000Z" itemprop="datePublished">2020-05-02</time>
+    <a href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" class="article-date">
+  <time datetime="2020-05-31T12:13:33.000Z" itemprop="datePublished">2020-05-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a>
+    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a>
   </div>
 
   </div>
@@ -95,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      从源码编译Qt5.8
+      5月最后一天
     </h1>
   
 
@@ -105,58 +105,18 @@
       
         <!-- Table of Contents -->
         
-        <p>编译参考的这两个blog:</p>
-<p><a href="https://doc.qt.io/qt-5/build-sources.html" target="_blank" rel="noopener">Qt官网链接</a></p>
-<p><a href="https://blog.csdn.net/hulingerlin/article/details/81914279" target="_blank" rel="noopener">CSDN的一个blog</a></p>
-<p>过程：</p>
-<ul>
-<li><p>下载qtsource 到本地</p>
-</li>
-<li><p>visual studio 2015；ActivePerl; python2</p>
-</li>
-<li><p>打开vs的命令行工具 然后执行：configure -prefix E:\QtSource\build -debug-and-release -opensource -static -force-debug-info -opengl dynamic -platform win32-msvc -c++std c++11 -skip qtmultimedia -skip qtsensors -skip qtwebengine -skip qtgamepad -nomake examples -nomake tests -mp -skip qtlocation -skip qtserialbus -confirm-license</p>
-</li>
-</ul>
-<p>参数说明：</p>
-<pre><code>-prefix 生成目标库的目录
-
--release 生成release版本  -debug 生成debug版本  -debug-and-release生成debug和release版本
-
--opensource 编译开源版  -commercial 编译商业版 （参数可选）
-
--static 生成静态库lib文件  -shared 生成动态库dll文件 （参数可选，默认是shared）/*** 注：静态库与动态库区别是在生成目标文件的链接方式上，静态库采用静态链接，在生成的目标文件（如.exe文件）中会包含库文件代码，而动态库在程序编译时并不会被连接到目标代码中，而是在程序运行时才被载入。***/
-
--force-debug-info 强制生成调试信息 （参数可选）/*** 这个参数是让Qt release版本也生成.pdb文件。这个文件有什么作用呢？它就是我们在release版本下设置了异常捕获信息函数，打印出错堆栈信息所必须的文件。如果程序没用开启异常捕获选项，是不需要开启这个参数的。***/
-
--opengl dynamic 指定opengl库 (参数可选） /*** 关于这个参数说明请参考doc.qt.io/qt-5/windows-requirements.html ***/</code></pre><ul>
-<li>nmake 然后 nmake install </li>
-</ul>
-<p>问题总结：</p>
-<ul>
-<li>qtuiohandler.cpp中有一个字符没能识别，出现 &lt;NMAKE:fatal error U1077&gt; 这样的错误；手动把这个字符改了；</li>
-</ul>
-<p>知识点：</p>
-<ul>
-<li><p>从源码编译有三个步骤：</p>
-<ul>
-<li><p>Configure:用来生成Makefile文件的,可以配置路径什么的；</p>
-</li>
-<li><p>make: 真正的源码编译；</p>
-</li>
-<li><p>make install : 安装</p>
-</li>
-</ul>
-</li>
-</ul>
+        <p>赶在5月的最后一天来一发日记。<br>不知不觉，这一年又快一半了，感觉自己的成长真的很慢，学习新的东西没灵性，自己的逻辑思维能力真的有限，比不了江涛他们。而且从长远来看，这种缓慢的成长又对自己很不利，只能说逆水行舟，不进则退。自己写的代码总是有问题很容易让人有自卑感，确实，让人感到累的不是繁重的工作，而是不快乐。<br>我又一次感到不快乐，感到孤独，千辛万苦等到周末，而周末又是这么无聊地度过，像是打球不开心的缘故，又是周五下班前发现的一个bug?</p>
+<p>找到对象并不能让我开心，年薪百万也不能让我开心，会一万种技能不能让我开心；唯一能使我开心的是良好的人际关系，稳定的几个朋友，但是我没有，不是我不想，而是自己吧自己关了起来，即使别人表示好意，自己也去拒绝，是在自我保护。保护自己不会再像之前一样受伤，保护防御力低，攻击力为0的自己。总是在判断别人的行为有没有攻击行为。<br>长大的过程中，很少有人在我最需要保护的时候出现。能想的起来的那些人都是我很感激的人，在大学失恋的时候晓明饭桌上让我哭了出来，那是我走出失恋泥潭的转折点，我不止一次的想表达自己的感谢，但就是没有机会开口。而家里的长辈们只能说擅长养孩子，跟养阿猫阿狗一样，从来也没进入我的心里，也很少能感到亲近，这或许是自己亲密关系缺失的一个重要原因。小时候偷家里钱，被发现钻到被窝哭红了眼，在家人审判声中丧失尊严的时候自己默默承受；在上学的时候受欺负的时候自己默默承受；在恋爱时自己吃着面啪嗒啪嗒往碗里掉眼泪的时候自己默默承受。当个好人太难了，这让我成了一个记仇的人，没有发泄出去的怨念让我成为一个记仇的人，我记得践踏我尊严的那个场景，我记得受同学欺负时候老师没有站在我这边的时候的样子，我记得当住在自己心里的人狠狠地捅了自己一下的那种感觉。这是一个下行循环，而我却一直在这个循环里转悠。让我最受伤的是亲密关系，让自己最开心的也是亲密关系。<br>Still pretending .Pretending to be a good son; Pretending to be a good friend; Pretending to be a good employee.</p>
+<p>我只是感到很孤独。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/" data-id="ckav39q3t00193cu63zjb2u96" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" data-id="ckav39q3j000j3cu63l9f268c" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="article-tag-list-count">3</span></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">3</span></li></ul>
 
     </footer>
   </div>
@@ -208,19 +168,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          俞敏洪东南大学演讲：人生的几个关键词
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/01/2020/05/20200501/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/05/17/2020/05/ApproachingLove/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">自由之理财</div>
+      <div class="article-nav-title">ApproachingLove</div>
     </a>
   
 </nav>
