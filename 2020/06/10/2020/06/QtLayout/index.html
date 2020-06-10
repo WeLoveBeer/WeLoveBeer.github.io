@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PS学习 | MySoul</title>
+  <title>QtLayout | MySoul</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前看视频记的一些笔记 11.25空格 抓手工具双击放大镜，返回原本尺寸，Ctrl + - 缩放 11.26使用移动工具，能在两个照片之间移动，按住alt键快速移动标尺工具（ctrl + r）和信息F8配合使用，可以量角度裁剪工具，C，透视裁剪，按比例裁剪 11.27挪不过来的时候，索引模式改为RGB模式图像合并Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）选完区后用移">
+  <meta name="description" content="官方文档 原来qt的layout也是可以自定义的.qt原生有 QHBoxLayout, QVBoxLayout, QGridLayout, and QFormLayout这几个layout。自定义layout就实现下面几个方法就行。  A data structure to store the items handled by the layout. Each item is a QLayoutI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PS学习">
-<meta property="og:url" content="https://welovebeer.github.io/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="QtLayout">
+<meta property="og:url" content="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/index.html">
 <meta property="og:site_name" content="MySoul">
-<meta property="og:description" content="之前看视频记的一些笔记 11.25空格 抓手工具双击放大镜，返回原本尺寸，Ctrl + - 缩放 11.26使用移动工具，能在两个照片之间移动，按住alt键快速移动标尺工具（ctrl + r）和信息F8配合使用，可以量角度裁剪工具，C，透视裁剪，按比例裁剪 11.27挪不过来的时候，索引模式改为RGB模式图像合并Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）选完区后用移">
+<meta property="og:description" content="官方文档 原来qt的layout也是可以自定义的.qt原生有 QHBoxLayout, QVBoxLayout, QGridLayout, and QFormLayout这几个layout。自定义layout就实现下面几个方法就行。  A data structure to store the items handled by the layout. Each item is a QLayoutI">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-13T13:53:10.000Z">
-<meta property="article:modified_time" content="2020-05-13T13:55:15.077Z">
+<meta property="article:published_time" content="2020-06-10T13:10:38.000Z">
+<meta property="article:modified_time" content="2020-06-10T13:20:35.850Z">
 <meta property="article:author" content="Tal">
-<meta property="article:tag" content="tech">
+<meta property="article:tag" content="Qt">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="MySoul" type="application/atom+xml">
@@ -77,14 +77,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2020/05/PS学习" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2020/06/QtLayout" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-05-13T13:53:10.000Z" itemprop="datePublished">2020-05-13</time>
+    <a href="/2020/06/10/2020/06/QtLayout/" class="article-date">
+  <time datetime="2020-06-10T13:10:38.000Z" itemprop="datePublished">2020-06-10</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a>
+    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%BD%91%E6%98%93%E6%97%B6%E5%85%89/">网易时光</a>
   </div>
 
   </div>
@@ -95,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PS学习
+      QtLayout
     </h1>
   
 
@@ -105,25 +105,27 @@
       
         <!-- Table of Contents -->
         
-        <p>之前看视频记的一些笔记</p>
-<p>11.25<br>空格 抓手工具<br>双击放大镜，返回原本尺寸，Ctrl + - 缩放</p>
-<p>11.26<br>使用移动工具，能在两个照片之间移动，按住alt键快速移动<br>标尺工具（ctrl + r）和信息F8配合使用，可以量角度<br>裁剪工具，C，透视裁剪，按比例裁剪</p>
-<p>11.27<br>挪不过来的时候，索引模式改为RGB模式<br>图像合并<br>Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）<br>选完区后用移动工具，按住Alt键是复制，Ctrl + D取消选区<br>Ctrl + E 合并图层</p>
-<p>11.28<br>选区加减，按住shift 或Alt<br>Ctrl+H 隐藏所有参考线，Ctrl+ r显示隐藏标尺ruler<br>套索工具，delete取消上一个，esc完全取消<br>魔棒工具 容差</p>
-<p>12.1<br>Ctrl shift I选区反选<br>选区描边</p>
-<p>12.3<br>色彩范围 选择一定颜色范围的颜色，改变颜色<br>Ctrl + U 打开hsi模式<br>填充前景色背景色，alt ，shift+ delete<br>后退一步ctrl z,后退多部Ctrl alt z<br>放大缩小不失真，设置为智能对象<br>变形，先选择Ctrl T<br>图层 模式 正片叠底 印到上面去了<br>Ctrl shift alt T 再次做同样的操作，很酷炫</p>
-<p>12.9<br>选区，选区的扩大缩小，再选择里，，使用魔术棒的容差<br>存储选区，载入选区<br>蒙版，不破坏原始素材本身，就是一个mask，白色的显示，黑色的隐藏</p>
-<p>12.11<br>定义图案，什么都可以当成图案，蚂蚁上树，pat文件， 地板砖，画生字格 </p>
-<p>12.12<br>渐变工具，做彩虹，，做水晶球，做手环，做月光下的圆明园等</p>
+        <p><a href="https://doc.qt.io/qt-5/layout.html" target="_blank" rel="noopener">官方文档</a></p>
+<p>原来qt的layout也是可以自定义的.<br>qt原生有 QHBoxLayout, QVBoxLayout, QGridLayout, and QFormLayout这几个layout。<br>自定义layout就实现下面几个方法就行。</p>
+<ul>
+<li>A data structure to store the items handled by the layout. Each item is a QLayoutItem. We will use a QVector in this example.</li>
+<li>addItem(), how to add items to the layout.</li>
+<li>setGeometry(), how to perform the layout.</li>
+<li>sizeHint(), the preferred size of the layout.</li>
+<li>itemAt(), how to iterate over the layout.</li>
+<li>takeAt(), how to remove items from the layout.</li>
+</ul>
+<p>网友的效果图：</p>
+<iframe height=498 width=510 src="./layout.gif"></iframe>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/" data-id="ckb9e869f000frgu67uib5hkq" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/" data-id="ckb9e869n0010rgu6ftz1htzv" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="article-tag-list-count">4</span></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/" rel="tag">Qt</a><span class="article-tag-list-count">1</span></li></ul>
 
     </footer>
   </div>
@@ -175,19 +177,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/05/17/2020/05/ApproachingLove/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/06/10/2020/06/Qt-Model-View-Delegate/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          ApproachingLove
+          Qt-Model-View-Delegate
         
       </div>
     </a>
   
   
-    <a href="/2020/05/11/2020/05/%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">矩阵变换</div>
+      <div class="article-nav-title">5月最后一天</div>
     </a>
   
 </nav>

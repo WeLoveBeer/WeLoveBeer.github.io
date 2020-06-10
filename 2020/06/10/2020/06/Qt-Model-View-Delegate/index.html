@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PS学习 | MySoul</title>
+  <title>Qt-Model-View-Delegate | MySoul</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前看视频记的一些笔记 11.25空格 抓手工具双击放大镜，返回原本尺寸，Ctrl + - 缩放 11.26使用移动工具，能在两个照片之间移动，按住alt键快速移动标尺工具（ctrl + r）和信息F8配合使用，可以量角度裁剪工具，C，透视裁剪，按比例裁剪 11.27挪不过来的时候，索引模式改为RGB模式图像合并Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）选完区后用移">
+  <meta name="description" content="官方教程 工作中遇到一个modelview的神奇bug，view在切换model的时候不能先delete掉原来的model，再set新的model，得先记录老的model，再set新的model，最后delete老的model。 qt中使用deletelater更安全，缺点是delete不及时。 123456789101112131415161718192021222324252627282930">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PS学习">
-<meta property="og:url" content="https://welovebeer.github.io/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Qt-Model-View-Delegate">
+<meta property="og:url" content="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/index.html">
 <meta property="og:site_name" content="MySoul">
-<meta property="og:description" content="之前看视频记的一些笔记 11.25空格 抓手工具双击放大镜，返回原本尺寸，Ctrl + - 缩放 11.26使用移动工具，能在两个照片之间移动，按住alt键快速移动标尺工具（ctrl + r）和信息F8配合使用，可以量角度裁剪工具，C，透视裁剪，按比例裁剪 11.27挪不过来的时候，索引模式改为RGB模式图像合并Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）选完区后用移">
+<meta property="og:description" content="官方教程 工作中遇到一个modelview的神奇bug，view在切换model的时候不能先delete掉原来的model，再set新的model，得先记录老的model，再set新的model，最后delete老的model。 qt中使用deletelater更安全，缺点是delete不及时。 123456789101112131415161718192021222324252627282930">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-13T13:53:10.000Z">
-<meta property="article:modified_time" content="2020-05-13T13:55:15.077Z">
+<meta property="article:published_time" content="2020-06-10T13:20:57.000Z">
+<meta property="article:modified_time" content="2020-06-10T13:28:42.049Z">
 <meta property="article:author" content="Tal">
 <meta property="article:tag" content="tech">
 <meta name="twitter:card" content="summary">
@@ -77,14 +77,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2020/05/PS学习" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2020/06/Qt-Model-View-Delegate" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-05-13T13:53:10.000Z" itemprop="datePublished">2020-05-13</time>
+    <a href="/2020/06/10/2020/06/Qt-Model-View-Delegate/" class="article-date">
+  <time datetime="2020-06-10T13:20:57.000Z" itemprop="datePublished">2020-06-10</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a>
   </div>
 
   </div>
@@ -95,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PS学习
+      Qt-Model-View-Delegate
     </h1>
   
 
@@ -105,21 +105,21 @@
       
         <!-- Table of Contents -->
         
-        <p>之前看视频记的一些笔记</p>
-<p>11.25<br>空格 抓手工具<br>双击放大镜，返回原本尺寸，Ctrl + - 缩放</p>
-<p>11.26<br>使用移动工具，能在两个照片之间移动，按住alt键快速移动<br>标尺工具（ctrl + r）和信息F8配合使用，可以量角度<br>裁剪工具，C，透视裁剪，按比例裁剪</p>
-<p>11.27<br>挪不过来的时候，索引模式改为RGB模式<br>图像合并<br>Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）<br>选完区后用移动工具，按住Alt键是复制，Ctrl + D取消选区<br>Ctrl + E 合并图层</p>
-<p>11.28<br>选区加减，按住shift 或Alt<br>Ctrl+H 隐藏所有参考线，Ctrl+ r显示隐藏标尺ruler<br>套索工具，delete取消上一个，esc完全取消<br>魔棒工具 容差</p>
-<p>12.1<br>Ctrl shift I选区反选<br>选区描边</p>
-<p>12.3<br>色彩范围 选择一定颜色范围的颜色，改变颜色<br>Ctrl + U 打开hsi模式<br>填充前景色背景色，alt ，shift+ delete<br>后退一步ctrl z,后退多部Ctrl alt z<br>放大缩小不失真，设置为智能对象<br>变形，先选择Ctrl T<br>图层 模式 正片叠底 印到上面去了<br>Ctrl shift alt T 再次做同样的操作，很酷炫</p>
-<p>12.9<br>选区，选区的扩大缩小，再选择里，，使用魔术棒的容差<br>存储选区，载入选区<br>蒙版，不破坏原始素材本身，就是一个mask，白色的显示，黑色的隐藏</p>
-<p>12.11<br>定义图案，什么都可以当成图案，蚂蚁上树，pat文件， 地板砖，画生字格 </p>
-<p>12.12<br>渐变工具，做彩虹，，做水晶球，做手环，做月光下的圆明园等</p>
+        <p><a href="https://doc.qt.io/qt-5/modelview.html" target="_blank" rel="noopener">官方教程</a></p>
+<p>工作中遇到一个modelview的神奇bug，view在切换model的时候不能先delete掉原来的model，再set新的model，得先记录老的model，再set新的model，最后delete老的model。</p>
+<p>qt中使用deletelater更安全，缺点是delete不及时。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">void QTableViewPrivate::drawCell(QPainter *painter, const QStyleOptionViewItem &amp;option, const QModelIndex &amp;index)</span><br><span class="line">&#123;</span><br><span class="line">    Q_Q(QTableView);</span><br><span class="line">    QStyleOptionViewItem opt &#x3D; option;</span><br><span class="line"></span><br><span class="line">    if (selectionModel &amp;&amp; selectionModel-&gt;isSelected(index))</span><br><span class="line">        opt.state |&#x3D; QStyle::State_Selected;</span><br><span class="line">    if (index &#x3D;&#x3D; hover)</span><br><span class="line">        opt.state |&#x3D; QStyle::State_MouseOver;</span><br><span class="line">    if (option.state &amp; QStyle::State_Enabled) &#123;</span><br><span class="line">        QPalette::ColorGroup cg;</span><br><span class="line">        if ((model-&gt;flags(index) &amp; Qt::ItemIsEnabled) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            opt.state &amp;&#x3D; ~QStyle::State_Enabled;</span><br><span class="line">            cg &#x3D; QPalette::Disabled;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            cg &#x3D; QPalette::Normal;</span><br><span class="line">        &#125;</span><br><span class="line">        opt.palette.setCurrentColorGroup(cg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (index &#x3D;&#x3D; q-&gt;currentIndex()) &#123;</span><br><span class="line">        const bool focus &#x3D; (q-&gt;hasFocus() || viewport-&gt;hasFocus()) &amp;&amp; q-&gt;currentIndex().isValid();</span><br><span class="line">        if (focus)</span><br><span class="line">            opt.state |&#x3D; QStyle::State_HasFocus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q-&gt;style()-&gt;drawPrimitive(QStyle::PE_PanelItemViewRow, &amp;opt, painter, q);</span><br><span class="line"></span><br><span class="line">    q-&gt;itemDelegate(index)-&gt;paint(painter, opt, index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">QMap&lt;int, QVariant&gt; QAbstractItemModel::itemData(const QModelIndex &amp;index) const</span><br><span class="line">&#123;</span><br><span class="line">    QMap&lt;int, QVariant&gt; roles;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; Qt::UserRole; ++i) &#123;</span><br><span class="line">        QVariant variantData &#x3D; data(index, i);</span><br><span class="line">        if (variantData.isValid())</span><br><span class="line">            roles.insert(i, variantData);</span><br><span class="line">    &#125;</span><br><span class="line">    return roles;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://doc.qt.io/qt-5/model-view-programming.html" target="_blank" rel="noopener">https://doc.qt.io/qt-5/model-view-programming.html</a></p>
+<p><a href="https://doc.qt.io/qt-5/qtwidgets-itemviews-addressbook-example.html" target="_blank" rel="noopener">https://doc.qt.io/qt-5/qtwidgets-itemviews-addressbook-example.html</a></p>
+<p>rowCount起到了很重要的作用，在model里自己插入删除item的时候，行改变的操作得放在rowInsertedBegin,rowInsertedEnd中间。</p>
+<p><a href="http://notes.tanchuanqi.com/language/cpp/cpp_micro.html#id15" target="_blank" rel="noopener">http://notes.tanchuanqi.com/language/cpp/cpp_micro.html#id15</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/" data-id="ckb9e869f000frgu67uib5hkq" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/" data-id="ckb9e869j000prgu67r2n06q8" class="article-share-link">Share</a>
       
       
       
@@ -175,19 +175,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/05/17/2020/05/ApproachingLove/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          ApproachingLove
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/11/2020/05/%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/06/10/2020/06/QtLayout/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">矩阵变换</div>
+      <div class="article-nav-title">QtLayout</div>
     </a>
   
 </nav>

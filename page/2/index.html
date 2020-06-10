@@ -74,6 +74,185 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2020/05/编译Qt58" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/" class="article-date">
+  <time datetime="2020-05-02T04:00:47.000Z" itemprop="datePublished">2020-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/">从源码编译Qt5.8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>编译参考的这两个blog:</p>
+<p><a href="https://doc.qt.io/qt-5/build-sources.html" target="_blank" rel="noopener">Qt官网链接</a></p>
+<p><a href="https://blog.csdn.net/hulingerlin/article/details/81914279" target="_blank" rel="noopener">CSDN的一个blog</a></p>
+<p>过程：</p>
+<ul>
+<li><p>下载qtsource 到本地</p>
+</li>
+<li><p>visual studio 2015；ActivePerl; python2</p>
+</li>
+<li><p>打开vs的命令行工具 然后执行：configure -prefix E:\QtSource\build -debug-and-release -opensource -static -force-debug-info -opengl dynamic -platform win32-msvc -c++std c++11 -skip qtmultimedia -skip qtsensors -skip qtwebengine -skip qtgamepad -nomake examples -nomake tests -mp -skip qtlocation -skip qtserialbus -confirm-license</p>
+</li>
+</ul>
+<p>参数说明：</p>
+<pre><code>-prefix 生成目标库的目录
+
+-release 生成release版本  -debug 生成debug版本  -debug-and-release生成debug和release版本
+
+-opensource 编译开源版  -commercial 编译商业版 （参数可选）
+
+-static 生成静态库lib文件  -shared 生成动态库dll文件 （参数可选，默认是shared）/*** 注：静态库与动态库区别是在生成目标文件的链接方式上，静态库采用静态链接，在生成的目标文件（如.exe文件）中会包含库文件代码，而动态库在程序编译时并不会被连接到目标代码中，而是在程序运行时才被载入。***/
+
+-force-debug-info 强制生成调试信息 （参数可选）/*** 这个参数是让Qt release版本也生成.pdb文件。这个文件有什么作用呢？它就是我们在release版本下设置了异常捕获信息函数，打印出错堆栈信息所必须的文件。如果程序没用开启异常捕获选项，是不需要开启这个参数的。***/
+
+-opengl dynamic 指定opengl库 (参数可选） /*** 关于这个参数说明请参考doc.qt.io/qt-5/windows-requirements.html ***/</code></pre><ul>
+<li>nmake 然后 nmake install </li>
+</ul>
+<p>问题总结：</p>
+<ul>
+<li>qtuiohandler.cpp中有一个字符没能识别，出现 &lt;NMAKE:fatal error U1077&gt; 这样的错误；手动把这个字符改了；</li>
+</ul>
+<p>知识点：</p>
+<ul>
+<li><p>从源码编译有三个步骤：</p>
+<ul>
+<li><p>Configure:用来生成Makefile文件的,可以配置路径什么的；</p>
+</li>
+<li><p>make: 真正的源码编译；</p>
+</li>
+<li><p>make install : 安装</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/05/02/2020/05/%E7%BC%96%E8%AF%91Qt58/" data-id="ckb9e869m000wrgu65di01c06" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="article-tag-list-count">4</span></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2020/05/20200501" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/01/2020/05/20200501/" class="article-date">
+  <time datetime="2020-05-01T11:30:38.000Z" itemprop="datePublished">2020-05-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/">成长之路</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/01/2020/05/20200501/">自由之理财</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p><img src="./type.jpg" alt=""><br>钱是如何都绕不过去话题，摘录一些《财富自由之路》里的一些句子。</p>
+<ul>
+<li><p>财富的定义是：当你完全不工作时，在你现有的生活水平之下你能存活的天数。</p>
+</li>
+<li><p>你一直在努力工作并使别人变得富有吗？（给别人打工，自己得到的永远是最少的那部分）</p>
+</li>
+<li><p>你的老板不能使你富有。</p>
+</li>
+<li><p>你拥有的第一项负债，都是别人的资产。</p>
+</li>
+<li><p>良性的债务是别人替你支付的债务，不良的债务是你有自己的血汗钱支付的债务。</p>
+</li>
+<li><p>穷爸爸：成为一名高薪雇员；富爸爸：上学，毕业，创办企业，做一名成功的投资者。</p>
+</li>
+<li><p>富爸爸认为下面这些才是最重要的：</p>
+<ul>
+<li>有时间教育孩子</li>
+<li>有时间和金钱照顾自己的健康</li>
+<li>能够和家人周游世界</li>
+<li>创造就业</li>
+</ul>
+</li>
+<li><p>大部分富人70%的收入都来自投资，只有不到30%的收入来自工资。</p>
+</li>
+<li><p>你怎么看我不重要，重要的是我怎么看我自己。</p>
+</li>
+<li><p>学会如何面对拒绝，如何不受他人意见的影响，以及如何领导他人，你就有望成功。领导力是完全可以学的。</p>
+</li>
+<li><p>“你不能这样做”并不一定意味着“你不能”，大多数情况下是“他们不能”。</p>
+</li>
+<li><p>投资没有风险，没有文化才有风险。</p>
+</li>
+<li><p>如果你有太多的债务，世界就会拿走你所有的东西–你的时间，你的工作，你的家庭，你的生活，你的信心，然后再拿走你的尊严。</p>
+</li>
+</ul>
+<p>自己在财务上的最终目标大概如此，罗永浩说：绝大多数取得不凡成就的人，都始于一个不甘于平凡的朴素意愿。加油自己！<br><img src="./luoyonghao.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/05/01/2020/05/20200501/" data-id="ckb9e869c000argu6a19s81g4" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/growup/" rel="tag">growup</a><span class="article-tag-list-count">2</span></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
     <article id="post-2020/04/20200427" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/27/2020/04/20200427/" class="article-date">
@@ -110,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/04/27/2020/04/20200427/" data-id="ckav39q3i000i3cu6amcnd2ei" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/04/27/2020/04/20200427/" data-id="ckb9e869d000brgu6bn9s23z5" class="article-share-link">Share</a>
       
       
       
@@ -178,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/04/26/2020/04/20200426/" data-id="ckav39q3k000l3cu68ljhdjve" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/04/26/2020/04/20200426/" data-id="ckb9e86990005rgu65vspdbzw" class="article-share-link">Share</a>
       
       
       
@@ -235,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/04/18/2020/04/20200418/" data-id="ckav39q3s00173cu69su7b1cj" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/04/18/2020/04/20200418/" data-id="ckb9e86980004rgu65752g66x" class="article-share-link">Share</a>
       
       
       
@@ -280,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ckav39q3g000f3cu63gdk9fpw" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ckb9e869w001urgu6eok955iz" class="article-share-link">Share</a>
       
       
       
@@ -327,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ckav39q3h000h3cu67uxe9r0f" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ckb9e869v001prgu69o9826th" class="article-share-link">Share</a>
       
       
       
@@ -381,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(8)/" data-id="ckav39q3f000c3cu664h0f39k" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(8)/" data-id="ckb9e869t001krgu66ejjhkln" class="article-share-link">Share</a>
       
       
       
@@ -440,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(7)/" data-id="ckav39q3g000d3cu6eokzgseb" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(7)/" data-id="ckb9e869t001hrgu65jbd2hka" class="article-share-link">Share</a>
       
       
       
@@ -502,156 +681,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(6)/" data-id="ckav39q3b00073cu692ydgees" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2019/PythonLearning/python介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" class="article-date">
-  <time datetime="2020-03-03T23:46:42.991Z" itemprop="datePublished">2020-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="python学习心得（1）"><a href="#python学习心得（1）" class="headerlink" title="python学习心得（1）"></a>python学习心得（1）</h1><h2 id="关于编译型语言和解释性语言"><a href="#关于编译型语言和解释性语言" class="headerlink" title="关于编译型语言和解释性语言"></a>关于编译型语言和解释性语言</h2><p>编译型语言诸如c,c++</p>
-<p><img src="./images/hello.png" alt="c语言编译过程"><br>而解释性语言一般先生成一个字节码，例如python和Java，然后交给虚拟机或者叫解释器去执行，每解释一句就执行一句</p>
-<p>知乎上有人说的很有道理，编译型语言就像把菜都上齐了再吃，解释性语言就像吃火锅。</p>
-<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p>dynamically typed<br>strongly typed<br>Everything in Python is an object<br>first-class object(一般来说object可以被用来当做参数传递，或者可以值返回)<br>garbage collection垃圾回收，当失去最后一个引用时<br><img src="./images/datastructure.jpg" alt=""><br>NoneType object - None<br>一些类型是不可变得（immutable）：numbers, strings, and tuples<br>一些类型是可变的：lists and dictionaries </p>
-<p>dir(s)列出他的所有拥有的变量和函数<br>help(s.count) 帮助文档</p>
-<h2 id="python-程序的执行过程"><a href="#python-程序的执行过程" class="headerlink" title="python 程序的执行过程"></a>python 程序的执行过程</h2><p>首先把.py文件读入内存，然后检查是否有与.py文件对应的字节码文件如.pyc或.pyo,并检查他们的时间戳，如果没有过期就使用字节码，否则将.py文件parse成字节码，交给虚拟机去执行。<br>python script1.py &gt; saved_srcipt1#重定向输出<br>当引入模块时，默认从sys.path中查找</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import sys</span><br><span class="line">&gt;&gt;&gt; sys.path</span><br><span class="line">[&#39;&#39;, </span><br><span class="line"> &#39;&#x2F;usr&#x2F;lib&#x2F;python3.2&#39;,</span><br><span class="line"> ...</span><br><span class="line"> &#39;&#x2F;usr&#x2F;lib&#x2F;python3.2&#x2F;dist-packages&#39;, </span><br><span class="line"> &#39;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.2&#x2F;dist-packages&#39;]</span><br></pre></td></tr></table></figure>
-
-<h2 id="Frozen-Binaries"><a href="#Frozen-Binaries" class="headerlink" title="Frozen Binaries"></a>Frozen Binaries</h2><p>就是把bytecodes和PVM打包到一个文件，执行的话还是按照老模式。</p>
-<ul>
-<li>py2exe for Windows.</li>
-<li>PyInstaller is similar to py2exe but also works on Linux and Unix.</li>
-<li>freeze.<h2 id="运行时打补丁-hot-patch"><a href="#运行时打补丁-hot-patch" class="headerlink" title="运行时打补丁 hot patch"></a>运行时打补丁 hot patch</h2></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ckav39q3h000g3cu6ggn66o0z" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2019/PythonLearning/python string(2)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/04/2019/PythonLearning/python%20string(2)/" class="article-date">
-  <time datetime="2020-03-03T23:46:42.950Z" itemprop="datePublished">2020-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/2019/PythonLearning/python%20string(2)/">2019/PythonLearning/python string(2)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="python-string（2）"><a href="#python-string（2）" class="headerlink" title="python string（2）"></a>python string（2）</h1><h2 id="单双引号是一样的，为了减少-的使用。"><a href="#单双引号是一样的，为了减少-的使用。" class="headerlink" title="单双引号是一样的，为了减少\的使用。"></a>单双引号是一样的，为了减少\的使用。</h2><p>可以构造类似 s = ‘a\nb\tc’这样的字符串，里面可以加入转义字符。<br><img src="./images/EscapeTable.jpg" alt=""></p>
-<ul>
-<li>每一个字符串都是Unicode string。</li>
-<li>纯字符，前面加r或R：<blockquote>
-<p>myfile = open(r’C:\new\text.txt’, ‘w’)</p>
-</blockquote>
-</li>
-<li>三引号用来输入多行文本</li>
-<li>string切片，是左闭右开的，正负都是有界限的，越界将发生out of range错误</li>
-<li>s1=s2是浅拷贝，s1=s2[:]是深拷贝，这个特性对immutable 作用不大，但是多list这样mutable作用大。</li>
-<li>X[i:j:k]， “extract all the items in X, from offset i through j-1 by k.”，S[::-1]逆序输出</li>
-</ul>
-<h2 id="一些字符串函数"><a href="#一些字符串函数" class="headerlink" title="一些字符串函数"></a>一些字符串函数</h2><ul>
-<li>count(sub[, start[, end]])，获取sub的个数</li>
-<li>find(sub[, start[, end]])</li>
-<li>replace(    old, new[, count]) 替换</li>
-<li>partition(    sep)返回一个三元组</li>
-<li>join(    seq) Return a string which is the concatenation of the strings in the sequence seq  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	&gt;&gt;&gt; seq &#x3D; [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]</span><br><span class="line">	&gt;&gt;&gt; print &#39;&#39;.join(seq)</span><br><span class="line">	abcd</span><br><span class="line">	&gt;&gt;&gt; print &#39;-&#39;.join(seq)</span><br><span class="line">	a-b-c-d</span><br><span class="line">	&#96;&#96;&#96;	</span><br><span class="line">* split([sep [,maxsplit]])</span><br><span class="line">	比较简单的分割：</span><br></pre></td></tr></table></figure>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>‘1, 2, 3’.split(‘, ‘)<br>  [‘1’, ‘2’, ‘3’]</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个分隔符的时候用re模块</span><br></pre></td></tr></table></figure>
-<p>  import re</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="split-with-semicolon-comma-space"><a href="#split-with-semicolon-comma-space" class="headerlink" title="split with semicolon, comma, space"></a>split with semicolon, comma, space</h1><blockquote>
-<blockquote>
-<blockquote>
-<p>str = ‘Life; a walking, shadow’<br>str1 = re.split(‘;|,| ‘, str)<br>str1<br>  [‘Life’, ‘’, ‘a’, ‘walking’, ‘’, ‘shadow’]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="split-with-semicolon-space-comma-space-space"><a href="#split-with-semicolon-space-comma-space-space" class="headerlink" title="split with semicolon+space, comma+space, space"></a>split with semicolon+space, comma+space, space</h1><blockquote>
-<blockquote>
-<blockquote>
-<p>str2 = re.split(‘; |, | ‘,str)<br>str2<br>  [‘Life’, ‘a’, ‘walking’, ‘shadow’]</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">* 其他一些判断类型的函数，isalnum(),isalpha(),isdigit(),islower(),istitle()···</span><br><span class="line">	</span><br><span class="line">## 所有字符串函数：</span><br><span class="line">&gt; [&#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;</span><br><span class="line">expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isd</span><br><span class="line">ecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;issp</span><br><span class="line">ace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;pa</span><br><span class="line">rtition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip</span><br><span class="line">&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate</span><br><span class="line">&#39;, &#39;upper&#39;, &#39;zfill&#39;]	</span><br><span class="line">## 全局函数都在这里 dir(__builtins__)</span><br><span class="line">&gt; </span><br><span class="line">&gt;&gt;&gt; dir(__builtins__)</span><br><span class="line">[&#39;ArithmeticError&#39;, &#39;AssertionError&#39;, &#39;AttributeError&#39;, &#39;BaseException&#39;, &#39;Blocki</span><br><span class="line">ngIOError&#39;, &#39;BrokenPipeError&#39;, &#39;BufferError&#39;, &#39;BytesWarning&#39;, &#39;ChildProcessError</span><br><span class="line">&#39;, &#39;ConnectionAbortedError&#39;, &#39;ConnectionError&#39;, &#39;ConnectionRefusedError&#39;, &#39;Conne</span><br><span class="line">ctionResetError&#39;, &#39;DeprecationWarning&#39;, &#39;EOFError&#39;, &#39;Ellipsis&#39;, &#39;EnvironmentErro</span><br><span class="line">r&#39;, &#39;Exception&#39;, &#39;False&#39;, &#39;FileExistsError&#39;, &#39;FileNotFoundError&#39;, &#39;FloatingPoint</span><br><span class="line">Error&#39;, &#39;FutureWarning&#39;, &#39;GeneratorExit&#39;, &#39;IOError&#39;, &#39;ImportError&#39;, &#39;ImportWarni</span><br><span class="line">ng&#39;, &#39;IndentationError&#39;, &#39;IndexError&#39;, &#39;InterruptedError&#39;, &#39;IsADirectoryError&#39;,</span><br><span class="line">&#39;KeyError&#39;, &#39;KeyboardInterrupt&#39;, &#39;LookupError&#39;, &#39;MemoryError&#39;, &#39;NameError&#39;, &#39;Non</span><br><span class="line">e&#39;, &#39;NotADirectoryError&#39;, &#39;NotImplemented&#39;, &#39;NotImplementedError&#39;, &#39;OSError&#39;, &#39;O</span><br><span class="line">verflowError&#39;, &#39;PendingDeprecationWarning&#39;, &#39;PermissionError&#39;, &#39;ProcessLookupErr</span><br><span class="line">or&#39;, &#39;RecursionError&#39;, &#39;ReferenceError&#39;, &#39;ResourceWarning&#39;, &#39;RuntimeError&#39;, &#39;Run</span><br><span class="line">timeWarning&#39;, &#39;StopAsyncIteration&#39;, &#39;StopIteration&#39;, &#39;SyntaxError&#39;, &#39;SyntaxWarni</span><br><span class="line">ng&#39;, &#39;SystemError&#39;, &#39;SystemExit&#39;, &#39;TabError&#39;, &#39;TimeoutError&#39;, &#39;True&#39;, &#39;TypeError</span><br><span class="line">&#39;, &#39;UnboundLocalError&#39;, &#39;UnicodeDecodeError&#39;, &#39;UnicodeEncodeError&#39;, &#39;UnicodeErro</span><br><span class="line">r&#39;, &#39;UnicodeTranslateError&#39;, &#39;UnicodeWarning&#39;, &#39;UserWarning&#39;, &#39;ValueError&#39;, &#39;War</span><br><span class="line">ning&#39;, &#39;WindowsError&#39;, &#39;ZeroDivisionError&#39;, &#39;_&#39;, &#39;__build_class__&#39;, &#39;__debug__&#39;,</span><br><span class="line"> &#39;__doc__&#39;, &#39;__import__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;</span><br><span class="line">abs&#39;, &#39;all&#39;, &#39;any&#39;, &#39;ascii&#39;, &#39;bin&#39;, &#39;bool&#39;, &#39;bytearray&#39;, &#39;bytes&#39;, &#39;callable&#39;, &#39;c</span><br><span class="line">hr&#39;, &#39;classmethod&#39;, &#39;compile&#39;, &#39;complex&#39;, &#39;copyright&#39;, &#39;credits&#39;, &#39;delattr&#39;, &#39;di</span><br><span class="line">ct&#39;, &#39;dir&#39;, &#39;divmod&#39;, &#39;enumerate&#39;, &#39;eval&#39;, &#39;exec&#39;, &#39;exit&#39;, &#39;filter&#39;, &#39;float&#39;, &#39;f</span><br><span class="line">ormat&#39;, &#39;frozenset&#39;, &#39;getattr&#39;, &#39;globals&#39;, &#39;hasattr&#39;, &#39;hash&#39;, &#39;help&#39;, &#39;hex&#39;, &#39;id</span><br><span class="line">&#39;, &#39;input&#39;, &#39;int&#39;, &#39;isinstance&#39;, &#39;issubclass&#39;, &#39;iter&#39;, &#39;len&#39;, &#39;license&#39;, &#39;list&#39;,</span><br><span class="line"> &#39;locals&#39;, &#39;map&#39;, &#39;max&#39;, &#39;memoryview&#39;, &#39;min&#39;, &#39;next&#39;, &#39;object&#39;, &#39;oct&#39;, &#39;open&#39;, &#39;</span><br><span class="line">ord&#39;, &#39;pow&#39;, &#39;print&#39;, &#39;property&#39;, &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;,</span><br><span class="line">&#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;, &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tup</span><br><span class="line">le&#39;, &#39;type&#39;, &#39;vars&#39;, &#39;zip&#39;]</span><br><span class="line">## 格式化字符串</span><br><span class="line">string formatting expressions: this is based on the C type printf.</span><br><span class="line">string formatting method calls: this is newer and added since Python 2.6.</span><br></pre></td></tr></table></figure>
-<p>‘I am using %s %d.%d’ %(‘Python’, 3, 2)<br>  ‘I am using Python 3.2’</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<pre><code>
-
-</code></pre></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python%20string(2)/" data-id="ckav39q3c00083cu68muv4mk0" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/03/04/2019/PythonLearning/python(6)/" data-id="ckb9e869x001wrgu6f6gg5ooy" class="article-share-link">Share</a>
       
       
       
@@ -693,6 +723,14 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       <ul>
         
           <li>
+            <a href="/2020/06/10/2020/06/Qt-Model-View-Delegate/">Qt-Model-View-Delegate</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/10/2020/06/QtLayout/">QtLayout</a>
+          </li>
+        
+          <li>
             <a href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/">5月最后一天</a>
           </li>
         
@@ -702,14 +740,6 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
         
           <li>
             <a href="/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/">PS学习</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/11/2020/05/%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/">矩阵变换</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/10/2020/05/Qt%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92/">关于qt事件的学习</a>
           </li>
         
       </ul>
