@@ -74,12 +74,16 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2019/PythonLearning/python多态" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2020/09/给blog添加视频引发的问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" class="article-date">
-  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
+    <a href="/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2020-09-07T12:46:48.000Z" itemprop="datePublished">2020-09-07</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/git/">git</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -88,7 +92,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
+      <a class="article-title" href="/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">给blog添加视频引发的问题</a>
     </h1>
   
 
@@ -98,17 +102,22 @@
       
         <!-- Table of Contents -->
         
-        <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>子类重写父类的虚函数，返回值类型不能变，如果变了编译器报错；<br>参数类型和个数不能变，不然使用基类指针将不能调用派生类的函数，这个函数将只能被派生类对象或指针调用。</p>
-<p>当class内含有至少一个虚函数时才声明析构函数为虚函数；<br>虚表指针地址不和栈空间分配的成员变量连续</p>
-<p>栈空间分配的内存不能使用delete释放，如果这样会报_block_type_is_valid(phead- nblockuse)错误；<br>字节对齐：<br>公式1:前面的地址必须是后面的地址正数倍,不是就补齐<br>公式2:整个Struct的地址必须是最大字节的整数倍</p>
+        <p>hexo博客在本地有一个html版本的git仓库，要是在本地添加视频的话会保存在git的本地仓库里，然后push到最后会报错，文件太大了呗。</p>
+<p>后来把html的git仓库回退了一下，push就很干净了。</p>
+<p>两个知识点：<br>1.git删除某几次提交：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reset命令有3种方式：</span><br><span class="line">1：git reset –mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息</span><br><span class="line"></span><br><span class="line">2：git reset –soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</span><br><span class="line"></span><br><span class="line">3：git reset –hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容</span><br></pre></td></tr></table></figure>
+
+<p>2.git lfs<br>todo</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ckesipchr000d4su6503mbtaq" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ckesj5sst001vfku66um51e7w" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a><span class="article-tag-list-count">1</span></li></ul>
+
     </footer>
   </div>
   
@@ -163,7 +172,54 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ckesipcht000g4su6gefe62w7" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ckesj5ssb000ffku60pse3mxn" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python多态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>子类重写父类的虚函数，返回值类型不能变，如果变了编译器报错；<br>参数类型和个数不能变，不然使用基类指针将不能调用派生类的函数，这个函数将只能被派生类对象或指针调用。</p>
+<p>当class内含有至少一个虚函数时才声明析构函数为虚函数；<br>虚表指针地址不和栈空间分配的成员变量连续</p>
+<p>栈空间分配的内存不能使用delete释放，如果这样会报_block_type_is_valid(phead- nblockuse)错误；<br>字节对齐：<br>公式1:前面的地址必须是后面的地址正数倍,不是就补齐<br>公式2:整个Struct的地址必须是最大字节的整数倍</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ckesj5ssb000gfku65ppu7nm7" class="article-share-link">Share</a>
       
       
       
@@ -208,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ckesipcht000h4su6hkx0fiq3" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ckesj5ssc000hfku63crm1lhv" class="article-share-link">Share</a>
       
       
       
@@ -263,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2020/04/20200418/" data-id="ckesipchu000i4su65v7i7ifv" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2020/04/20200418/" data-id="ckesj5ssd000jfku6fr288z6j" class="article-share-link">Share</a>
       
       
       
@@ -331,74 +387,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2020/04/20200426/" data-id="ckesipchu000j4su64im6cyj7" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2020/04/20200426/" data-id="ckesj5sse000lfku6hokn4vfp" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">6</span></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2019/PythonLearning/python(6)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/07/2019/PythonLearning/python(6)/" class="article-date">
-  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python(6)/">2019/PythonLearning/python(6)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h1 id="python数据结构一些总结"><a href="#python数据结构一些总结" class="headerlink" title="python数据结构一些总结"></a>python数据结构一些总结</h1><h2 id="map-filter-reduce"><a href="#map-filter-reduce" class="headerlink" title="map,filter,reduce"></a>map,filter,reduce</h2><p>map 不是c++中的map，函数式编程，面向表达式编程：</p>
-<ul>
-<li>map(aFunction, aSequence)</li>
-<li>filter(aFunction, aSequence)</li>
-<li>reduce(aFunction, aSequence)</li>
-<li>lambda</li>
-<li>list comprehension<br>简单的map应用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; items &#x3D; [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; def sqr(x): return x ** 2</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(map(sqr, items))</span><br><span class="line">[1, 4, 9, 16, 25]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-过滤器通过一个函数对象把sequence中的东西过滤一遍：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(-5,5))</span><br><span class="line">[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; list( filter((lambda x: x &lt; 0), range(-5,5)))</span><br><span class="line">[-5, -4, -3, -2, -1]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-reduce是functool模块的一个工具，返回一个值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; from functools import reduce</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x * y), [1, 2, 3, 4] )</span><br><span class="line">24</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x &#x2F; y), [1, 2, 3, 4] )</span><br><span class="line">0.041666666666666664</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="decrator-装饰器"><a href="#decrator-装饰器" class="headerlink" title="decrator(装饰器)"></a>decrator(装饰器)</h2>类似设计模式的装饰器模式，装饰器都是为了给当前函数添加功能或者修改行为；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def dollar(fn):</span><br><span class="line">	def new(*args):</span><br><span class="line">		return &#39;$&#39; + str(fn(*args))</span><br><span class="line">	return new</span><br><span class="line"></span><br><span class="line">@dollar</span><br><span class="line">def price(amount, tax_rate):</span><br><span class="line">	return amount + amount*tax_rate</span><br><span class="line">   </span><br><span class="line">print price(100,0.1)</span><br></pre></td></tr></table></figure>
-上面代码的功能是给参数前面加一个dollar符号，@符号是装饰器的语法<br>new 函数是一个wrapper<br>@dollar这一句话相当于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price&#x3D;dollar(price)</span><br></pre></td></tr></table></figure>
-判断一个函数运行完消耗的时间：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def timer(f):</span><br><span class="line">	def inner(*args, **kargs):</span><br><span class="line">		t &#x3D; time.time()</span><br><span class="line">		ret &#x3D; f(*args, **kargs)</span><br><span class="line">		print &#39;timer &#x3D; %s&#39; %(time.time()-t) </span><br><span class="line">		return ret</span><br><span class="line">	return inner</span><br><span class="line"></span><br><span class="line">@timer</span><br><span class="line">def my_fnc():</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	my_fnc()</span><br></pre></td></tr></table></figure>
-<h2 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h2>map，filter都可以使用list comprehension实现。<br>缺点是可读性不如for循环好。<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2>里面的值都是immutable的，而且都是不重复的。<br>set本身也是mutable的。<br>set简单操作：<br>根据list初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L &#x3D; [1,2,3]</span><br><span class="line">&gt;&gt;&gt; s &#x3D; set(L)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">set([1, 2, 3])</span><br><span class="line"># init an empty set</span><br><span class="line">&gt;&gt;&gt; s1 &#x3D; set()</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([])</span><br></pre></td></tr></table></figure>
-添加元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># add single element</span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;first&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;first&#39;])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;2nd&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;2nd&#39;, &#39;first&#39;])</span><br><span class="line">#add multi elements</span><br><span class="line">&gt;&gt;&gt; s1.update( [&quot;3rd&quot;, &quot;4th&quot;] )</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;4th&#39;, &#39;2nd&#39;, &#39;3rd&#39;, &#39;first&#39;])</span><br></pre></td></tr></table></figure>
-集合操作交并补：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sets1 &amp; sets2  #(elements in set1,&amp;&amp; in set2)</span><br><span class="line">   sets1 | sets2  #(elements in set1,|| in set2)</span><br><span class="line">   sets1 - sets2  #(elements in set1,&amp;&amp;not in set2)</span><br></pre></td></tr></table></figure>
-Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import division</span><br><span class="line">import itertools</span><br><span class="line"></span><br><span class="line">def jaccard(s1, s2):</span><br><span class="line">	&quot; takes two lists as input and returns Jaccard coefficient&quot;</span><br><span class="line">	st1&#x3D;set(s1)</span><br><span class="line">	st2&#x3D;set(s2)</span><br><span class="line">	u &#x3D; set(st1).union(st2)</span><br><span class="line">	i &#x3D; set(st1).intersection(st2)</span><br><span class="line">	return len(i)&#x2F;len(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">	s &#x3D; [];</span><br><span class="line">	s.append([1,2,3,4])</span><br><span class="line">	s.append([2,3,5,7])</span><br><span class="line">	s.append([2,4,6])  </span><br><span class="line">	s.append([8,9,10,11,12])</span><br><span class="line"></span><br><span class="line">	print(&quot;input set : %s&quot;) %(s)</span><br><span class="line"></span><br><span class="line">	combinations &#x3D; list( itertools.combinations([x for x in range(len(s))], 2) )</span><br><span class="line">	print(&quot;combinations&#x3D;%s&quot;) %(combinations)</span><br><span class="line"></span><br><span class="line">	for c in combinations:</span><br><span class="line">		i1 &#x3D; c[0]</span><br><span class="line">		i2 &#x3D; c[1]</span><br><span class="line">		jac &#x3D; jaccard(s[i1], s[i2])</span><br><span class="line">		print(&quot;%s : %s,%s : jaccard&#x3D;%s&quot;) %(c, s[i1],s[i2],jac)</span><br><span class="line">Output:</span><br><span class="line"></span><br><span class="line">input set : [[1, 2, 3, 4], [2, 3, 5, 7], [2, 4, 6], [8, 9, 10, 11, 12]]</span><br><span class="line">combinations&#x3D;[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]</span><br><span class="line">(0, 1) : [1, 2, 3, 4],[2, 3, 5, 7] : jaccard&#x3D;0.333333333333</span><br><span class="line">(0, 2) : [1, 2, 3, 4],[2, 4, 6] : jaccard&#x3D;0.4</span><br><span class="line">(0, 3) : [1, 2, 3, 4],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(1, 2) : [2, 3, 5, 7],[2, 4, 6] : jaccard&#x3D;0.166666666667</span><br><span class="line">(1, 3) : [2, 3, 5, 7],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(2, 3) : [2, 4, 6],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br></pre></td></tr></table></figure>
-<h2 id="一个小总结"><a href="#一个小总结" class="headerlink" title="一个小总结"></a>一个小总结</h2>string，list，dictionary，tuple，set<br>都不是有序的<br>set里面的值唯一不重复<br>dictionary是基于哈希表的<br>list用中括号，dict用大括号，tuple用小括号，set也用大括号<br>可变的：list，dictionary,set<br>不可变的：tuple，numbers,string,frozenset<br>（All of Python’s immutable built-in objects are hashable）<br>一个小例外，tuple是immutable的，当tuple中所有对象都是immutable的时候可以求哈希，当里面有个list的时候就不可以求哈希<br>（An object is hashable if it has a hash value which never changes during its lifetime ）</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(6)/" data-id="ckesipcho00084su654ls1huh" class="article-share-link">Share</a>
-      
-      
-      
     </footer>
   </div>
   
@@ -486,7 +480,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20string(2)/" data-id="ckesipchp00094su630pndyop" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20string(2)/" data-id="ckesj5ss60007fku62p1fc3uh" class="article-share-link">Share</a>
       
       
       
@@ -540,7 +534,69 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(8)/" data-id="ckesipchr000c4su6656jble6" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(8)/" data-id="ckesj5ss70008fku6hy1xfdzo" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python(6)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python(6)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python(6)/">2019/PythonLearning/python(6)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python数据结构一些总结"><a href="#python数据结构一些总结" class="headerlink" title="python数据结构一些总结"></a>python数据结构一些总结</h1><h2 id="map-filter-reduce"><a href="#map-filter-reduce" class="headerlink" title="map,filter,reduce"></a>map,filter,reduce</h2><p>map 不是c++中的map，函数式编程，面向表达式编程：</p>
+<ul>
+<li>map(aFunction, aSequence)</li>
+<li>filter(aFunction, aSequence)</li>
+<li>reduce(aFunction, aSequence)</li>
+<li>lambda</li>
+<li>list comprehension<br>简单的map应用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; items &#x3D; [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; def sqr(x): return x ** 2</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(map(sqr, items))</span><br><span class="line">[1, 4, 9, 16, 25]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+过滤器通过一个函数对象把sequence中的东西过滤一遍：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(-5,5))</span><br><span class="line">[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; list( filter((lambda x: x &lt; 0), range(-5,5)))</span><br><span class="line">[-5, -4, -3, -2, -1]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+reduce是functool模块的一个工具，返回一个值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; from functools import reduce</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x * y), [1, 2, 3, 4] )</span><br><span class="line">24</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x &#x2F; y), [1, 2, 3, 4] )</span><br><span class="line">0.041666666666666664</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="decrator-装饰器"><a href="#decrator-装饰器" class="headerlink" title="decrator(装饰器)"></a>decrator(装饰器)</h2>类似设计模式的装饰器模式，装饰器都是为了给当前函数添加功能或者修改行为；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def dollar(fn):</span><br><span class="line">	def new(*args):</span><br><span class="line">		return &#39;$&#39; + str(fn(*args))</span><br><span class="line">	return new</span><br><span class="line"></span><br><span class="line">@dollar</span><br><span class="line">def price(amount, tax_rate):</span><br><span class="line">	return amount + amount*tax_rate</span><br><span class="line">   </span><br><span class="line">print price(100,0.1)</span><br></pre></td></tr></table></figure>
+上面代码的功能是给参数前面加一个dollar符号，@符号是装饰器的语法<br>new 函数是一个wrapper<br>@dollar这一句话相当于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price&#x3D;dollar(price)</span><br></pre></td></tr></table></figure>
+判断一个函数运行完消耗的时间：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def timer(f):</span><br><span class="line">	def inner(*args, **kargs):</span><br><span class="line">		t &#x3D; time.time()</span><br><span class="line">		ret &#x3D; f(*args, **kargs)</span><br><span class="line">		print &#39;timer &#x3D; %s&#39; %(time.time()-t) </span><br><span class="line">		return ret</span><br><span class="line">	return inner</span><br><span class="line"></span><br><span class="line">@timer</span><br><span class="line">def my_fnc():</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	my_fnc()</span><br></pre></td></tr></table></figure>
+<h2 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h2>map，filter都可以使用list comprehension实现。<br>缺点是可读性不如for循环好。<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2>里面的值都是immutable的，而且都是不重复的。<br>set本身也是mutable的。<br>set简单操作：<br>根据list初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L &#x3D; [1,2,3]</span><br><span class="line">&gt;&gt;&gt; s &#x3D; set(L)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">set([1, 2, 3])</span><br><span class="line"># init an empty set</span><br><span class="line">&gt;&gt;&gt; s1 &#x3D; set()</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([])</span><br></pre></td></tr></table></figure>
+添加元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># add single element</span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;first&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;first&#39;])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;2nd&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;2nd&#39;, &#39;first&#39;])</span><br><span class="line">#add multi elements</span><br><span class="line">&gt;&gt;&gt; s1.update( [&quot;3rd&quot;, &quot;4th&quot;] )</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;4th&#39;, &#39;2nd&#39;, &#39;3rd&#39;, &#39;first&#39;])</span><br></pre></td></tr></table></figure>
+集合操作交并补：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sets1 &amp; sets2  #(elements in set1,&amp;&amp; in set2)</span><br><span class="line">   sets1 | sets2  #(elements in set1,|| in set2)</span><br><span class="line">   sets1 - sets2  #(elements in set1,&amp;&amp;not in set2)</span><br></pre></td></tr></table></figure>
+Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import division</span><br><span class="line">import itertools</span><br><span class="line"></span><br><span class="line">def jaccard(s1, s2):</span><br><span class="line">	&quot; takes two lists as input and returns Jaccard coefficient&quot;</span><br><span class="line">	st1&#x3D;set(s1)</span><br><span class="line">	st2&#x3D;set(s2)</span><br><span class="line">	u &#x3D; set(st1).union(st2)</span><br><span class="line">	i &#x3D; set(st1).intersection(st2)</span><br><span class="line">	return len(i)&#x2F;len(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">	s &#x3D; [];</span><br><span class="line">	s.append([1,2,3,4])</span><br><span class="line">	s.append([2,3,5,7])</span><br><span class="line">	s.append([2,4,6])  </span><br><span class="line">	s.append([8,9,10,11,12])</span><br><span class="line"></span><br><span class="line">	print(&quot;input set : %s&quot;) %(s)</span><br><span class="line"></span><br><span class="line">	combinations &#x3D; list( itertools.combinations([x for x in range(len(s))], 2) )</span><br><span class="line">	print(&quot;combinations&#x3D;%s&quot;) %(combinations)</span><br><span class="line"></span><br><span class="line">	for c in combinations:</span><br><span class="line">		i1 &#x3D; c[0]</span><br><span class="line">		i2 &#x3D; c[1]</span><br><span class="line">		jac &#x3D; jaccard(s[i1], s[i2])</span><br><span class="line">		print(&quot;%s : %s,%s : jaccard&#x3D;%s&quot;) %(c, s[i1],s[i2],jac)</span><br><span class="line">Output:</span><br><span class="line"></span><br><span class="line">input set : [[1, 2, 3, 4], [2, 3, 5, 7], [2, 4, 6], [8, 9, 10, 11, 12]]</span><br><span class="line">combinations&#x3D;[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]</span><br><span class="line">(0, 1) : [1, 2, 3, 4],[2, 3, 5, 7] : jaccard&#x3D;0.333333333333</span><br><span class="line">(0, 2) : [1, 2, 3, 4],[2, 4, 6] : jaccard&#x3D;0.4</span><br><span class="line">(0, 3) : [1, 2, 3, 4],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(1, 2) : [2, 3, 5, 7],[2, 4, 6] : jaccard&#x3D;0.166666666667</span><br><span class="line">(1, 3) : [2, 3, 5, 7],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(2, 3) : [2, 4, 6],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br></pre></td></tr></table></figure>
+<h2 id="一个小总结"><a href="#一个小总结" class="headerlink" title="一个小总结"></a>一个小总结</h2>string，list，dictionary，tuple，set<br>都不是有序的<br>set里面的值唯一不重复<br>dictionary是基于哈希表的<br>list用中括号，dict用大括号，tuple用小括号，set也用大括号<br>可变的：list，dictionary,set<br>不可变的：tuple，numbers,string,frozenset<br>（All of Python’s immutable built-in objects are hashable）<br>一个小例外，tuple是immutable的，当tuple中所有对象都是immutable的时候可以求哈希，当里面有个list的时候就不可以求哈希<br>（An object is hashable if it has a hash value which never changes during its lifetime ）</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(6)/" data-id="ckesj5ss80009fku6ghns4g1l" class="article-share-link">Share</a>
       
       
       
@@ -599,65 +655,10 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(7)/" data-id="ckesipchs000f4su60kxb3tmx" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(7)/" data-id="ckesj5ss9000cfku6b9hp4kdk" class="article-share-link">Share</a>
       
       
       
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2019/PythonLearning/python function(5)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/07/2019/PythonLearning/python%20function(5)/" class="article-date">
-  <time datetime="2020-09-07T12:20:00.777Z" itemprop="datePublished">2020-09-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%20function(5)/">python 函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h2 id="def"><a href="#def" class="headerlink" title="def"></a>def</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def &lt;name&gt;(arg1, arg2,...,argN)</span><br><span class="line">	return &lt;value&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>def is an executable code. </li>
-<li>def creates an object and assigns it to a name. </li>
-<li>return sends a result object back to the caller. </li>
-</ul>
-<h2 id="参数列表匹配"><a href="#参数列表匹配" class="headerlink" title="参数列表匹配"></a>参数列表匹配</h2><p>Syntax    | Location    | Descruption<br>func(value)    | Caller    | Normal argument: matched by position<br>func(name=value)    | Caller    | Keyword argument: matched by name<br>func(<em>sequence)    | Caller    | Pass all object in sequence as individual positional arguments<br>func(*</em>dict)    | Caller    | Pass all key/value pairs in dict as individual keyword arguments<br>def func(name)    | Function    | Normal argument: matched any passed value by position or name<br>def func(name=value)    | Function    | Default argument value, if not passed in the call<br>def func(<em>name)    | Function    | Matches and collects remaining positional arguments in a tuple<br>def func(*</em>name)    | Function    | Matches and collects remaining keyword arguments in a dictionary<br>def func(*args, name)    | Function    | Arguments that must be passed by keyword only in calls</p>
-<p>‘<em>‘ 表示匹配任意多sequence item<br>‘</em> *’ 表示匹配任意多字典item</p>
-<h2 id="Collecting-and-Unpacking-Arguments"><a href="#Collecting-and-Unpacking-Arguments" class="headerlink" title="Collecting and Unpacking Arguments"></a>Collecting and Unpacking Arguments</h2><p>类似packing和unpacking</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20function(5)/" data-id="ckesipchk00044su602y0hg73" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
-
     </footer>
   </div>
   
@@ -702,7 +703,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
   <div class="widget-wrap">
     <h3 class="widget-title categories">Categories</h3>
     <div class="widget" id="categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%BD%91%E6%98%93%E6%97%B6%E5%85%89/">网易时光</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/">成长之路</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/">名人演讲</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%9D%82%E9%A1%B9/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%B8%B8%E6%88%8F/">游戏</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%BD%91%E6%98%93%E6%97%B6%E5%85%89/">网易时光</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/">成长之路</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/">名人演讲</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%9D%82%E9%A1%B9/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%B8%B8%E6%88%8F/">游戏</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -712,7 +713,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Qt/" style="font-size: 14px; color: #00f">Qt</a> <a href="/tags/growup/" style="font-size: 17.67px; color: #4f2bf9">growup</a> <a href="/tags/love/" style="font-size: 14px; color: #00f">love</a> <a href="/tags/mood/" style="font-size: 25px; color: #ee82ee">mood</a> <a href="/tags/python/" style="font-size: 17.67px; color: #4f2bf9">python</a> <a href="/tags/talk/" style="font-size: 14px; color: #00f">talk</a> <a href="/tags/tech/" style="font-size: 21.33px; color: #9f57f4">tech</a>
+      <a href="/tags/Qt/" style="font-size: 14px; color: #00f">Qt</a> <a href="/tags/git/" style="font-size: 14px; color: #00f">git</a> <a href="/tags/growup/" style="font-size: 17.67px; color: #4f2bf9">growup</a> <a href="/tags/love/" style="font-size: 14px; color: #00f">love</a> <a href="/tags/mood/" style="font-size: 25px; color: #ee82ee">mood</a> <a href="/tags/python/" style="font-size: 17.67px; color: #4f2bf9">python</a> <a href="/tags/talk/" style="font-size: 14px; color: #00f">talk</a> <a href="/tags/tech/" style="font-size: 21.33px; color: #9f57f4">tech</a>
     </div>
   </div>
 
@@ -724,11 +725,15 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
       <ul>
         
           <li>
-            <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
+            <a href="/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">给blog添加视频引发的问题</a>
           </li>
         
           <li>
             <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
           </li>
         
           <li>
@@ -737,10 +742,6 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
         
           <li>
             <a href="/2020/09/07/2020/04/20200418/">2020/04/20200418</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/07/2020/04/20200426/">平庸的一天</a>
           </li>
         
       </ul>
@@ -752,7 +753,7 @@ Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><t
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
