@@ -74,16 +74,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2020/06/Qt-Model-View-Delegate" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2019/PythonLearning/python介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/06/10/2020/06/Qt-Model-View-Delegate/" class="article-date">
-  <time datetime="2020-06-10T13:20:57.000Z" itemprop="datePublished">2020-06-10</time>
+    <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -92,7 +88,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/2020/06/Qt-Model-View-Delegate/">Qt-Model-View-Delegate</a>
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
     </h1>
   
 
@@ -102,26 +98,28 @@
       
         <!-- Table of Contents -->
         
-        <p><a href="https://doc.qt.io/qt-5/modelview.html" target="_blank" rel="noopener">官方教程</a></p>
-<p>工作中遇到一个modelview的神奇bug，view在切换model的时候不能先delete掉原来的model，再set新的model，得先记录老的model，再set新的model，最后delete老的model。</p>
-<p>qt中使用deletelater更安全，缺点是delete不及时。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">void QTableViewPrivate::drawCell(QPainter *painter, const QStyleOptionViewItem &amp;option, const QModelIndex &amp;index)</span><br><span class="line">&#123;</span><br><span class="line">    Q_Q(QTableView);</span><br><span class="line">    QStyleOptionViewItem opt &#x3D; option;</span><br><span class="line"></span><br><span class="line">    if (selectionModel &amp;&amp; selectionModel-&gt;isSelected(index))</span><br><span class="line">        opt.state |&#x3D; QStyle::State_Selected;</span><br><span class="line">    if (index &#x3D;&#x3D; hover)</span><br><span class="line">        opt.state |&#x3D; QStyle::State_MouseOver;</span><br><span class="line">    if (option.state &amp; QStyle::State_Enabled) &#123;</span><br><span class="line">        QPalette::ColorGroup cg;</span><br><span class="line">        if ((model-&gt;flags(index) &amp; Qt::ItemIsEnabled) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            opt.state &amp;&#x3D; ~QStyle::State_Enabled;</span><br><span class="line">            cg &#x3D; QPalette::Disabled;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            cg &#x3D; QPalette::Normal;</span><br><span class="line">        &#125;</span><br><span class="line">        opt.palette.setCurrentColorGroup(cg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (index &#x3D;&#x3D; q-&gt;currentIndex()) &#123;</span><br><span class="line">        const bool focus &#x3D; (q-&gt;hasFocus() || viewport-&gt;hasFocus()) &amp;&amp; q-&gt;currentIndex().isValid();</span><br><span class="line">        if (focus)</span><br><span class="line">            opt.state |&#x3D; QStyle::State_HasFocus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q-&gt;style()-&gt;drawPrimitive(QStyle::PE_PanelItemViewRow, &amp;opt, painter, q);</span><br><span class="line"></span><br><span class="line">    q-&gt;itemDelegate(index)-&gt;paint(painter, opt, index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="python学习心得（1）"><a href="#python学习心得（1）" class="headerlink" title="python学习心得（1）"></a>python学习心得（1）</h1><h2 id="关于编译型语言和解释性语言"><a href="#关于编译型语言和解释性语言" class="headerlink" title="关于编译型语言和解释性语言"></a>关于编译型语言和解释性语言</h2><p>编译型语言诸如c,c++</p>
+<p><img src="./images/hello.png" alt="c语言编译过程"><br>而解释性语言一般先生成一个字节码，例如python和Java，然后交给虚拟机或者叫解释器去执行，每解释一句就执行一句</p>
+<p>知乎上有人说的很有道理，编译型语言就像把菜都上齐了再吃，解释性语言就像吃火锅。</p>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p>dynamically typed<br>strongly typed<br>Everything in Python is an object<br>first-class object(一般来说object可以被用来当做参数传递，或者可以值返回)<br>garbage collection垃圾回收，当失去最后一个引用时<br><img src="./images/datastructure.jpg" alt=""><br>NoneType object - None<br>一些类型是不可变得（immutable）：numbers, strings, and tuples<br>一些类型是可变的：lists and dictionaries </p>
+<p>dir(s)列出他的所有拥有的变量和函数<br>help(s.count) 帮助文档</p>
+<h2 id="python-程序的执行过程"><a href="#python-程序的执行过程" class="headerlink" title="python 程序的执行过程"></a>python 程序的执行过程</h2><p>首先把.py文件读入内存，然后检查是否有与.py文件对应的字节码文件如.pyc或.pyo,并检查他们的时间戳，如果没有过期就使用字节码，否则将.py文件parse成字节码，交给虚拟机去执行。<br>python script1.py &gt; saved_srcipt1#重定向输出<br>当引入模块时，默认从sys.path中查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import sys</span><br><span class="line">&gt;&gt;&gt; sys.path</span><br><span class="line">[&#39;&#39;, </span><br><span class="line"> &#39;&#x2F;usr&#x2F;lib&#x2F;python3.2&#39;,</span><br><span class="line"> ...</span><br><span class="line"> &#39;&#x2F;usr&#x2F;lib&#x2F;python3.2&#x2F;dist-packages&#39;, </span><br><span class="line"> &#39;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.2&#x2F;dist-packages&#39;]</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">QMap&lt;int, QVariant&gt; QAbstractItemModel::itemData(const QModelIndex &amp;index) const</span><br><span class="line">&#123;</span><br><span class="line">    QMap&lt;int, QVariant&gt; roles;</span><br><span class="line">    for (int i &#x3D; 0; i &lt; Qt::UserRole; ++i) &#123;</span><br><span class="line">        QVariant variantData &#x3D; data(index, i);</span><br><span class="line">        if (variantData.isValid())</span><br><span class="line">            roles.insert(i, variantData);</span><br><span class="line">    &#125;</span><br><span class="line">    return roles;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://doc.qt.io/qt-5/model-view-programming.html" target="_blank" rel="noopener">https://doc.qt.io/qt-5/model-view-programming.html</a></p>
-<p><a href="https://doc.qt.io/qt-5/qtwidgets-itemviews-addressbook-example.html" target="_blank" rel="noopener">https://doc.qt.io/qt-5/qtwidgets-itemviews-addressbook-example.html</a></p>
-<p>rowCount起到了很重要的作用，在model里自己插入删除item的时候，行改变的操作得放在rowInsertedBegin,rowInsertedEnd中间。</p>
-<p><a href="http://notes.tanchuanqi.com/language/cpp/cpp_micro.html#id15" target="_blank" rel="noopener">http://notes.tanchuanqi.com/language/cpp/cpp_micro.html#id15</a></p>
+<h2 id="Frozen-Binaries"><a href="#Frozen-Binaries" class="headerlink" title="Frozen Binaries"></a>Frozen Binaries</h2><p>就是把bytecodes和PVM打包到一个文件，执行的话还是按照老模式。</p>
+<ul>
+<li>py2exe for Windows.</li>
+<li>PyInstaller is similar to py2exe but also works on Linux and Unix.</li>
+<li>freeze.<h2 id="运行时打补丁-hot-patch"><a href="#运行时打补丁-hot-patch" class="headerlink" title="运行时打补丁 hot patch"></a>运行时打补丁 hot patch</h2></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/" data-id="ckb9e869j000prgu67r2n06q8" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" data-id="ckesiog84000dv8u6fst60dj0" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="article-tag-list-count">4</span></li></ul>
-
     </footer>
   </div>
   
@@ -134,10 +132,157 @@
 
 
   
-    <article id="post-2020/06/QtLayout" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2019/PythonLearning/计算机英语单词" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/06/10/2020/06/QtLayout/" class="article-date">
-  <time datetime="2020-06-10T13:10:38.000Z" itemprop="datePublished">2020-06-10</time>
+    <a href="/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/">2019/PythonLearning/计算机英语单词</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="计算机英文单词"><a href="#计算机英文单词" class="headerlink" title="计算机英文单词"></a>计算机英文单词</h1><p>retrieve：检索<br>lookup：查找<br>overhead：开销<br>verbose ：冗长的<br>intersection：交集；union：并集；Complement<br>Coefficient ：系数，率，Jaccard Coefficient<br>plagiarism：剽窃，抄袭</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" data-id="ckesiog85000gv8u62pnc5v69" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python多态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>子类重写父类的虚函数，返回值类型不能变，如果变了编译器报错；<br>参数类型和个数不能变，不然使用基类指针将不能调用派生类的函数，这个函数将只能被派生类对象或指针调用。</p>
+<p>当class内含有至少一个虚函数时才声明析构函数为虚函数；<br>虚表指针地址不和栈空间分配的成员变量连续</p>
+<p>栈空间分配的内存不能使用delete释放，如果这样会报_block_type_is_valid(phead- nblockuse)错误；<br>字节对齐：<br>公式1:前面的地址必须是后面的地址正数倍,不是就补齐<br>公式2:整个Struct的地址必须是最大字节的整数倍</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ckesiog86000hv8u6fyrohe2a" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2020/04/20200418" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2020/04/20200418/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2020/04/20200418/">2020/04/20200418</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="又是一个下雨的周末"><a href="#又是一个下雨的周末" class="headerlink" title="又是一个下雨的周末"></a>又是一个下雨的周末</h1><pre><code>本来钢琴课是下午的，但是昨天邰凌翔说下午找我打球，就调到了上午，虽然下午下雨了，球也没打成。
+
+最终还是对这个钢琴老师失望了。可能是上节课对我说的话有点训斥的意思，说话有点重，口无遮拦，东北人都是直性子，都不考虑话说出后对方的感受；也可能是自己的玻璃心吧，自己千方百计为别人着想，想的很复杂，但是自己没说出来，谁也看不到。如果此时退出，这样算下来，一节课400块，但是确实东北娘们是我的死对头。
+
+这件事情很简单，我花钱带来的不快乐比快乐多，既然自己不想改变，那就退出吧。
+***
+
+我时常在想，未来自己到底在哪里，怎么看都看不到未来的路，在网易是迟早要离职的，只是早晚的事情，取决于自己的身体状况和未来的发展。自己也开始了投资，想为未来的自己多做做打算，像这样打工是没有出路的。路在脚下，路都是靠自己去踩的，自己的高工资不值得自己炫耀，这种上班并没有使自己到达自己想要的高度。
+
+现在是真的算是停止思考了，停止思考很久了，工作上只去想逻辑怎么实现，而不关心这个功能怎样做才好，只站在一个程序员的角度，而没有站在一个更高的层次去思考问题。这都是自己事不关己，高高挂起的想法。</code></pre><h2 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h2><p>工作上要先思考为什么要这样做，然后再思考怎样能做的更好</p>
+<p>生活上，保持自己心理健康，身体健康就行</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2020/04/20200418/" data-id="ckesiog86000iv8u643xn2ky1" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2020/04/20200426" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2020/04/20200426/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
 </a>
     
   <div class="article-category">
@@ -152,7 +297,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/2020/06/QtLayout/">QtLayout</a>
+      <a class="article-title" href="/2020/09/07/2020/04/20200426/">平庸的一天</a>
     </h1>
   
 
@@ -162,496 +307,127 @@
       
         <!-- Table of Contents -->
         
-        <p><a href="https://doc.qt.io/qt-5/layout.html" target="_blank" rel="noopener">官方文档</a></p>
-<p>原来qt的layout也是可以自定义的.<br>qt原生有 QHBoxLayout, QVBoxLayout, QGridLayout, and QFormLayout这几个layout。<br>自定义layout就实现下面几个方法就行。</p>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=60 src="Time.mp3"></iframe>
+
+<h2 id="早上闹钟没响！！！"><a href="#早上闹钟没响！！！" class="headerlink" title="早上闹钟没响！！！"></a>早上闹钟没响！！！</h2><p>今天早上第一次没听见闹钟响，或者是闹钟压根就没响，没有正常而规律的早起让我十分慌张，打了个车去公司，不好没迟到。生活不会告诉你该怎么办，只会推着你向前走。</p>
+<p>工作即是工作，能带来很少的成就感，说实话现在感到十分地迷茫，总感觉在等一个人，在等一件事，在等某一个时刻，仿佛只要这个时刻到来，自己就能华丽地蜕变。但是自己想要什么都不知道，又怎么能期望蜕变出来新的自己会是自己满意的呢?</p>
+<p>心理学说幸福感的获得有三个因素：</p>
+<blockquote>
+<p>满足归属需要，并与别处两种人类需要（自主感和能力感）保持平衡，通常就会带来深深的幸福感。</p>
+</blockquote>
+<p>看来现在三样每一样都不如人意，没有归属感：前段时间有个同学说要在杭州定居了，问我之后的打算，我很犹豫，在杭州确实没归属感，没有自己的房子，没有知心的朋友，没有能让自己内心不满与无助说出来的时刻。唯一能带来快感的恐怕只有篮球了；自主感就是自由吧，上班不自由就是最大的不自由；能力感上，虽然现在能胜任当前的工作，但是感觉现在进步的很慢，没有考研时候的那种积极向上的动力，只有盼着假期的心。</p>
+<blockquote>
+<p>投资未来的人是忠于现实的人</p>
+</blockquote>
+<p>自己也在想怎么投资未来，自己的未来是什么样子的，现在想想，自己现在确实没有能拿出手的能力，工作能力一般般，社交能力，情商一般般，智商一般般，口才一般般，奔三的人了，脸皮还如纸一样薄。至少现在已经开始思考未来，开始理财。。。</p>
+<p>其实人成长的过程也是在不断实现更大程度的自由，能力越强，可选择的路就越多，，反过来，有越多选项的人，能力也就越强，越能感到自由；就像自己从事技术工作的，能力覆盖的越广，未来越坦荡，只是现在自己的选项很少。</p>
+<p>可能是自己想的太多吧，或者是要求的太多，或者是自己不懂感恩，总觉得达不到预期。<br><font color=red>天下大事必作于细，天下难事必作于易。</font>时间总还是有的，时间对于每个人来说都是公平的，决定未来的就是现在。</p>
+<blockquote>
+<p>And not, when I have to die, discover that I had not lived!</p>
+</blockquote>
+<iframe height=498 width=510 src="./kong.jpg"></iframe>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2020/04/20200426/" data-id="ckesiog88000mv8u645bygk15" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">6</span></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python string(2)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%20string(2)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%20string(2)/">2019/PythonLearning/python string(2)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python-string（2）"><a href="#python-string（2）" class="headerlink" title="python string（2）"></a>python string（2）</h1><h2 id="单双引号是一样的，为了减少-的使用。"><a href="#单双引号是一样的，为了减少-的使用。" class="headerlink" title="单双引号是一样的，为了减少\的使用。"></a>单双引号是一样的，为了减少\的使用。</h2><p>可以构造类似 s = ‘a\nb\tc’这样的字符串，里面可以加入转义字符。<br><img src="./images/EscapeTable.jpg" alt=""></p>
 <ul>
-<li>A data structure to store the items handled by the layout. Each item is a QLayoutItem. We will use a QVector in this example.</li>
-<li>addItem(), how to add items to the layout.</li>
-<li>setGeometry(), how to perform the layout.</li>
-<li>sizeHint(), the preferred size of the layout.</li>
-<li>itemAt(), how to iterate over the layout.</li>
-<li>takeAt(), how to remove items from the layout.</li>
+<li>每一个字符串都是Unicode string。</li>
+<li>纯字符，前面加r或R：<blockquote>
+<p>myfile = open(r’C:\new\text.txt’, ‘w’)</p>
+</blockquote>
+</li>
+<li>三引号用来输入多行文本</li>
+<li>string切片，是左闭右开的，正负都是有界限的，越界将发生out of range错误</li>
+<li>s1=s2是浅拷贝，s1=s2[:]是深拷贝，这个特性对immutable 作用不大，但是多list这样mutable作用大。</li>
+<li>X[i:j:k]， “extract all the items in X, from offset i through j-1 by k.”，S[::-1]逆序输出</li>
 </ul>
-<p>网友的效果图：</p>
-<iframe height=498 width=510 src="./layout.gif"></iframe>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/" data-id="ckb9e869n0010rgu6ftz1htzv" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/" rel="tag">Qt</a><span class="article-tag-list-count">1</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/5月最后一天" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" class="article-date">
-  <time datetime="2020-05-31T12:13:33.000Z" itemprop="datePublished">2020-05-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/">5月最后一天</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>赶在5月的最后一天来一发日记。<br>不知不觉，这一年又快一半了，感觉自己的成长真的很慢，学习新的东西没灵性，自己的逻辑思维能力真的有限，比不了江涛他们。而且从长远来看，这种缓慢的成长又对自己很不利，只能说逆水行舟，不进则退。自己写的代码总是有问题很容易让人有自卑感，确实，让人感到累的不是繁重的工作，而是不快乐。<br>我又一次感到不快乐，感到孤独，千辛万苦等到周末，而周末又是这么无聊地度过，像是打球不开心的缘故，又是周五下班前发现的一个bug?</p>
-<p>找到对象并不能让我开心，年薪百万也不能让我开心，会一万种技能不能让我开心；唯一能使我开心的是良好的人际关系，稳定的几个朋友，但是我没有，不是我不想，而是自己吧自己关了起来，即使别人表示好意，自己也去拒绝，是在自我保护。保护自己不会再像之前一样受伤，保护防御力低，攻击力为0的自己。总是在判断别人的行为有没有攻击行为。<br>长大的过程中，很少有人在我最需要保护的时候出现。能想的起来的那些人都是我很感激的人，在大学失恋的时候晓明饭桌上让我哭了出来，那是我走出失恋泥潭的转折点，我不止一次的想表达自己的感谢，但就是没有机会开口。而家里的长辈们只能说擅长养孩子，跟养阿猫阿狗一样，从来也没进入我的心里，也很少能感到亲近，这或许是自己亲密关系缺失的一个重要原因。小时候偷家里钱，被发现钻到被窝哭红了眼，在家人审判声中丧失尊严的时候自己默默承受；在上学的时候受欺负的时候自己默默承受；在恋爱时自己吃着面啪嗒啪嗒往碗里掉眼泪的时候自己默默承受。当个好人太难了，这让我成了一个记仇的人，没有发泄出去的怨念让我成为一个记仇的人，我记得践踏我尊严的那个场景，我记得受同学欺负时候老师没有站在我这边的时候的样子，我记得当住在自己心里的人狠狠地捅了自己一下的那种感觉。这是一个下行循环，而我却一直在这个循环里转悠。让我最受伤的是亲密关系，让自己最开心的也是亲密关系。<br>Still pretending .Pretending to be a good son; Pretending to be a good friend; Pretending to be a good employee.</p>
-<p>我只是感到很孤独。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" data-id="ckb9e869a0006rgu657wraihc" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">3</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/ApproachingLove" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/17/2020/05/ApproachingLove/" class="article-date">
-  <time datetime="2020-05-17T14:05:51.000Z" itemprop="datePublished">2020-05-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/17/2020/05/ApproachingLove/">ApproachingLove</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>应该说是一个比较满意的周末了。</p>
-<p>周六和武大的学长们打球，其实主要是和王亚东学长和邰总一起玩，场子比较小，打球还花钱，打球还生猛，和在小区打各有各的好。在西湖里打都是校友，还有人照应，体验比较好；在小区打什么人都有。总的来说体验不错，但是在人情事故上，呵呵，比较懒惰。</p>
-<p>然后晚上和浙大的女博士一起吃了个饭，算是约会，或者是相亲？？有一种初恋时的感觉，总想说话，就说了好多话，其实对对方了解的不是很多，不懂她的喜怒哀乐，总是笑的很甜，感觉有点不真实，她会对什么事情喜欢或者讨厌？确实需要时间来互相了解。到底未来的那个人会是谁，又在哪里？Keep Looking…</p>
-<p>周日上午弹了弹琴，下午睡了会，然后上钢琴课。感觉钢琴老师对我态度有一点点改变，不太会要求的很多，也不会弄得我很不愉快，可能是因为我也在为别人着想吧。同是在杭州打拼的外地人，她可能一周也就休息一天吧，也挺辛苦，希望可以成为朋友。<br>    报班学钢琴带来很重要的东西就是有持续去学钢琴的动，自学是万万不行的。</p>
-<p>晚上看了个电影《红高粱》，那是那个时候的爱情。是的现在的后浪们不会创作一些很悲观的作品了，但是感到有一点轻浮。可能爱情没有想象中的那么难，只要肯去付出，总会有回报的。</p>
-<p>怎么知道她是不是可以厮守一生的人？难呀！<br><img src="./honggaoliang.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/17/2020/05/ApproachingLove/" data-id="ckb9e869c0009rgu64yom5cp6" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/love/" rel="tag">love</a><span class="article-tag-list-count">1</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/PS学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-05-13T13:53:10.000Z" itemprop="datePublished">2020-05-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/">PS学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>之前看视频记的一些笔记</p>
-<p>11.25<br>空格 抓手工具<br>双击放大镜，返回原本尺寸，Ctrl + - 缩放</p>
-<p>11.26<br>使用移动工具，能在两个照片之间移动，按住alt键快速移动<br>标尺工具（ctrl + r）和信息F8配合使用，可以量角度<br>裁剪工具，C，透视裁剪，按比例裁剪</p>
-<p>11.27<br>挪不过来的时候，索引模式改为RGB模式<br>图像合并<br>Ctrl+ T 进入自由变换，transform（选择-&gt;变换选区）<br>选完区后用移动工具，按住Alt键是复制，Ctrl + D取消选区<br>Ctrl + E 合并图层</p>
-<p>11.28<br>选区加减，按住shift 或Alt<br>Ctrl+H 隐藏所有参考线，Ctrl+ r显示隐藏标尺ruler<br>套索工具，delete取消上一个，esc完全取消<br>魔棒工具 容差</p>
-<p>12.1<br>Ctrl shift I选区反选<br>选区描边</p>
-<p>12.3<br>色彩范围 选择一定颜色范围的颜色，改变颜色<br>Ctrl + U 打开hsi模式<br>填充前景色背景色，alt ，shift+ delete<br>后退一步ctrl z,后退多部Ctrl alt z<br>放大缩小不失真，设置为智能对象<br>变形，先选择Ctrl T<br>图层 模式 正片叠底 印到上面去了<br>Ctrl shift alt T 再次做同样的操作，很酷炫</p>
-<p>12.9<br>选区，选区的扩大缩小，再选择里，，使用魔术棒的容差<br>存储选区，载入选区<br>蒙版，不破坏原始素材本身，就是一个mask，白色的显示，黑色的隐藏</p>
-<p>12.11<br>定义图案，什么都可以当成图案，蚂蚁上树，pat文件， 地板砖，画生字格 </p>
-<p>12.12<br>渐变工具，做彩虹，，做水晶球，做手环，做月光下的圆明园等</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/" data-id="ckb9e869f000frgu67uib5hkq" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="article-tag-list-count">4</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/矩阵变换" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/11/2020/05/%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/" class="article-date">
-  <time datetime="2020-05-11T13:00:43.000Z" itemprop="datePublished">2020-05-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%B8%B8%E6%88%8F/">游戏</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/11/2020/05/%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/">矩阵变换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>如果x,y,z缩放值有一个是零的话，得到一个transform矩阵;<br>然后再用dx的分解函数进行分解的话，得到的旋转会有问题；</p>
-<p>最好赋值给一个分量，然后重新构造矩阵。</p>
-<hr>
-<p>今天另外几个屋子又来了新室友，而且我认识，是在一直打过球的，很开心，犹豫要不要换房子。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/11/2020/05/%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/" data-id="ckb9e869l000urgu63x08crmz" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/Qt事件传递" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/10/2020/05/Qt%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92/" class="article-date">
-  <time datetime="2020-05-10T02:35:32.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/2020/05/Qt%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92/">关于qt事件的学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h2 id="使用widget本身的事件"><a href="#使用widget本身的事件" class="headerlink" title="使用widget本身的事件"></a>使用widget本身的事件</h2><ol>
-<li><p>actionEvent(QActionEvent *event)</p>
-<p> 每当添加删除action的时候触发，关于Action:</p>
+<h2 id="一些字符串函数"><a href="#一些字符串函数" class="headerlink" title="一些字符串函数"></a>一些字符串函数</h2><ul>
+<li>count(sub[, start[, end]])，获取sub的个数</li>
+<li>find(sub[, start[, end]])</li>
+<li>replace(    old, new[, count]) 替换</li>
+<li>partition(    sep)返回一个三元组</li>
+<li>join(    seq) Return a string which is the concatenation of the strings in the sequence seq  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	&gt;&gt;&gt; seq &#x3D; [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]</span><br><span class="line">	&gt;&gt;&gt; print &#39;&#39;.join(seq)</span><br><span class="line">	abcd</span><br><span class="line">	&gt;&gt;&gt; print &#39;-&#39;.join(seq)</span><br><span class="line">	a-b-c-d</span><br><span class="line">	&#96;&#96;&#96;	</span><br><span class="line">* split([sep [,maxsplit]])</span><br><span class="line">	比较简单的分割：</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>In applications many common commands can be invoked via menus, toolbar buttons, and keyboard shortcuts. Since the user expects each command to be performed in the same way, regardless of the user interface used, it is useful to represent each command as an action.</p>
-</blockquote>
-</li>
-<li><p>changeEvent(QEvent *event)</p>
-<p> widget change的时候触发，包括以下change:</p>
 <blockquote>
-<p>Change events include: QEvent::ToolBarChange, QEvent::ActivationChange, QEvent::EnabledChange, QEvent::FontChange, QEvent::StyleChange, QEvent::PaletteChange, QEvent::WindowTitleChange, QEvent::IconTextChange, QEvent::ModifiedChange, QEvent::MouseTrackingChange, QEvent::ParentChange, QEvent::WindowStateChange, QEvent::LanguageChange, QEvent::LocaleChange, QEvent::LayoutDirectionChange, QEvent::ReadOnlyChange  </p>
-</blockquote>
-</li>
-<li><p>closeEvent(QCloseEvent *event)</p>
-</li>
-<li><p>contextMenuEvent(QContextMenuEvent *event)</p>
-<p> 右键菜单又叫context menu,上下文菜单</p>
-</li>
-<li><p>dragEnterEvent(QDragEnterEvent *event)</p>
-</li>
-<li><p>dragLeaveEvent(QDragLeaveEvent *event)</p>
-</li>
-<li><p>dragMoveEvent(QDragMoveEvent *event)</p>
-<p> 当有一个drag 在in progress的时候才会触发</p>
-</li>
-<li><p>dropEvent(QDropEvent *event)</p>
-</li>
-<li><p>enterEvent(QEvent *event)</p>
-</li>
-<li><p>leaveEvent(QEvent* event)</p>
-<p>鼠标cursor 进入触发</p>
-</li>
-<li><p>focusInEvent(QFocusEvent *event)</p>
-</li>
-<li><p>focusOutEvent(QFocusEvent *event)</p>
-</li>
-<li><p>hideEvent(QHideEvent *event)</p>
-</li>
-<li><p>showEvent(QHideEvent *event)</p>
-</li>
-<li><p>keyPressEvent(QKeyEvent *event)</p>
-</li>
-<li><p>keyReleaseEvent(QKeyEvent *event)</p>
-</li>
-<li><p>mouseDoubleClickEvent(QMouseEvent *event)<br>mouseMoveEvent(QMouseEvent *event)<br>mousePressEvent(QMouseEvent *event)<br>mouseReleaseEvent(QMouseEvent *event)</p>
-</li>
-<li><p>inputMethodEvent(QInputMethodEvent *event)<br>输入文字到widget中所处理的</p>
-</li>
-<li><p>moveEvent(QMoveEvent *event)<br>widget被移动的事件</p>
-</li>
-<li><p>nativeEvent(const QByteArray &amp;eventType, void *message, long *result)<br>可以捕获windows原生MSG</p>
-</li>
-<li><p>paintEvent(QPaintEvent *event)</p>
-</li>
-<li><p>resizeEvent(QResizeEvent *event)</p>
-</li>
-<li><p>showEvent(QShowEvent *event)</p>
-</li>
-<li><p>tabletEvent(QTabletEvent *event)<br>好像是触控用的</p>
-</li>
-<li><p>wheelEvent(QWheelEvent *event)</p>
-</li>
-</ol>
-<h2 id="使用event事件"><a href="#使用event事件" class="headerlink" title="使用event事件"></a>使用event事件</h2><p>event(QEvent *event)<br>接收所有事件的函数</p>
-<h2 id="Install-Event-Filter"><a href="#Install-Event-Filter" class="headerlink" title="Install Event Filter"></a>Install Event Filter</h2><p>设置一个QObject的实例去监测另外一个QObject实例的事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CustomerInfoDialog::CustomerInfoDialog(QWidget *parent) :QDialog(parent)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">    firstNameEdit-&gt;installEventFilter(this);</span><br><span class="line">    lastNameEdit-&gt;installEventFilter(this);</span><br><span class="line">    cityEdit-&gt;installEventFilter(this);</span><br><span class="line">    phoneNumberEdit-&gt;installEventFilter(this);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">bool CustomerInfoDialog::eventFilter(QObject *target, QEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (target &#x3D;&#x3D; firstnameEdit || target &#x3D;&#x3D; lastNameEdit</span><br><span class="line">    || target &#x3D;&#x3D; cityEdit || target &#x3D;&#x3D; phoneNumberEdit)</span><br><span class="line">    &#123;</span><br><span class="line">        if(event-&gt;type() &#x3D;&#x3D; QEvent::KeyPress)</span><br><span class="line">        &#123;</span><br><span class="line">            QKeyEvent *keyEvent &#x3D; static_cast&lt;QKeyEvent*&gt;(event);</span><br><span class="line">            if (keyEvent-&gt;key() &#x3D;&#x3D; Qt::Key_Space)</span><br><span class="line">            &#123;</span><br><span class="line">            focusNextChild();</span><br><span class="line">            return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return QDialog::eventFilter(target, event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="在-QApplication-上安装事件过滤器。"><a href="#在-QApplication-上安装事件过滤器。" class="headerlink" title="在 QApplication 上安装事件过滤器。"></a>在 QApplication 上安装事件过滤器。</h2><p>获取应用的所有事件</p>
-<h2 id="重写notity方法"><a href="#重写notity方法" class="headerlink" title="重写notity方法"></a>重写notity方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class myApplication :public QApplication &#x2F;&#x2F;此处需继承QApplication</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    myApplication(int argc, char *argv[]);</span><br><span class="line">protected:</span><br><span class="line">    virtual bool notify(QObject *obj, QEvent *event); &#x2F;&#x2F;对该类重写notify事件</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/10/2020/05/Qt%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92/" data-id="ckb9e869g000grgu69mu9bkzn" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="article-tag-list-count">4</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/五四青年节" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/04/2020/05/%E4%BA%94%E5%9B%9B%E9%9D%92%E5%B9%B4%E8%8A%82/" class="article-date">
-  <time datetime="2020-05-04T13:45:38.000Z" itemprop="datePublished">2020-05-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/04/2020/05/%E4%BA%94%E5%9B%9B%E9%9D%92%E5%B9%B4%E8%8A%82/">五四青年节</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>早上弹了很长时间的钢琴，发现弹钢琴是个很好的打发时间的方式，弹钢琴的时候时间过的很快。</p>
-<p>下午打了很爽的篮球，篮球还是自己最喜欢的兴趣爱好，今天应该算是很好的篮球状态了，自己有投篮，和队友有配合，这大概是打篮球最好的状态了。</p>
-<p>有点小不爽的是撞到了一个小孩，还把他撞到鼻子流血、嘴唇流血，我们已经跟他们家人说过他在可能受伤，但是大人还是让小孩在旁边玩，小孩是有很大可能受伤的。</p>
-<p>我过去道歉，最后大人也没说什么，只是一起打球的一个人对我有意见，估计这个人是这个小孩的什么亲戚吧，咨询了警察兄弟，儿童是重点关注对象，两个人都是有责任的，最多赔点钱，也没啥大问题，这个家人应该长记性了。</p>
-<p>五一假期做了很多事情，虽然没出去玩，因为没人一起，，但是自己确实学了很多，把自己的博客美化了下；学了obs录视频，做直播…</p>
-<hr>
-<p>今天是五四青年节，1919年的今天，许多人献出了鲜血，中国忘不了这段耻辱的历史，假如自己生活在那个时代，是否有勇气为国奉献？今天这个时代没有销烟，没有不平等条约，但是为自己脚下这片热土，为自己期望生存的环境而战的五四精神不能忘，愿自己心中有火，眼里有光。</p>
-<p>B站的后浪刷爆了朋友圈，我们这一代不同上一代，有多种选择，有太多生活方式，无论如何都是不可能饿死的，路有很多条，每条路有很多走法，属于我们青年的时代。</p>
-<video width="960" height="800" controls>
-    <source src="./五四.mp4" type="video/mp4">
-</video>
-
-<hr>
-<video width="960" height="800" controls>
-    <source src="./后浪.mp4" type="video/mp4">
-</video>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/04/2020/05/%E4%BA%94%E5%9B%9B%E9%9D%92%E5%B9%B4%E8%8A%82/" data-id="ckb9e869h000krgu68ev1fxwl" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">3</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/使用obs直播、录视频" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/03/2020/05/%E4%BD%BF%E7%94%A8obs%E7%9B%B4%E6%92%AD%E3%80%81%E5%BD%95%E8%A7%86%E9%A2%91/" class="article-date">
-  <time datetime="2020-05-03T07:23:32.000Z" itemprop="datePublished">2020-05-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%9D%82%E9%A1%B9/">杂项</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/2020/05/%E4%BD%BF%E7%94%A8obs%E7%9B%B4%E6%92%AD%E3%80%81%E5%BD%95%E8%A7%86%E9%A2%91/">使用obs直播、录视频</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>首先obs-studio是个开源的视频处理软件，<a href="https://github.com/obsproject/obs-studio" target="_blank" rel="noopener">github地址</a>;</p>
 <blockquote>
-<p>OBS Studio is software designed for capturing, compositing, encoding, recording, and streaming video content, efficiently.</p>
+<p>‘1, 2, 3’.split(‘, ‘)<br>  [‘1’, ‘2’, ‘3’]</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个分隔符的时候用re模块</span><br></pre></td></tr></table></figure>
+<p>  import re</p>
 </blockquote>
-<p>关于obs源码的学习参考<a href="https://blog.csdn.net/qq_35970739/article/details/80497437" target="_blank" rel="noopener">这里</a>.</p>
-<h2 id="OBS使用手机摄像头"><a href="#OBS使用手机摄像头" class="headerlink" title="OBS使用手机摄像头"></a>OBS使用手机摄像头</h2><p>使用的软件是NDI，电脑上要为obs添加ndi插件<a href="https://github.com/Palakis/obs-ndi/releases/tag/4.6.2" target="_blank" rel="noopener">(github地址)</a>， 手机需要下载<a href="http://dingcaster.topvv.cn/downloads/" target="_blank" rel="noopener">ndi</a>，位于同一局域网下。</p>
-<p>然后在obs的source那里添加一个NDI来源；添加一个audio输入就可以了。</p>
-<p>可以选择录制、推流。</p>
-<p>效果：</p>
-<p><img src="./obs.png" alt=""></p>
+</blockquote>
+</blockquote>
+<h1 id="split-with-semicolon-comma-space"><a href="#split-with-semicolon-comma-space" class="headerlink" title="split with semicolon, comma, space"></a>split with semicolon, comma, space</h1><blockquote>
+<blockquote>
+<blockquote>
+<p>str = ‘Life; a walking, shadow’<br>str1 = re.split(‘;|,| ‘, str)<br>str1<br>  [‘Life’, ‘’, ‘a’, ‘walking’, ‘’, ‘shadow’]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="split-with-semicolon-space-comma-space-space"><a href="#split-with-semicolon-space-comma-space-space" class="headerlink" title="split with semicolon+space, comma+space, space"></a>split with semicolon+space, comma+space, space</h1><blockquote>
+<blockquote>
+<blockquote>
+<p>str2 = re.split(‘; |, | ‘,str)<br>str2<br>  [‘Life’, ‘a’, ‘walking’, ‘shadow’]</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">* 其他一些判断类型的函数，isalnum(),isalpha(),isdigit(),islower(),istitle()···</span><br><span class="line">	</span><br><span class="line">## 所有字符串函数：</span><br><span class="line">&gt; [&#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;</span><br><span class="line">expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isd</span><br><span class="line">ecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;issp</span><br><span class="line">ace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;pa</span><br><span class="line">rtition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip</span><br><span class="line">&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate</span><br><span class="line">&#39;, &#39;upper&#39;, &#39;zfill&#39;]	</span><br><span class="line">## 全局函数都在这里 dir(__builtins__)</span><br><span class="line">&gt; </span><br><span class="line">&gt;&gt;&gt; dir(__builtins__)</span><br><span class="line">[&#39;ArithmeticError&#39;, &#39;AssertionError&#39;, &#39;AttributeError&#39;, &#39;BaseException&#39;, &#39;Blocki</span><br><span class="line">ngIOError&#39;, &#39;BrokenPipeError&#39;, &#39;BufferError&#39;, &#39;BytesWarning&#39;, &#39;ChildProcessError</span><br><span class="line">&#39;, &#39;ConnectionAbortedError&#39;, &#39;ConnectionError&#39;, &#39;ConnectionRefusedError&#39;, &#39;Conne</span><br><span class="line">ctionResetError&#39;, &#39;DeprecationWarning&#39;, &#39;EOFError&#39;, &#39;Ellipsis&#39;, &#39;EnvironmentErro</span><br><span class="line">r&#39;, &#39;Exception&#39;, &#39;False&#39;, &#39;FileExistsError&#39;, &#39;FileNotFoundError&#39;, &#39;FloatingPoint</span><br><span class="line">Error&#39;, &#39;FutureWarning&#39;, &#39;GeneratorExit&#39;, &#39;IOError&#39;, &#39;ImportError&#39;, &#39;ImportWarni</span><br><span class="line">ng&#39;, &#39;IndentationError&#39;, &#39;IndexError&#39;, &#39;InterruptedError&#39;, &#39;IsADirectoryError&#39;,</span><br><span class="line">&#39;KeyError&#39;, &#39;KeyboardInterrupt&#39;, &#39;LookupError&#39;, &#39;MemoryError&#39;, &#39;NameError&#39;, &#39;Non</span><br><span class="line">e&#39;, &#39;NotADirectoryError&#39;, &#39;NotImplemented&#39;, &#39;NotImplementedError&#39;, &#39;OSError&#39;, &#39;O</span><br><span class="line">verflowError&#39;, &#39;PendingDeprecationWarning&#39;, &#39;PermissionError&#39;, &#39;ProcessLookupErr</span><br><span class="line">or&#39;, &#39;RecursionError&#39;, &#39;ReferenceError&#39;, &#39;ResourceWarning&#39;, &#39;RuntimeError&#39;, &#39;Run</span><br><span class="line">timeWarning&#39;, &#39;StopAsyncIteration&#39;, &#39;StopIteration&#39;, &#39;SyntaxError&#39;, &#39;SyntaxWarni</span><br><span class="line">ng&#39;, &#39;SystemError&#39;, &#39;SystemExit&#39;, &#39;TabError&#39;, &#39;TimeoutError&#39;, &#39;True&#39;, &#39;TypeError</span><br><span class="line">&#39;, &#39;UnboundLocalError&#39;, &#39;UnicodeDecodeError&#39;, &#39;UnicodeEncodeError&#39;, &#39;UnicodeErro</span><br><span class="line">r&#39;, &#39;UnicodeTranslateError&#39;, &#39;UnicodeWarning&#39;, &#39;UserWarning&#39;, &#39;ValueError&#39;, &#39;War</span><br><span class="line">ning&#39;, &#39;WindowsError&#39;, &#39;ZeroDivisionError&#39;, &#39;_&#39;, &#39;__build_class__&#39;, &#39;__debug__&#39;,</span><br><span class="line"> &#39;__doc__&#39;, &#39;__import__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;</span><br><span class="line">abs&#39;, &#39;all&#39;, &#39;any&#39;, &#39;ascii&#39;, &#39;bin&#39;, &#39;bool&#39;, &#39;bytearray&#39;, &#39;bytes&#39;, &#39;callable&#39;, &#39;c</span><br><span class="line">hr&#39;, &#39;classmethod&#39;, &#39;compile&#39;, &#39;complex&#39;, &#39;copyright&#39;, &#39;credits&#39;, &#39;delattr&#39;, &#39;di</span><br><span class="line">ct&#39;, &#39;dir&#39;, &#39;divmod&#39;, &#39;enumerate&#39;, &#39;eval&#39;, &#39;exec&#39;, &#39;exit&#39;, &#39;filter&#39;, &#39;float&#39;, &#39;f</span><br><span class="line">ormat&#39;, &#39;frozenset&#39;, &#39;getattr&#39;, &#39;globals&#39;, &#39;hasattr&#39;, &#39;hash&#39;, &#39;help&#39;, &#39;hex&#39;, &#39;id</span><br><span class="line">&#39;, &#39;input&#39;, &#39;int&#39;, &#39;isinstance&#39;, &#39;issubclass&#39;, &#39;iter&#39;, &#39;len&#39;, &#39;license&#39;, &#39;list&#39;,</span><br><span class="line"> &#39;locals&#39;, &#39;map&#39;, &#39;max&#39;, &#39;memoryview&#39;, &#39;min&#39;, &#39;next&#39;, &#39;object&#39;, &#39;oct&#39;, &#39;open&#39;, &#39;</span><br><span class="line">ord&#39;, &#39;pow&#39;, &#39;print&#39;, &#39;property&#39;, &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;,</span><br><span class="line">&#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;, &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tup</span><br><span class="line">le&#39;, &#39;type&#39;, &#39;vars&#39;, &#39;zip&#39;]</span><br><span class="line">## 格式化字符串</span><br><span class="line">string formatting expressions: this is based on the C type printf.</span><br><span class="line">string formatting method calls: this is newer and added since Python 2.6.</span><br></pre></td></tr></table></figure>
+<p>‘I am using %s %d.%d’ %(‘Python’, 3, 2)<br>  ‘I am using Python 3.2’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>
+
+</code></pre></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/03/2020/05/%E4%BD%BF%E7%94%A8obs%E7%9B%B4%E6%92%AD%E3%80%81%E5%BD%95%E8%A7%86%E9%A2%91/" data-id="ckb9e869i000lrgu61yvo5nbb" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20string(2)/" data-id="ckesiog800007v8u6867masw1" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/growup/" rel="tag">growup</a><span class="article-tag-list-count">2</span></li></ul>
-
     </footer>
   </div>
   
@@ -664,16 +440,12 @@
 
 
   
-    <article id="post-2020/05/俞敏洪东南大学演讲：人生的几个关键词" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2019/PythonLearning/python(7)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/" class="article-date">
-  <time datetime="2020-05-02T08:45:30.000Z" itemprop="datePublished">2020-05-02</time>
+    <a href="/2020/09/07/2019/PythonLearning/python(7)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/">成长之路</a>►<a class="article-category-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/">名人演讲</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -682,7 +454,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/">俞敏洪东南大学演讲：人生的几个关键词</a>
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python(7)/">2019/PythonLearning/python(7)</a>
     </h1>
   
 
@@ -692,16 +464,221 @@
       
         <!-- Table of Contents -->
         
-        <p>亲爱的东南大学的朋友们，大家下午好！<br>　　<br>　　今天来到这个会场特别亲切，去年的4月21日，我也在这个会场给大家做过一场演讲，不知道去年有多少同学在这里听过的，有一些，非常好，老朋友了，非常开心，我对东南大学有着比较亲近的感觉。<br>　　<br>　　年轻人要学会读书、交友和独立行走<br>　　<br>　　刚才傅书记讲了很多超级企业家，我不像他讲得那样完美，也不像他讲得那么崇高，我也是一个世俗的人。第一，我看到美女依然非常心动，但是我很开心自己还能这样，表明我的青春依然存在。<br>　　<br>　　第二个证明我世俗的是，阿里巴巴上市的时候我非常郁闷，因为阿里巴巴一上市就值两千亿美金，而我做新东方20年才做到50亿美金，对马云的财富感到眼红。但这也表明了人的潜力是无穷的，人创造财富的能力和为社会做贡献的能力是无穷的。恰恰就是这样的事情让你会有未来，为什么？连马云长成这样都能创造财富，你呢？所以同学们你会感觉到充满希望，是不是？凭什么都是他的呢？为什么不能分点呢？<br>　　<br>　　还有刚才傅书记提到我读书。其实我读得也不多，但有很好的看书习惯，同学们肯定没有我忙，我从今年1月1日到现在，总共不到3个月的时间，我一共读了接近60多本书，都是真正给人带来思考的书籍。我读的都是历史书、哲学书、还有现代商业潮流和未来世界发展方向的书。我已经做了三万多字的读书笔记。所以说，人生是要学习的。<br>　　<br>　　有人问我，俞老师，你为什么还要读书呢？因为确实只有书中的思想才能够引导你走向未来。大家都知道人是一个受思想指引的动物，你的思想走到哪里就会走到哪里。我的另外一个朋友，北京大学的教授张维迎出了一本书叫《理念的力量》，大家也去看一看，讲的是社会的发展、商业的发展，思想的发展，创新的发展，以及一个人的发展，都是人的理念改变的结果。当你的理念指向哪里的时候你就会走向哪里。如果你的理念觉得你是一个自卑的人，你就是一个自卑的人。理念要从内心中深深地相信才行，你要是表面相信，实际不相信，就会形成性格分裂。<br>　　<br>　　做一件事情是有标准的，如果说你做这件事情就是为了获奖，比如说救人的王汝华，他如果刚才在上台来讲的时候，假如他说我当时想的是要为人民服务，想起了雷锋的先进事迹，那就太假了。但是他刚才说了，没有那么想，就是想要把人救起来，不把他救起来不行，那是一个人的真实想法，这样就很贴近人性。<br>　　<br>　　大家别看马云，他是真实地相信他长得特别英俊。有一次我跟他在一起聊天，李彦宏坐在旁边，我说你比李彦宏长得有特点，他说哪有啊，我比李彦宏帅啊。<br>　　<br>　　我是真实地相信，当你的理念改变了，你的思想改变了，你就能改变你的生活。因为只有思想创造现实，人是靠这样的思想创造现实，通过现实倒过来再丰富人类的思想。所以，你一定要通过各种各样的办法让自己的理念变得先进。<br>　　<br>　　那么，理念如何来呢？<strong>理念从三个地方来，第一，大量地读书</strong>，要读各种各样的书，海内外的，英文不会，就看中文的，现在所有的优秀英文书籍一经出版，一个月之内都会有中文版面世。<br>　　<br>　　同学们需要大量地读书，海内外的书都要读。什么书都拿来读，这样多种思想冲击碰撞以后，你才会通过自己的独立思考形成自己的世界观、人生观、价值观，你就能成为世界上优秀思想的集大成者。同学们，你们一年读50本书应该不多吧。我在北大的时候一年读200本书，我读书的速度还是比较快。你们就读50本书，因为你们现在有很多好玩的事情，比如谈恋爱什么的，但也不能忘了读书。<br>　　<br>　　<strong>第二就是与人交往</strong>，这个特别重要。在今天我之所以发现我还有一些思想，就是因为我周围有一批有思想的朋友。如果我有一段时间不跟人打交道了，我就会变得很难受，所以，我一个月中就会组一两次局，以吃喝玩乐为诱惑把他们招过来，和他们边吃边聊，就能从他们身上学多东西。<br>　　<br>　　我发现我的成长过程是朋友圈不断变化的过程。我在进北大以前，我的朋友都是农村小孩。进了北大以后，我的朋友都变成了北大的同学，那层次就高了一些。毕业以后留在北大教书，我的朋友就变成了北大的老师，北大有很多年纪大的，有智慧的老师，我当时作为一个小老师，和他们接触的机会也会有很多。<br>　　<br>　　后来我离开北大做了新东方，有一段时间我特别孤单，为什么呢？我做新东方以后，周围都是老师，这些老师很多都是我招聘过来的，这些老师都比我年轻好几岁，所以他们是从我身上吸取营养，我有种被他们吸干了的感觉，而我从他们那边吸取得比较少，这个是很危险的。过了几年我觉得不行，我身边必须有一批人在某些领域、某些方面比我水平高，思想、学术、教研、发展，必须比我强。我就跑到美国把我的同学招回来。王强、徐小平就回来了，他们在国外深造过，水平就比我高很多。我把他们招回来，就可以在他们身上学东西，总是有人比你水平高，这样你才能成长。一个人身上有智慧的时候你要多交流。你身边大量的人对你来说是有用的，关键是你怎么用他们，大量的人是可以交往的，关键在于你怎么和他们交往。<br>　　<br>　　<strong>第三是要行走。</strong>走向社会是一步，全球旅行也是一步，出国留学更好。只有这样你才能知道世界和中国怎么融合。我从来没有到国外留过学，但我每年世界各地至少要走三到四个国家，目的是看世界，我走到这个国家一定要参观他们的博物馆，一定要到老百姓的生活区去吃饭，和当地老百姓聊天，一定会到这个国家的大企业去参观访问。我和企业家俱乐部的企业家们每年都有机会去几个国家访问，有的甚至能拜访到总统、总理和商务大臣，和这个国家的前十名企业家聊天，吃饭，这都能潜移默化学到东西。<br>　　<br>　　生活是自己创造出来的，未来是自己追求出来的，和别人没有太多的关系，和这个国家本身什么状况也没有关系。我常常听到同学们说，俞老师，我们现在没有你们过去时候的机会了，现在已经不是平民创业时代，现在到处是官二代富二代，我们现在已经没有机会了。不用着急，在习近平主席领导下，贪官一个个会被打下去，原来官二代的机会不就都留给你了么，明白我的意思吗？<br>　　<br>　　但是，其实没有一个国家是绝对的机会均等的，没有一个国家是会把机会倾斜到每一个人身上去的，所以最重要的还是自己去争取机会，自己去努力。我们当初创业真是一分钱没有，我在1993年开始做新东方的时候，中国的《公司法》还没有出来，谁会给你钱呢。我为了开第一个班花了60块钱买了十盒磁带，我回到家以后，我老婆跟我吵了一个晚上，她根本就不支持我创业，60块钱是一个月的生活费，如果做起不来60块钱就白扔了。<br>　　<br>　　我去年成立一个创业基金，叫做“洪泰基金”，是和我的朋友盛希泰联合创立的。如果你们真的有创业的想法，我们的钱就到你身边了。现在你们创业的背后已经有人支持了，我们第一代创业家已经富起来了，我们做的事情是干什么？我们成立天使基金支持年轻孩子创业，我的终身目标就是与年轻人为伍。像自强之星奖学金每年要好几百万块钱，现在新东方出资，万一新东方倒闭了呢，也许我所支持和投资的你们创始的新西方会起来，自强之星活动就可以由你们传承下去了。<br>　　<br>　　你要说现在上大学，当初也比我们要好上很多，现在已经40%的中学生都可以成为大学生了。现在出国也不难了，光新东方辅导的学生今年拿到的国外全额奖学金就接近2亿人民币，难道没有你一份吗？只要你在哪个专业出色，那个奖学金就会是你的。有人说我是农民家庭出身，我本科不去，我研究生去可以吧。作为农民子弟去不了吗？还是去得了。关键是你想不想去。<br>　　<br>　　<strong>我们人生成长就是三个要素：要读书，要交友，交往能让人成长的朋友，自己要学会行走。</strong>我一直用这三个标准在要求自己。非常庆幸的是，我到今天为止还不算太落后，我要落后了，新东方早就倒闭了，新东方与移动互联网结合起来，新东方将会成为一个非常优秀的、拥有全世界优秀教育资源的企业。这是我的目标。<br>　　<br>　　<strong>你要不断地定你的目标，这样你就会感觉到很兴奋。</strong><br>　　<br>　　在我们的人生道路上，几个关键词大家可以把握一下，<strong>第一个就是梦想</strong>，人不能没有梦想和理想。<br>人有时候会有非常清晰的梦想，也有时候有不清晰的梦想，但是一定要有梦想在你的前面，引领你往前走。所以人生要给自己定高度，高度定完了以后，你会发现自己不知不觉的往上爬。习近平主席在陕北的延川县梁家河大队插队的时候读了很多书，为了借一本书走30多公里。他当时还只是在基建队劳动，但是他的理想就是要在中国成长，为中国做贡献。他当然没有预料到自己会成为国家主席，成为党的总书记，但是今天他在这个岗位恰恰是因为他当时坚决要在中国农村领导一个县往前进。你学了知识，学以致用，你得用对地方上。我的理想不是那么高远，我的理想是阶段性的，我的第一个理想是从农村考上大学，第二个理想是变成一个好老师，结果我就当了一个老师。再一个就是希望有钱，想办法赚钱，不能抢，不能偷，所以我就到处教书，没想到教书后就有另外一个想法，我可以办个培训班。我的第四个理想是出国，到美国去读书，但没有任何学校给我奖学金，所以我就没有钱出去，所以还是缺钱。我把第四个理想放一放，所以就有了新东方。我这辈子一开始并没有想到我要带一个培训班，在北大的时候我希望变成季羡林这样的人物，后来觉得我根本不可能变成这样的人物，但是我还是要有理想。大家知道我们这一代人的理想很单纯。<br>　　<br>　　做了新东方以后我发现挺有意义的，有意义不是带来钱了，而是发现无意中在帮助无数的人，好多人后来都去了哈佛、耶鲁、斯坦福，所以我就一直做下去，我没有想要做成上市公司，但这个路一直往前走，它是自然形成的。做上市公司现在也不是我的目的，但是把新东方做好一直是我的目的，我发现后者的意义太大了。<br>　　<br>　　每年有三百万学生在新东方学习，这意味着新东方的教学某种意义上影响了他们，一方面我觉得是正面影响了他们，因为孩子在成长，多好啊。有时候我们还可以做点别的事情，比如可以团中央一起做“自强之星”，传递正能量。新东方每年都在山区建小学，就会在当地成为一个特别典型的小学，把新东方老师派过去支教，那些学生就特别开心，你就会觉得做着有意义的事情是非常高兴。再简单地说，新东方现在拥有35000个员工，至少为国家解决了35000个就业岗位。<br>　　<br>　　关注我新闻的人知道，去年的时候我接手了一家民办大学叫耿丹学院，我想用20年的时间，把它打造成在中国最优秀的，可以和中国一流大学媲美的大学。我刚接手一年，就开始拼命鼓励学生读书，一开始他们不知道怎么读书，我就给他们买书，带着他们一起读。<br>　　<br>　　2014年，我想成立一个基金支持年轻人创业，结果一召唤，我们就聚集了4亿人民币，平均天使投资是100万到200万，一个投资项目，如果100万一个项目，一千万就是10个，一个亿就是100个，4个亿我可以支持400个创业项目，这中间一定会有人做成马云、马化腾、李彦宏，那我就是未来企业家之父啊。做400个，估计有50个还是可以做成功的。<br>　　<br>　　你们年轻人本身就代表了进步和发展，但是我们代表什么？我们代表资源，我们可以变成你们的垫脚石，我们有的人脉、资本你没有，我把我们有的东西给你，你去做贡献。<br>　　<br>　　<strong>第二个关键词是成就感。</strong>幸福最核心的词是来自于你的成就感，幸福无他，就是成就感。你知道，任何东西其实背后都是有成就感和对自我的认可。这个认可包括你背一首诗有成就感，你搞科研发明也有成就感，你谈恋爱成功了有成就感，你考上公务员也会有成就感，为什么？这就表明你的能力在发挥。能力有高有低，但是你不去发挥自己的能力，不去锻炼自己的能力，你永远不知道自己有能力。<br>　　<br>　　我现在的能力，是20年来的成长。每天都在成长，就会让自己的梦想飞得越来越高。在20年前我是不敢想象我能够去办一所民办大学，我现在敢想，是因为之前这二十年我在奠定基础。<br>　　<br>　　<strong>第三个关键词是自信。</strong>刚才傅书记也提到了要有修炼，人的修炼主要在于两个方面。第一个你要把自己修炼得雷打不动，水泼不进。你不能自己先把自己贬低了，有很多同学说家庭贫困，有的同学和我说身上穿的衣服不是名牌衣服，走到同学面前觉得丢脸，那就没有办法了。刚才两个脑瘫的孩子脸上充满了自信的光辉，他们不会因为身上有了缺陷就觉得完蛋了，要不然他们也没有今天站在舞台上的机会。<br>　　<br>　　这方面我再次呼吁大家向马云学习。不要以为马云从小就是这样的，马云和我有很多相似的经历，我们都是参加了英语考试，我们都是高考考了三年，我考上了北大，他考上了师范学院。我自卑到大三，自卑到得了肺结核，医生说这是典型的自卑性肺结核。我用了七年的时间当上了北大老师，两年后学生喜欢我的课堂了，我才把自己的自卑克服掉。但是马云只用了一个礼拜，马云还是个专科生，开学第一天，他找了一圈想找一个比他更难看的，发现根本找不到。怎么办呢？就坐到西湖边上想了一个礼拜，想通了，我长得难看，不是我难过，是别人难过。<br>　　<br>　　他给自己定了三个目标，第一，必须把专科变成本科；第二，必须成为学校的优秀学生领袖之一；第三，必须和杭州师范学院的校花谈一场真正的恋爱。而我连北大的枯花都没有敢想，还想校花呢。马云最后专科变成了本科，成为了优秀毕业生，马云最后和美女谈了一场轰轰烈烈的恋爱。明白为什么马云到现在能到2000亿，我只有50亿了，我七年以后才克服了自己的自卑。同学们，不要自卑，不要低估你自己的力量，因为人是可以随时爆发力量的。不断读书，不断交友，不断游走世界，你的气质慢慢就起来了。<br>　　<br>　　第二个修炼要难一点。让自己感觉到自己崇高起来。这也是第四个关键词。因为当你想到自己变得崇高的时候，你就不会做坏事，你内心就会愿意让自己做更多值得骄傲的事，你就真心去救人，你就真心去献血。当你内心修炼出崇高感的时候，你就真的走在正道上了，所以修炼就两个，一个是把自己立住，第二，让自己开花。把这个修炼修好了，加上你前面的梦想就好了。<br>　　<br>　　自中央加大反腐以来，尤其是从去年开始，我们看到不少政府官员，还有一些企业家都锒铛入狱。那是因为什么原因？因为他没有修炼第二个修炼，他只修炼了第一个修炼，要想发财了。要有第二个限制，不然到最后就把自己给弄没了。有了第二项修炼以后，你做事情就会更加长远。例如你可以竞选学生会主席，但是你不可以不择手段、背后使坏、造谣、诬蔑等等，你何苦呢？这样做的结果是把自己生命的底线没有了。<br>　　<br>　　方向要对，交往要准，规矩要严，做人要暖<br>　　<br>　　现在我有十六个字送给大学生们：方向要对，交往要准，规矩要严，做人要暖。人生大方向，人生观，世界观，价值观一定要对，不做坏事是底线，什么是坏事，个人有不同的看法，至少法律禁止不能做的事情你不能去做。交往要准，交往朋友要准。你要交对你有用的、人品比较正直的朋友，不能只是吃喝玩乐的朋友。现在要谈恋爱，将来要结婚，我个人的人生体验和周围朋友的体验是，谈恋爱谈错了没关系，但是结婚是非常重要，哪个人陪你度过一生是一辈子的事，如果交往不对，人生会被折腾死。规矩要严，规矩养成了，对你来说有莫大的好处。比如说我定的规矩是每天再忙，读书不能少于50页，这个规矩促使我不断地读书。做人要暖，做人的时候要尽可能给人温暖，让周围的人觉得你这个人就是诚信可靠，有什么困难都可以来找你，你就是一个热心人，你的头脑当中就没有七七八八的东西，让人一下子觉得你这个人超级可靠，有困难的时候就会有无数的人来帮你。我发现做人好了以后是有好处的，这个好处也许不能明天就给你回报，十年以后就给你回报，但一定会有回报。<br>　　<br>　　<strong>还有一个关键词就是坚持。</strong> 同学们如果认定了事就要坚持。我还是非常坚持做自己想做的事，高考考三年，你根本就不知道希望在哪里。我做新东方22年了，还在坚持。中间有无数的艰难困苦都扛过来了，你坚持下来了可能就有成果。一开始做专注的事，最后叫脱颖而出。另外，在关键时刻的时候人生要善于舍得。我要舍不掉北京大学的教学岗位和安逸的生活，我就不可能有新东方，马云和我一样的，他舍不得的话，他就不可能有现在的阿里巴巴，他比我还要坚韧不拔。他做第五个公司才做成了阿里巴巴。每个人都要有这样的舍弃精神，才能得到新的东西。这就是我们人生中间大家不断去想的问题。你要舍不得现在优越的拿工资的生活，你怎么能创业呢？创业意味着要不就成功，要不就一无所有，你要有这样的勇气才行。舍不得旧的生活方式怎么有新的生活方式呢。所以要舍掉，再来得，这是非常重要的一件事情。<br>　　<br>　　到最后，在前面要素的前提下，不断让自己成长，可能会长成一棵参天大树，绝不能仅仅认为自己就是一棵小草。社会中的人，中间有5%的人会获得比较大的成就，而我在周围的朋友调查的结果，这5%的人绝对不是因为他们智商过高，而是因为他们在不断地成长，不断地学习，不断地坚持，不断地追求未来，才会产生这样的结果。希望我们在座的同学们把自己的生命都燃烧起来！<br>　　<br>　　谢谢大家！</p>
+        <h1 id="python（7）"><a href="#python（7）" class="headerlink" title="python（7）"></a>python（7）</h1><h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; z &#x3D; list(zip(a,b))</span><br><span class="line">&gt;&gt;&gt; z</span><br><span class="line">[(1, 4), (2, 5), (3, 6)]</span><br></pre></td></tr></table></figure>
+<p>zip两个或多个参数之后的结果可以看做是上面的东西，每一项都是一个tuple。<br>如果两个参数所包含元素的个数不一样，按较短的参数的长度操作。<br>还可以reverse：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; c, d &#x3D; zip(*z)</span><br><span class="line">&gt;&gt;&gt; c, d</span><br><span class="line">((1, 2, 3), (4, 5, 6))</span><br></pre></td></tr></table></figure>
+<p>把结果变成字典：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; D3 &#x3D; dict(zip(keys, values))</span><br><span class="line">&gt;&gt;&gt; D3</span><br><span class="line">&#123;&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3&#125;</span><br></pre></td></tr></table></figure>
+<p>例1：求海明距离</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def hamming(s1,s2):</span><br><span class="line">	if len(s1) !&#x3D; len(s2):</span><br><span class="line">		raise ValueError(&quot;Not defined - unequal lenght sequences&quot;)</span><br><span class="line">	return sum(c1 !&#x3D; c2 for c1,c2 in zip(s1,s2))</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	print(hamming(&#39;toned&#39;, &#39;roses&#39;))            # 3</span><br><span class="line">	print(hamming(&#39;2173896&#39;, &#39;2233796&#39;))        # 3</span><br><span class="line">	print(hamming(&#39;0100101000&#39;, &#39;1101010100&#39;))  # 6</span><br></pre></td></tr></table></figure>
+<p>例2：条件zip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x &#x3D; [1,2,3,4,5]</span><br><span class="line">&gt;&gt;&gt; y &#x3D; [11,12,13,14,15]</span><br><span class="line">&gt;&gt;&gt; condition &#x3D; [True,False,True,False,True]</span><br><span class="line">&gt;&gt;&gt; [xv if c else yv for (c,xv,yv) in zip(condition,x,y)]</span><br><span class="line">[1, 12, 3, 14, 5]</span><br></pre></td></tr></table></figure>
+<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><p>生成器不用把所有东西装入内存，而是运行一次计算一次，generator相当于里面存了个函数。<br>带有yield 的函数支持迭代器协议，每次yield返回一个生成器，然后下次调用的时候接着往下执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def odd():</span><br><span class="line">...     print &#39;step 1&#39;</span><br><span class="line">...     yield 1</span><br><span class="line">...     print &#39;step 2&#39;</span><br><span class="line">...     yield 3</span><br><span class="line">...     print &#39;step 3&#39;</span><br><span class="line">...     yield 5</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; o &#x3D; odd()</span><br><span class="line">&gt;&gt;&gt; o.next()</span><br><span class="line">step 1</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; o.next()</span><br><span class="line">step 2</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; o.next()</span><br><span class="line">step 3</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; o.next()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure>
+<p>用来实现协程。<br>最大的优势就是协程极高的执行效率。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越明显。</p>
+<p>第二大优势就是不需要多线程的锁机制，因为只有一个线程，也不存在同时写变量冲突，在协程中控制共享资源不加锁，只需要判断状态就好了，所以执行效率比多线程高很多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def stupid_fib(n):</span><br><span class="line">	index &#x3D; 0</span><br><span class="line">	a &#x3D; 0</span><br><span class="line">	b &#x3D; 1</span><br><span class="line">	while index &lt; n:</span><br><span class="line">		sleep_cnt &#x3D; yield b</span><br><span class="line">		print(&#39;let me think &#123;0&#125; secs&#39;.format(sleep_cnt))</span><br><span class="line">		time.sleep(sleep_cnt)</span><br><span class="line">		a, b &#x3D; b, a + b</span><br><span class="line">		index +&#x3D; 1</span><br><span class="line">print(&#39;-&#39;*10 + &#39;test yield send&#39; + &#39;-&#39;*10)</span><br><span class="line">N &#x3D; 20</span><br><span class="line">sfib &#x3D; stupid_fib(N)</span><br><span class="line">fib_res &#x3D; next(sfib)</span><br><span class="line">while True:</span><br><span class="line">	print(fib_res)</span><br><span class="line">	try:</span><br><span class="line">		fib_res &#x3D; sfib.send(random.uniform(0, 0.5))</span><br><span class="line">	except StopIteration:</span><br><span class="line">		break</span><br></pre></td></tr></table></figure>
+<p>参考：<br>[]<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/00138681965108490cb4c13182e472f8d87830f13be6e88000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/00138681965108490cb4c13182e472f8d87830f13be6e88000</a><br>[]<a href="http://python.jobbole.com/86069/" target="_blank" rel="noopener">http://python.jobbole.com/86069/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/02/2020/05/%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%BC%94%E8%AE%B2%EF%BC%9A%E4%BA%BA%E7%94%9F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D/" data-id="ckb9e869k000rrgu65s2b6d1r" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(7)/" data-id="ckesiog810009v8u67oid870o" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/talk/" rel="tag">talk</a><span class="article-tag-list-count">1</span></li></ul>
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python(6)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python(6)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python(6)/">2019/PythonLearning/python(6)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python数据结构一些总结"><a href="#python数据结构一些总结" class="headerlink" title="python数据结构一些总结"></a>python数据结构一些总结</h1><h2 id="map-filter-reduce"><a href="#map-filter-reduce" class="headerlink" title="map,filter,reduce"></a>map,filter,reduce</h2><p>map 不是c++中的map，函数式编程，面向表达式编程：</p>
+<ul>
+<li>map(aFunction, aSequence)</li>
+<li>filter(aFunction, aSequence)</li>
+<li>reduce(aFunction, aSequence)</li>
+<li>lambda</li>
+<li>list comprehension<br>简单的map应用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; items &#x3D; [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; def sqr(x): return x ** 2</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(map(sqr, items))</span><br><span class="line">[1, 4, 9, 16, 25]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+过滤器通过一个函数对象把sequence中的东西过滤一遍：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(-5,5))</span><br><span class="line">[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; list( filter((lambda x: x &lt; 0), range(-5,5)))</span><br><span class="line">[-5, -4, -3, -2, -1]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+reduce是functool模块的一个工具，返回一个值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; from functools import reduce</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x * y), [1, 2, 3, 4] )</span><br><span class="line">24</span><br><span class="line">&gt;&gt;&gt; reduce( (lambda x, y: x &#x2F; y), [1, 2, 3, 4] )</span><br><span class="line">0.041666666666666664</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="decrator-装饰器"><a href="#decrator-装饰器" class="headerlink" title="decrator(装饰器)"></a>decrator(装饰器)</h2>类似设计模式的装饰器模式，装饰器都是为了给当前函数添加功能或者修改行为；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def dollar(fn):</span><br><span class="line">	def new(*args):</span><br><span class="line">		return &#39;$&#39; + str(fn(*args))</span><br><span class="line">	return new</span><br><span class="line"></span><br><span class="line">@dollar</span><br><span class="line">def price(amount, tax_rate):</span><br><span class="line">	return amount + amount*tax_rate</span><br><span class="line">   </span><br><span class="line">print price(100,0.1)</span><br></pre></td></tr></table></figure>
+上面代码的功能是给参数前面加一个dollar符号，@符号是装饰器的语法<br>new 函数是一个wrapper<br>@dollar这一句话相当于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price&#x3D;dollar(price)</span><br></pre></td></tr></table></figure>
+判断一个函数运行完消耗的时间：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def timer(f):</span><br><span class="line">	def inner(*args, **kargs):</span><br><span class="line">		t &#x3D; time.time()</span><br><span class="line">		ret &#x3D; f(*args, **kargs)</span><br><span class="line">		print &#39;timer &#x3D; %s&#39; %(time.time()-t) </span><br><span class="line">		return ret</span><br><span class="line">	return inner</span><br><span class="line"></span><br><span class="line">@timer</span><br><span class="line">def my_fnc():</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	my_fnc()</span><br></pre></td></tr></table></figure>
+<h2 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h2>map，filter都可以使用list comprehension实现。<br>缺点是可读性不如for循环好。<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2>里面的值都是immutable的，而且都是不重复的。<br>set本身也是mutable的。<br>set简单操作：<br>根据list初始化：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L &#x3D; [1,2,3]</span><br><span class="line">&gt;&gt;&gt; s &#x3D; set(L)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">set([1, 2, 3])</span><br><span class="line"># init an empty set</span><br><span class="line">&gt;&gt;&gt; s1 &#x3D; set()</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([])</span><br></pre></td></tr></table></figure>
+添加元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># add single element</span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;first&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;first&#39;])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; s1.add(&quot;2nd&quot;)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;2nd&#39;, &#39;first&#39;])</span><br><span class="line">#add multi elements</span><br><span class="line">&gt;&gt;&gt; s1.update( [&quot;3rd&quot;, &quot;4th&quot;] )</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line">set([&#39;4th&#39;, &#39;2nd&#39;, &#39;3rd&#39;, &#39;first&#39;])</span><br></pre></td></tr></table></figure>
+集合操作交并补：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sets1 &amp; sets2  #(elements in set1,&amp;&amp; in set2)</span><br><span class="line">   sets1 | sets2  #(elements in set1,|| in set2)</span><br><span class="line">   sets1 - sets2  #(elements in set1,&amp;&amp;not in set2)</span><br></pre></td></tr></table></figure>
+Jaccard 系数（交除以补）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import division</span><br><span class="line">import itertools</span><br><span class="line"></span><br><span class="line">def jaccard(s1, s2):</span><br><span class="line">	&quot; takes two lists as input and returns Jaccard coefficient&quot;</span><br><span class="line">	st1&#x3D;set(s1)</span><br><span class="line">	st2&#x3D;set(s2)</span><br><span class="line">	u &#x3D; set(st1).union(st2)</span><br><span class="line">	i &#x3D; set(st1).intersection(st2)</span><br><span class="line">	return len(i)&#x2F;len(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">	s &#x3D; [];</span><br><span class="line">	s.append([1,2,3,4])</span><br><span class="line">	s.append([2,3,5,7])</span><br><span class="line">	s.append([2,4,6])  </span><br><span class="line">	s.append([8,9,10,11,12])</span><br><span class="line"></span><br><span class="line">	print(&quot;input set : %s&quot;) %(s)</span><br><span class="line"></span><br><span class="line">	combinations &#x3D; list( itertools.combinations([x for x in range(len(s))], 2) )</span><br><span class="line">	print(&quot;combinations&#x3D;%s&quot;) %(combinations)</span><br><span class="line"></span><br><span class="line">	for c in combinations:</span><br><span class="line">		i1 &#x3D; c[0]</span><br><span class="line">		i2 &#x3D; c[1]</span><br><span class="line">		jac &#x3D; jaccard(s[i1], s[i2])</span><br><span class="line">		print(&quot;%s : %s,%s : jaccard&#x3D;%s&quot;) %(c, s[i1],s[i2],jac)</span><br><span class="line">Output:</span><br><span class="line"></span><br><span class="line">input set : [[1, 2, 3, 4], [2, 3, 5, 7], [2, 4, 6], [8, 9, 10, 11, 12]]</span><br><span class="line">combinations&#x3D;[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]</span><br><span class="line">(0, 1) : [1, 2, 3, 4],[2, 3, 5, 7] : jaccard&#x3D;0.333333333333</span><br><span class="line">(0, 2) : [1, 2, 3, 4],[2, 4, 6] : jaccard&#x3D;0.4</span><br><span class="line">(0, 3) : [1, 2, 3, 4],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(1, 2) : [2, 3, 5, 7],[2, 4, 6] : jaccard&#x3D;0.166666666667</span><br><span class="line">(1, 3) : [2, 3, 5, 7],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br><span class="line">(2, 3) : [2, 4, 6],[8, 9, 10, 11, 12] : jaccard&#x3D;0.0</span><br></pre></td></tr></table></figure>
+<h2 id="一个小总结"><a href="#一个小总结" class="headerlink" title="一个小总结"></a>一个小总结</h2>string，list，dictionary，tuple，set<br>都不是有序的<br>set里面的值唯一不重复<br>dictionary是基于哈希表的<br>list用中括号，dict用大括号，tuple用小括号，set也用大括号<br>可变的：list，dictionary,set<br>不可变的：tuple，numbers,string,frozenset<br>（All of Python’s immutable built-in objects are hashable）<br>一个小例外，tuple是immutable的，当tuple中所有对象都是immutable的时候可以求哈希，当里面有个list的时候就不可以求哈希<br>（An object is hashable if it has a hash value which never changes during its lifetime ）</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(6)/" data-id="ckesiog83000cv8u6dypq8t0u" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python(8)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python(8)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python(8)/">2019/PythonLearning/python(8)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python-generator-and-expression"><a href="#python-generator-and-expression" class="headerlink" title="python generator and expression"></a>python generator and expression</h1><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>生成器和返回一个数组的函数类似，但是和一下子返回一个数组不一样的是，生成器一次返回一个值，优点就是需要更少的内存。<br>所以特别适合使用它的场景是操作一个特别大的数组。<br>生成器看起来像是一个函数，但是它的行为像一个迭代器。</p>
+<ul>
+<li>生成器函数</li>
+<li>生成器表达式<h3 id="生成器表达式与列表推导"><a href="#生成器表达式与列表推导" class="headerlink" title="生成器表达式与列表推导"></a>生成器表达式与列表推导</h3>一个用中括号，一个用小括号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def repeat5times(x):</span><br><span class="line">	for c in x:</span><br><span class="line">		yield c * 5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; # Generator functions work the same way		</span><br><span class="line">&gt;&gt;&gt; G &#x3D; repeat5times(&#39;Python&#39;)</span><br><span class="line">&gt;&gt;&gt; iter(G) is G</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; I1, I2 &#x3D; iter(G), iter(G)</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">&#39;PPPPP&#39;</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">&#39;yyyyy&#39;</span><br><span class="line">&gt;&gt;&gt; # I2 at same position I1</span><br><span class="line">&gt;&gt;&gt; next(I2)</span><br><span class="line">&#39;ttttt&#39;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>和普通迭代器之间的区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; L &#x3D; [1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt; I1, I2 &#x3D; iter(L), iter(L)</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; # Lists support multiple iterators</span><br><span class="line">&gt;&gt;&gt; next(I2)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; # Changes reflected in iterators</span><br><span class="line">&gt;&gt;&gt; del L[2:]</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#21&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">	next(I1)</span><br><span class="line">StopIteration</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="send"><a href="#send" class="headerlink" title="send"></a>send</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">def cf():</span><br><span class="line">	while True:</span><br><span class="line">		val &#x3D; yield</span><br><span class="line">		print val,</span><br><span class="line"></span><br><span class="line">def pf(c):</span><br><span class="line">	while True:</span><br><span class="line">	val &#x3D; random.randint(1,10)</span><br><span class="line">	c.send(val)</span><br><span class="line">	yield</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	c &#x3D; cf()</span><br><span class="line">	c.send(None)</span><br><span class="line">	p &#x3D; pf(c)</span><br><span class="line"></span><br><span class="line">	for wow in range(10):</span><br><span class="line">		next(p)</span><br></pre></td></tr></table></figure>
+<p>自己对send的一些理解：<br>首先遇到yield就会返回，就阻塞了；<br>next和send(None)道理一样，用于第一次调用；<br>send之后会作为yield的返回值，然后程序就接着运行；<br>那个生成器发送的，哪个生成器接收；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(8)/" data-id="ckesiog85000fv8u62nvw9fpp" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python dic tuple（4）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.777Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/">python 字典元组（4）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><p>字典是键值对模型，键是字符串，值任意，有点像json。</p>
+<ul>
+<li><p>支持嵌套</p>
+</li>
+<li><p>不排序，如果想排序就把键放到一个list里面，调用list的sort方法排序，也可以用内置的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; D</span><br><span class="line">&#123;&#39;a&#39;: 97, &#39;c&#39;: 99, &#39;b&#39;: 98&#125;</span><br><span class="line">&gt;&gt;&gt; for k in sorted(D):</span><br><span class="line">	print (k, &#39;&#x3D;&gt;&#39;, D[k])</span><br></pre></td></tr></table></figure></li>
+<li><p>访问，直接使用中括号，里面是键</p>
+</li>
+<li><p>判断一个键是否在字典中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; if not &#39;F&#39; in D:</span><br><span class="line">	print(&#39;missing&#39;)</span><br><span class="line">	&gt;&gt;&gt; value &#x3D; D[&#39;x&#39;] if &#39;x&#39; in D else 0</span><br><span class="line">&gt;&gt;&gt; value</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="iteration-protocol"><a href="#iteration-protocol" class="headerlink" title="iteration protocol"></a>iteration protocol</h2><p>这种机制只对序列式容器有效，例如list、string、tuple，而对dictionary、set无效</p>
+<blockquote>
+<p>   Let’s redefine iterables from Python’s perspective.</p>
+</blockquote>
+<p>  Iterables:</p>
+<p>  1.Can be passed to the iter function to get an iterator for them.<br>  2.There is no 2. That’s really all that’s needed to be an iterable.<br>  Iterators:</p>
+<p>  1.Can be passed to the next function which gives their next item or raises StopIteration<br>  2.Return themselves when passed to the iter function.<br>  The inverse of these statements should also hold true. Which means:</p>
+<p>  1.Anything that can be passed to iter without an error is an iterable.<br>  2.Anything that can be passed to next without an error (except for StopIteration) is an iterator.<br>  3.Anything that returns itself when passed to iter is an iterator.</p>
+</li>
+</ul>
+<p>例如可以这样实现for循环而不使用for关键字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	list&#x3D;[1, 2, 3, 4]</span><br><span class="line">	it&#x3D;iter(list)</span><br><span class="line">	while(True):</span><br><span class="line">		try :</span><br><span class="line">			item&#x3D;next(it)</span><br><span class="line">		except StopIteration:</span><br><span class="line">			print(&quot;end&quot;)</span><br><span class="line">			break</span><br><span class="line">		else:</span><br><span class="line">			print(item)</span><br><span class="line">&#96;&#96;&#96;	</span><br><span class="line"></span><br><span class="line">## tuple</span><br><span class="line">* 逗号隔开的元素默认形成元组</span><br><span class="line">* 最重要的是immutable</span><br><span class="line">* 两个特有的方法：index(&#39;f&#39;),count(&#39;f&#39;),分别获取某个元素的下标，获取某个元素出现的次数。</span><br><span class="line">* packing and unpacking</span><br></pre></td></tr></table></figure>
+<pre><code>#packing
+&gt;&gt;&gt; T = 1, &apos;a&apos;, [{&apos;NAME&apos;:&apos;Serah&apos;, &apos;Age&apos;:25}]
+&gt;&gt;&gt; T
+(1, &apos;a&apos;, [{&apos;Age&apos;: 25, &apos;NAME&apos;: &apos;Serah&apos;}])
+&gt;&gt;&gt; 
+#unpacking
+&gt;&gt;&gt; x,y,z = T
+&gt;&gt;&gt; x,y,z
+(1, &apos;a&apos;, [{&apos;Age&apos;: 25, &apos;NAME&apos;: &apos;Serah&apos;}])
+&gt;&gt;&gt; </code></pre><pre><code></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ckesiog7w0004v8u6fxma8m91" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
 
     </footer>
   </div>
@@ -747,7 +724,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title categories">Categories</h3>
     <div class="widget" id="categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%BD%91%E6%98%93%E6%97%B6%E5%85%89/">网易时光</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/">成长之路</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/">名人演讲</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%9D%82%E9%A1%B9/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%B8%B8%E6%88%8F/">游戏</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%BD%91%E6%98%93%E6%97%B6%E5%85%89/">网易时光</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/">成长之路</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/">名人演讲</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/PhotoShop/">PhotoShop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/Qt/">Qt</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%9D%82%E9%A1%B9/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/%E6%B8%B8%E6%88%8F/">游戏</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -757,7 +734,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Qt/" style="font-size: 14px; color: #00f">Qt</a> <a href="/tags/growup/" style="font-size: 17.67px; color: #4f2bf9">growup</a> <a href="/tags/love/" style="font-size: 14px; color: #00f">love</a> <a href="/tags/mood/" style="font-size: 21.33px; color: #9f57f4">mood</a> <a href="/tags/python/" style="font-size: 17.67px; color: #4f2bf9">python</a> <a href="/tags/talk/" style="font-size: 14px; color: #00f">talk</a> <a href="/tags/tech/" style="font-size: 25px; color: #ee82ee">tech</a>
+      <a href="/tags/Qt/" style="font-size: 14px; color: #00f">Qt</a> <a href="/tags/growup/" style="font-size: 17.67px; color: #4f2bf9">growup</a> <a href="/tags/love/" style="font-size: 14px; color: #00f">love</a> <a href="/tags/mood/" style="font-size: 25px; color: #ee82ee">mood</a> <a href="/tags/python/" style="font-size: 17.67px; color: #4f2bf9">python</a> <a href="/tags/talk/" style="font-size: 14px; color: #00f">talk</a> <a href="/tags/tech/" style="font-size: 21.33px; color: #9f57f4">tech</a>
     </div>
   </div>
 
@@ -769,23 +746,23 @@
       <ul>
         
           <li>
-            <a href="/2020/06/10/2020/06/Qt-Model-View-Delegate/">Qt-Model-View-Delegate</a>
+            <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
           </li>
         
           <li>
-            <a href="/2020/06/10/2020/06/QtLayout/">QtLayout</a>
+            <a href="/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/">2019/PythonLearning/计算机英语单词</a>
           </li>
         
           <li>
-            <a href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/">5月最后一天</a>
+            <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
           </li>
         
           <li>
-            <a href="/2020/05/17/2020/05/ApproachingLove/">ApproachingLove</a>
+            <a href="/2020/09/07/2020/04/20200418/">2020/04/20200418</a>
           </li>
         
           <li>
-            <a href="/2020/05/13/2020/05/PS%E5%AD%A6%E4%B9%A0/">PS学习</a>
+            <a href="/2020/09/07/2020/04/20200426/">平庸的一天</a>
           </li>
         
       </ul>
@@ -797,7 +774,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python 字典元组（4） | MySoul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Dictionary字典是键值对模型，键是字符串，值任意，有点像json。  支持嵌套  不排序，如果想排序就把键放到一个list里面，调用list的sort方法排序，也可以用内置的函数： 1234&gt;&gt;&gt; D&amp;#123;&#39;a&#39;: 97, &#39;c&#39;: 99, &#39;b&#39;: 98&amp;#125;&gt;&gt;&gt; for k in sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 字典元组（4）">
+<meta property="og:url" content="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/index.html">
+<meta property="og:site_name" content="MySoul">
+<meta property="og:description" content="Dictionary字典是键值对模型，键是字符串，值任意，有点像json。  支持嵌套  不排序，如果想排序就把键放到一个list里面，调用list的sort方法排序，也可以用内置的函数： 1234&gt;&gt;&gt; D&amp;#123;&#39;a&#39;: 97, &#39;c&#39;: 99, &#39;b&#39;: 98&amp;#125;&gt;&gt;&gt; for k in sort">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-07T12:20:00.777Z">
+<meta property="article:modified_time" content="2020-09-07T12:20:00.777Z">
+<meta property="article:author" content="Tal">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MySoul" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//bing.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://welovebeer.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/test">测试</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MySoul</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">杭州雨季里的星期天</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019/PythonLearning/python dic tuple（4）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.777Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python 字典元组（4）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><p>字典是键值对模型，键是字符串，值任意，有点像json。</p>
+<ul>
+<li><p>支持嵌套</p>
+</li>
+<li><p>不排序，如果想排序就把键放到一个list里面，调用list的sort方法排序，也可以用内置的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; D</span><br><span class="line">&#123;&#39;a&#39;: 97, &#39;c&#39;: 99, &#39;b&#39;: 98&#125;</span><br><span class="line">&gt;&gt;&gt; for k in sorted(D):</span><br><span class="line">	print (k, &#39;&#x3D;&gt;&#39;, D[k])</span><br></pre></td></tr></table></figure></li>
+<li><p>访问，直接使用中括号，里面是键</p>
+</li>
+<li><p>判断一个键是否在字典中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; if not &#39;F&#39; in D:</span><br><span class="line">	print(&#39;missing&#39;)</span><br><span class="line">	&gt;&gt;&gt; value &#x3D; D[&#39;x&#39;] if &#39;x&#39; in D else 0</span><br><span class="line">&gt;&gt;&gt; value</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="iteration-protocol"><a href="#iteration-protocol" class="headerlink" title="iteration protocol"></a>iteration protocol</h2><p>这种机制只对序列式容器有效，例如list、string、tuple，而对dictionary、set无效</p>
+<blockquote>
+<p>   Let’s redefine iterables from Python’s perspective.</p>
+</blockquote>
+<p>  Iterables:</p>
+<p>  1.Can be passed to the iter function to get an iterator for them.<br>  2.There is no 2. That’s really all that’s needed to be an iterable.<br>  Iterators:</p>
+<p>  1.Can be passed to the next function which gives their next item or raises StopIteration<br>  2.Return themselves when passed to the iter function.<br>  The inverse of these statements should also hold true. Which means:</p>
+<p>  1.Anything that can be passed to iter without an error is an iterable.<br>  2.Anything that can be passed to next without an error (except for StopIteration) is an iterator.<br>  3.Anything that returns itself when passed to iter is an iterator.</p>
+</li>
+</ul>
+<p>例如可以这样实现for循环而不使用for关键字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	list&#x3D;[1, 2, 3, 4]</span><br><span class="line">	it&#x3D;iter(list)</span><br><span class="line">	while(True):</span><br><span class="line">		try :</span><br><span class="line">			item&#x3D;next(it)</span><br><span class="line">		except StopIteration:</span><br><span class="line">			print(&quot;end&quot;)</span><br><span class="line">			break</span><br><span class="line">		else:</span><br><span class="line">			print(item)</span><br><span class="line">&#96;&#96;&#96;	</span><br><span class="line"></span><br><span class="line">## tuple</span><br><span class="line">* 逗号隔开的元素默认形成元组</span><br><span class="line">* 最重要的是immutable</span><br><span class="line">* 两个特有的方法：index(&#39;f&#39;),count(&#39;f&#39;),分别获取某个元素的下标，获取某个元素出现的次数。</span><br><span class="line">* packing and unpacking</span><br></pre></td></tr></table></figure>
+<pre><code>#packing
+&gt;&gt;&gt; T = 1, &apos;a&apos;, [{&apos;NAME&apos;:&apos;Serah&apos;, &apos;Age&apos;:25}]
+&gt;&gt;&gt; T
+(1, &apos;a&apos;, [{&apos;Age&apos;: 25, &apos;NAME&apos;: &apos;Serah&apos;}])
+&gt;&gt;&gt; 
+#unpacking
+&gt;&gt;&gt; x,y,z = T
+&gt;&gt;&gt; x,y,z
+(1, &apos;a&apos;, [{&apos;Age&apos;: 25, &apos;NAME&apos;: &apos;Serah&apos;}])
+&gt;&gt;&gt; </code></pre><pre><code></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ckesiog7w0004v8u6fxma8m91" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>Recommended Posts</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/07/2019/PythonLearning/python(8)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2019/PythonLearning/python(8)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/07/2019/PythonLearning/python%20function(5)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python 函数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+ 
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "aPmdByA1A6jVi2obtcNSDwEn-gzGzoHsz",
+        app_key: "aU8uRsMVVXm2SYlKOcxKBP0r",
+        placeholder: "Say something!",
+        avatar:"",
+        visitor: true
+    });
+</script>
+
+
+          </section>
+        
+
+
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dictionary"><span class="toc-number">1.</span> <span class="toc-text">Dictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iteration-protocol"><span class="toc-number">2.</span> <span class="toc-text">iteration protocol</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+    <!--微信公众号二维码-->
+
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 1995 - 2020 Tal&nbsp;
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;707601602@qq.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+    <a href="/test" class="mobile-nav-link">测试</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+    
+  
+
+  
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>
