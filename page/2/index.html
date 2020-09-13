@@ -74,6 +74,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019/PythonLearning/python(8)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python(8)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python(8)/">2019/PythonLearning/python(8)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python-generator-and-expression"><a href="#python-generator-and-expression" class="headerlink" title="python generator and expression"></a>python generator and expression</h1><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>生成器和返回一个数组的函数类似，但是和一下子返回一个数组不一样的是，生成器一次返回一个值，优点就是需要更少的内存。<br>所以特别适合使用它的场景是操作一个特别大的数组。<br>生成器看起来像是一个函数，但是它的行为像一个迭代器。</p>
+<ul>
+<li>生成器函数</li>
+<li>生成器表达式<h3 id="生成器表达式与列表推导"><a href="#生成器表达式与列表推导" class="headerlink" title="生成器表达式与列表推导"></a>生成器表达式与列表推导</h3>一个用中括号，一个用小括号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def repeat5times(x):</span><br><span class="line">	for c in x:</span><br><span class="line">		yield c * 5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; # Generator functions work the same way		</span><br><span class="line">&gt;&gt;&gt; G &#x3D; repeat5times(&#39;Python&#39;)</span><br><span class="line">&gt;&gt;&gt; iter(G) is G</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; I1, I2 &#x3D; iter(G), iter(G)</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">&#39;PPPPP&#39;</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">&#39;yyyyy&#39;</span><br><span class="line">&gt;&gt;&gt; # I2 at same position I1</span><br><span class="line">&gt;&gt;&gt; next(I2)</span><br><span class="line">&#39;ttttt&#39;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>和普通迭代器之间的区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; L &#x3D; [1, 2, 3, 4]</span><br><span class="line">&gt;&gt;&gt; I1, I2 &#x3D; iter(L), iter(L)</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; # Lists support multiple iterators</span><br><span class="line">&gt;&gt;&gt; next(I2)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; # Changes reflected in iterators</span><br><span class="line">&gt;&gt;&gt; del L[2:]</span><br><span class="line">&gt;&gt;&gt; next(I1)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#21&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">	next(I1)</span><br><span class="line">StopIteration</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="send"><a href="#send" class="headerlink" title="send"></a>send</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">def cf():</span><br><span class="line">	while True:</span><br><span class="line">		val &#x3D; yield</span><br><span class="line">		print val,</span><br><span class="line"></span><br><span class="line">def pf(c):</span><br><span class="line">	while True:</span><br><span class="line">	val &#x3D; random.randint(1,10)</span><br><span class="line">	c.send(val)</span><br><span class="line">	yield</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">	c &#x3D; cf()</span><br><span class="line">	c.send(None)</span><br><span class="line">	p &#x3D; pf(c)</span><br><span class="line"></span><br><span class="line">	for wow in range(10):</span><br><span class="line">		next(p)</span><br></pre></td></tr></table></figure>
+<p>自己对send的一些理解：<br>首先遇到yield就会返回，就阻塞了；<br>next和send(None)道理一样，用于第一次调用；<br>send之后会作为yield的返回值，然后程序就接着运行；<br>那个生成器发送的，哪个生成器接收；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(8)/" data-id="ckf18n1zh002ar4u65wp114bp" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
     <article id="post-2019/PythonLearning/python dic tuple（4）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" class="article-date">
@@ -133,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ckesj5ss40004fku635bs3211" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ckf18n1zc001or4u6bsuhdszv" class="article-share-link">Share</a>
       
       
       
@@ -188,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20function(5)/" data-id="ckesj5ss50005fku6g95s7i9l" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20function(5)/" data-id="ckf18n1zd001tr4u61hmkb4d4" class="article-share-link">Share</a>
       
       
       
@@ -247,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20list(3)/" data-id="ckesj5ssa000dfku605he934h" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20list(3)/" data-id="ckf18n1zf0020r4u63xn9213x" class="article-share-link">Share</a>
       
       
       
@@ -303,11 +357,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/06/2020/09/%E5%9B%BD%E5%BA%86%E5%89%8D%E5%A4%95/" data-id="ckesj5sss001sfku60mzj9ora" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/06/2020/09/%E5%9B%BD%E5%BA%86%E5%89%8D%E5%A4%95/" data-id="ckf18n1z9001dr4u65v8b28a6" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">6</span></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">7</span></li></ul>
 
     </footer>
   </div>
@@ -361,11 +415,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/07/27/2020/07/Down%20and%20Down/" data-id="ckesj5ssr001nfku677vz7xxf" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/07/27/2020/07/Down%20and%20Down/" data-id="ckf18n1z4000yr4u6avpuagvr" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">6</span></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">7</span></li></ul>
 
     </footer>
   </div>
@@ -414,11 +468,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/07/04/2020/07/20200704/" data-id="ckesj5ssq001kfku66kv40wbv" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/07/04/2020/07/20200704/" data-id="ckf18n1z50012r4u61ky83qg5" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">6</span></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">7</span></li></ul>
 
     </footer>
   </div>
@@ -474,7 +528,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/" data-id="ckesj5ssp001gfku6hyzacoka" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/" data-id="ckf18n1z60016r4u6g2rf6v71" class="article-share-link">Share</a>
       
       
       
@@ -536,7 +590,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/" data-id="ckesj5sso001dfku635xuhnix" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/" data-id="ckf18n1z70019r4u65x7x9dqt" class="article-share-link">Share</a>
       
       
       
@@ -589,67 +643,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" data-id="ckesj5ssf000ofku6403bcug2" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" data-id="ckf18n1yv000ar4u6avab1ps3" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">6</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/ApproachingLove" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/17/2020/05/ApproachingLove/" class="article-date">
-  <time datetime="2020-05-17T14:05:51.000Z" itemprop="datePublished">2020-05-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/17/2020/05/ApproachingLove/">ApproachingLove</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>应该说是一个比较满意的周末了。</p>
-<p>周六和武大的学长们打球，其实主要是和王亚东学长和邰总一起玩，场子比较小，打球还花钱，打球还生猛，和在小区打各有各的好。在西湖里打都是校友，还有人照应，体验比较好；在小区打什么人都有。总的来说体验不错，但是在人情事故上，呵呵，比较懒惰。</p>
-<p>然后晚上和浙大的女博士一起吃了个饭，算是约会，或者是相亲？？有一种初恋时的感觉，总想说话，就说了好多话，其实对对方了解的不是很多，不懂她的喜怒哀乐，总是笑的很甜，感觉有点不真实，她会对什么事情喜欢或者讨厌？确实需要时间来互相了解。到底未来的那个人会是谁，又在哪里？Keep Looking…</p>
-<p>周日上午弹了弹琴，下午睡了会，然后上钢琴课。感觉钢琴老师对我态度有一点点改变，不太会要求的很多，也不会弄得我很不愉快，可能是因为我也在为别人着想吧。同是在杭州打拼的外地人，她可能一周也就休息一天吧，也挺辛苦，希望可以成为朋友。<br>    报班学钢琴带来很重要的东西就是有持续去学钢琴的动，自学是万万不行的。</p>
-<p>晚上看了个电影《红高粱》，那是那个时候的爱情。是的现在的后浪们不会创作一些很悲观的作品了，但是感到有一点轻浮。可能爱情没有想象中的那么难，只要肯去付出，总会有回报的。</p>
-<p>怎么知道她是不是可以厮守一生的人？难呀！<br><img src="./honggaoliang.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/17/2020/05/ApproachingLove/" data-id="ckesj5ssg000qfku60kr926xt" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/love/" rel="tag">love</a><span class="article-tag-list-count">1</span></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">7</span></li></ul>
 
     </footer>
   </div>
@@ -666,7 +664,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next</a>
+    <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next</a>
   </nav>
 </section>
            
@@ -689,23 +687,23 @@
       <ul>
         
           <li>
+            <a href="/2020/09/13/2020/09/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E8%80%85/">完美主义者</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">给blog添加视频引发的问题</a>
           </li>
         
           <li>
-            <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/">2019/PythonLearning/计算机英语单词</a>
-          </li>
-        
-          <li>
             <a href="/2020/09/07/2020/04/20200418/">2020/04/20200418</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2020/04/20200426/">平庸的一天</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
           </li>
         
       </ul>

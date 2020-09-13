@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>2019/PythonLearning/python多态 | MySoul</title>
+  <title>完美主义者 | MySoul</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="多态子类重写父类的虚函数，返回值类型不能变，如果变了编译器报错；参数类型和个数不能变，不然使用基类指针将不能调用派生类的函数，这个函数将只能被派生类对象或指针调用。 当class内含有至少一个虚函数时才声明析构函数为虚函数；虚表指针地址不和栈空间分配的成员变量连续 栈空间分配的内存不能使用delete释放，如果这样会报_block_type_is_valid(phead- nblockuse)错误">
+  <meta name="description" content="有是没有灵魂的一个周末，昨天打了一天的lol，ADC是真的好玩，能拿人头，把把MVP可还行，女警手真的长，大嘴露露屠杀全场，寒冰站撸。。。周六晚上就卸载了，周日早上8点半起，回来练了练琴，中午吃了肉夹馍，回来的时候去河里捡了一个巨大的蜗牛，回家养了起来，也算是房间里有个活物了。下午上课，钢琴老师和我的状态都不好，但是她那样只顾低头玩手机真的让我很不舒服，心情很不爽。晚上又看了一遍哈佛幸福课-完美主">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019&#x2F;PythonLearning&#x2F;python多态">
-<meta property="og:url" content="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/index.html">
+<meta property="og:title" content="完美主义者">
+<meta property="og:url" content="https://welovebeer.github.io/2020/09/13/2020/09/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E8%80%85/index.html">
 <meta property="og:site_name" content="MySoul">
-<meta property="og:description" content="多态子类重写父类的虚函数，返回值类型不能变，如果变了编译器报错；参数类型和个数不能变，不然使用基类指针将不能调用派生类的函数，这个函数将只能被派生类对象或指针调用。 当class内含有至少一个虚函数时才声明析构函数为虚函数；虚表指针地址不和栈空间分配的成员变量连续 栈空间分配的内存不能使用delete释放，如果这样会报_block_type_is_valid(phead- nblockuse)错误">
+<meta property="og:description" content="有是没有灵魂的一个周末，昨天打了一天的lol，ADC是真的好玩，能拿人头，把把MVP可还行，女警手真的长，大嘴露露屠杀全场，寒冰站撸。。。周六晚上就卸载了，周日早上8点半起，回来练了练琴，中午吃了肉夹馍，回来的时候去河里捡了一个巨大的蜗牛，回家养了起来，也算是房间里有个活物了。下午上课，钢琴老师和我的状态都不好，但是她那样只顾低头玩手机真的让我很不舒服，心情很不爽。晚上又看了一遍哈佛幸福课-完美主">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-07T12:20:00.808Z">
-<meta property="article:modified_time" content="2020-09-07T12:20:00.808Z">
+<meta property="article:published_time" content="2020-09-13T14:53:43.000Z">
+<meta property="article:modified_time" content="2020-09-13T15:13:04.288Z">
 <meta property="article:author" content="Tal">
+<meta property="article:tag" content="mood">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="MySoul" type="application/atom+xml">
@@ -76,12 +77,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2019/PythonLearning/python多态" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2020/09/完美主义者" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" class="article-date">
-  <time datetime="2020-09-07T12:20:00.808Z" itemprop="datePublished">2020-09-07</time>
+    <a href="/2020/09/13/2020/09/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E8%80%85/" class="article-date">
+  <time datetime="2020-09-13T14:53:43.000Z" itemprop="datePublished">2020-09-13</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%BD%91%E6%98%93%E6%97%B6%E5%85%89/">网易时光</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -90,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2019/PythonLearning/python多态
+      完美主义者
     </h1>
   
 
@@ -100,17 +105,20 @@
       
         <!-- Table of Contents -->
         
-        <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>子类重写父类的虚函数，返回值类型不能变，如果变了编译器报错；<br>参数类型和个数不能变，不然使用基类指针将不能调用派生类的函数，这个函数将只能被派生类对象或指针调用。</p>
-<p>当class内含有至少一个虚函数时才声明析构函数为虚函数；<br>虚表指针地址不和栈空间分配的成员变量连续</p>
-<p>栈空间分配的内存不能使用delete释放，如果这样会报_block_type_is_valid(phead- nblockuse)错误；<br>字节对齐：<br>公式1:前面的地址必须是后面的地址正数倍,不是就补齐<br>公式2:整个Struct的地址必须是最大字节的整数倍</p>
+        <p>有是没有灵魂的一个周末，昨天打了一天的lol，ADC是真的好玩，能拿人头，把把MVP可还行，女警手真的长，大嘴露露屠杀全场，寒冰站撸。。。周六晚上就卸载了，周日早上8点半起，回来练了练琴，中午吃了肉夹馍，回来的时候去河里捡了一个巨大的蜗牛，回家养了起来，也算是房间里有个活物了。<br>下午上课，钢琴老师和我的状态都不好，但是她那样只顾低头玩手机真的让我很不舒服，心情很不爽。<br>晚上又看了一遍哈佛幸福课-完美主义者那一集，很符合自己的状态，我就是一个完美主义者，从A到B，只想找捷径，却不知道自然法则是从A到B要经历种种失败才能到达，正常人把这些失败看做是正常的，而我却不这么认为，我觉得改善自己心理健康状态，首先要把这个观念给改掉，失败是无时无刻不在发生的，要把失败看做是正常的事情，并且从失败中获取经验教训，而不是因为怕失败而失去获得创造性张力的机会，从而不能真的过好人生这个旅程。</p>
+<p>还有不要压抑自己，好的人际关系并不是100%的和谐，7/3左右大概是最好最正常的人际关系，该翻脸就翻脸。</p>
+<p><a href="http://open.163.com/newview/movie/free?pid=M6HV755O6&mid=M6I42KT6K" target="_blank" rel="noopener">完美主义者</a></p>
+<iframe height=839 width=1424 src="./perfect.png"></iframe>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/" data-id="ckf18n1zj002gr4u6hql46a80" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/13/2020/09/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E8%80%85/" data-id="ckf18n1za001hr4u633zu46ph" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">7</span></li></ul>
+
     </footer>
   </div>
   
@@ -161,19 +169,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          2019/PythonLearning/python介绍
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">2019/PythonLearning/计算机英语单词</div>
+      <div class="article-nav-title">给blog添加视频引发的问题</div>
     </a>
   
 </nav>
@@ -236,24 +235,42 @@
 
   
     
-    <div class="widget-wrap">
+  
     
-      <div class="widget" id="toc-widget-fixed">
-      
-        <strong class="toc-title">Content</strong>
-        <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多态"><span class="toc-number">1.</span> <span class="toc-text">多态</span></a></li></ol>
-          </div>
-      </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/13/2020/09/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E8%80%85/">完美主义者</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2020/09/%E7%BB%99blog%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">给blog添加视频引发的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2020/04/20200418/">2020/04/20200418</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2020/04/20200426/">平庸的一天</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
+          </li>
+        
+      </ul>
     </div>
+  </div>
 
-  
-    
-
-  
-    
-  
-    
   
     
 
