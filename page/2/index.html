@@ -74,6 +74,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019/PythonLearning/python string(2)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%20string(2)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.793Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%20string(2)/">2019/PythonLearning/python string(2)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="python-string（2）"><a href="#python-string（2）" class="headerlink" title="python string（2）"></a>python string（2）</h1><h2 id="单双引号是一样的，为了减少-的使用。"><a href="#单双引号是一样的，为了减少-的使用。" class="headerlink" title="单双引号是一样的，为了减少\的使用。"></a>单双引号是一样的，为了减少\的使用。</h2><p>可以构造类似 s = ‘a\nb\tc’这样的字符串，里面可以加入转义字符。<br><img src="./images/EscapeTable.jpg" alt=""></p>
+<ul>
+<li>每一个字符串都是Unicode string。</li>
+<li>纯字符，前面加r或R：<blockquote>
+<p>myfile = open(r’C:\new\text.txt’, ‘w’)</p>
+</blockquote>
+</li>
+<li>三引号用来输入多行文本</li>
+<li>string切片，是左闭右开的，正负都是有界限的，越界将发生out of range错误</li>
+<li>s1=s2是浅拷贝，s1=s2[:]是深拷贝，这个特性对immutable 作用不大，但是多list这样mutable作用大。</li>
+<li>X[i:j:k]， “extract all the items in X, from offset i through j-1 by k.”，S[::-1]逆序输出</li>
+</ul>
+<h2 id="一些字符串函数"><a href="#一些字符串函数" class="headerlink" title="一些字符串函数"></a>一些字符串函数</h2><ul>
+<li>count(sub[, start[, end]])，获取sub的个数</li>
+<li>find(sub[, start[, end]])</li>
+<li>replace(    old, new[, count]) 替换</li>
+<li>partition(    sep)返回一个三元组</li>
+<li>join(    seq) Return a string which is the concatenation of the strings in the sequence seq  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	&gt;&gt;&gt; seq &#x3D; [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]</span><br><span class="line">	&gt;&gt;&gt; print &#39;&#39;.join(seq)</span><br><span class="line">	abcd</span><br><span class="line">	&gt;&gt;&gt; print &#39;-&#39;.join(seq)</span><br><span class="line">	a-b-c-d</span><br><span class="line">	&#96;&#96;&#96;	</span><br><span class="line">* split([sep [,maxsplit]])</span><br><span class="line">	比较简单的分割：</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>‘1, 2, 3’.split(‘, ‘)<br>  [‘1’, ‘2’, ‘3’]</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个分隔符的时候用re模块</span><br></pre></td></tr></table></figure>
+<p>  import re</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="split-with-semicolon-comma-space"><a href="#split-with-semicolon-comma-space" class="headerlink" title="split with semicolon, comma, space"></a>split with semicolon, comma, space</h1><blockquote>
+<blockquote>
+<blockquote>
+<p>str = ‘Life; a walking, shadow’<br>str1 = re.split(‘;|,| ‘, str)<br>str1<br>  [‘Life’, ‘’, ‘a’, ‘walking’, ‘’, ‘shadow’]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="split-with-semicolon-space-comma-space-space"><a href="#split-with-semicolon-space-comma-space-space" class="headerlink" title="split with semicolon+space, comma+space, space"></a>split with semicolon+space, comma+space, space</h1><blockquote>
+<blockquote>
+<blockquote>
+<p>str2 = re.split(‘; |, | ‘,str)<br>str2<br>  [‘Life’, ‘a’, ‘walking’, ‘shadow’]</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">* 其他一些判断类型的函数，isalnum(),isalpha(),isdigit(),islower(),istitle()···</span><br><span class="line">	</span><br><span class="line">## 所有字符串函数：</span><br><span class="line">&gt; [&#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;</span><br><span class="line">expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isd</span><br><span class="line">ecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;issp</span><br><span class="line">ace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;pa</span><br><span class="line">rtition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip</span><br><span class="line">&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate</span><br><span class="line">&#39;, &#39;upper&#39;, &#39;zfill&#39;]	</span><br><span class="line">## 全局函数都在这里 dir(__builtins__)</span><br><span class="line">&gt; </span><br><span class="line">&gt;&gt;&gt; dir(__builtins__)</span><br><span class="line">[&#39;ArithmeticError&#39;, &#39;AssertionError&#39;, &#39;AttributeError&#39;, &#39;BaseException&#39;, &#39;Blocki</span><br><span class="line">ngIOError&#39;, &#39;BrokenPipeError&#39;, &#39;BufferError&#39;, &#39;BytesWarning&#39;, &#39;ChildProcessError</span><br><span class="line">&#39;, &#39;ConnectionAbortedError&#39;, &#39;ConnectionError&#39;, &#39;ConnectionRefusedError&#39;, &#39;Conne</span><br><span class="line">ctionResetError&#39;, &#39;DeprecationWarning&#39;, &#39;EOFError&#39;, &#39;Ellipsis&#39;, &#39;EnvironmentErro</span><br><span class="line">r&#39;, &#39;Exception&#39;, &#39;False&#39;, &#39;FileExistsError&#39;, &#39;FileNotFoundError&#39;, &#39;FloatingPoint</span><br><span class="line">Error&#39;, &#39;FutureWarning&#39;, &#39;GeneratorExit&#39;, &#39;IOError&#39;, &#39;ImportError&#39;, &#39;ImportWarni</span><br><span class="line">ng&#39;, &#39;IndentationError&#39;, &#39;IndexError&#39;, &#39;InterruptedError&#39;, &#39;IsADirectoryError&#39;,</span><br><span class="line">&#39;KeyError&#39;, &#39;KeyboardInterrupt&#39;, &#39;LookupError&#39;, &#39;MemoryError&#39;, &#39;NameError&#39;, &#39;Non</span><br><span class="line">e&#39;, &#39;NotADirectoryError&#39;, &#39;NotImplemented&#39;, &#39;NotImplementedError&#39;, &#39;OSError&#39;, &#39;O</span><br><span class="line">verflowError&#39;, &#39;PendingDeprecationWarning&#39;, &#39;PermissionError&#39;, &#39;ProcessLookupErr</span><br><span class="line">or&#39;, &#39;RecursionError&#39;, &#39;ReferenceError&#39;, &#39;ResourceWarning&#39;, &#39;RuntimeError&#39;, &#39;Run</span><br><span class="line">timeWarning&#39;, &#39;StopAsyncIteration&#39;, &#39;StopIteration&#39;, &#39;SyntaxError&#39;, &#39;SyntaxWarni</span><br><span class="line">ng&#39;, &#39;SystemError&#39;, &#39;SystemExit&#39;, &#39;TabError&#39;, &#39;TimeoutError&#39;, &#39;True&#39;, &#39;TypeError</span><br><span class="line">&#39;, &#39;UnboundLocalError&#39;, &#39;UnicodeDecodeError&#39;, &#39;UnicodeEncodeError&#39;, &#39;UnicodeErro</span><br><span class="line">r&#39;, &#39;UnicodeTranslateError&#39;, &#39;UnicodeWarning&#39;, &#39;UserWarning&#39;, &#39;ValueError&#39;, &#39;War</span><br><span class="line">ning&#39;, &#39;WindowsError&#39;, &#39;ZeroDivisionError&#39;, &#39;_&#39;, &#39;__build_class__&#39;, &#39;__debug__&#39;,</span><br><span class="line"> &#39;__doc__&#39;, &#39;__import__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;</span><br><span class="line">abs&#39;, &#39;all&#39;, &#39;any&#39;, &#39;ascii&#39;, &#39;bin&#39;, &#39;bool&#39;, &#39;bytearray&#39;, &#39;bytes&#39;, &#39;callable&#39;, &#39;c</span><br><span class="line">hr&#39;, &#39;classmethod&#39;, &#39;compile&#39;, &#39;complex&#39;, &#39;copyright&#39;, &#39;credits&#39;, &#39;delattr&#39;, &#39;di</span><br><span class="line">ct&#39;, &#39;dir&#39;, &#39;divmod&#39;, &#39;enumerate&#39;, &#39;eval&#39;, &#39;exec&#39;, &#39;exit&#39;, &#39;filter&#39;, &#39;float&#39;, &#39;f</span><br><span class="line">ormat&#39;, &#39;frozenset&#39;, &#39;getattr&#39;, &#39;globals&#39;, &#39;hasattr&#39;, &#39;hash&#39;, &#39;help&#39;, &#39;hex&#39;, &#39;id</span><br><span class="line">&#39;, &#39;input&#39;, &#39;int&#39;, &#39;isinstance&#39;, &#39;issubclass&#39;, &#39;iter&#39;, &#39;len&#39;, &#39;license&#39;, &#39;list&#39;,</span><br><span class="line"> &#39;locals&#39;, &#39;map&#39;, &#39;max&#39;, &#39;memoryview&#39;, &#39;min&#39;, &#39;next&#39;, &#39;object&#39;, &#39;oct&#39;, &#39;open&#39;, &#39;</span><br><span class="line">ord&#39;, &#39;pow&#39;, &#39;print&#39;, &#39;property&#39;, &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;,</span><br><span class="line">&#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;, &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tup</span><br><span class="line">le&#39;, &#39;type&#39;, &#39;vars&#39;, &#39;zip&#39;]</span><br><span class="line">## 格式化字符串</span><br><span class="line">string formatting expressions: this is based on the C type printf.</span><br><span class="line">string formatting method calls: this is newer and added since Python 2.6.</span><br></pre></td></tr></table></figure>
+<p>‘I am using %s %d.%d’ %(‘Python’, 3, 2)<br>  ‘I am using Python 3.2’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>
+
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20string(2)/" data-id="ckf437qqv000c84u6hio26mxu" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
     <article id="post-2019/PythonLearning/python(8)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/07/2019/PythonLearning/python(8)/" class="article-date">
@@ -112,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(8)/" data-id="ckf18smf1002f98u642sw0wqo" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python(8)/" data-id="ckf437qqv000d84u6378xgg79" class="article-share-link">Share</a>
       
       
       
@@ -187,62 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ckf18smeu001r98u61lw44jl0" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2019/PythonLearning/python function(5)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/07/2019/PythonLearning/python%20function(5)/" class="article-date">
-  <time datetime="2020-09-07T12:20:00.777Z" itemprop="datePublished">2020-09-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%20function(5)/">python 函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <h2 id="def"><a href="#def" class="headerlink" title="def"></a>def</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def &lt;name&gt;(arg1, arg2,...,argN)</span><br><span class="line">	return &lt;value&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>def is an executable code. </li>
-<li>def creates an object and assigns it to a name. </li>
-<li>return sends a result object back to the caller. </li>
-</ul>
-<h2 id="参数列表匹配"><a href="#参数列表匹配" class="headerlink" title="参数列表匹配"></a>参数列表匹配</h2><p>Syntax    | Location    | Descruption<br>func(value)    | Caller    | Normal argument: matched by position<br>func(name=value)    | Caller    | Keyword argument: matched by name<br>func(<em>sequence)    | Caller    | Pass all object in sequence as individual positional arguments<br>func(*</em>dict)    | Caller    | Pass all key/value pairs in dict as individual keyword arguments<br>def func(name)    | Function    | Normal argument: matched any passed value by position or name<br>def func(name=value)    | Function    | Default argument value, if not passed in the call<br>def func(<em>name)    | Function    | Matches and collects remaining positional arguments in a tuple<br>def func(*</em>name)    | Function    | Matches and collects remaining keyword arguments in a dictionary<br>def func(*args, name)    | Function    | Arguments that must be passed by keyword only in calls</p>
-<p>‘<em>‘ 表示匹配任意多sequence item<br>‘</em> *’ 表示匹配任意多字典item</p>
-<h2 id="Collecting-and-Unpacking-Arguments"><a href="#Collecting-and-Unpacking-Arguments" class="headerlink" title="Collecting and Unpacking Arguments"></a>Collecting and Unpacking Arguments</h2><p>类似packing和unpacking</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20function(5)/" data-id="ckf18smev001v98u6bds8dqft" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20dic%20tuple%EF%BC%884%EF%BC%89/" data-id="ckf437qqp000484u61vcbfc5a" class="article-share-link">Share</a>
       
       
       
@@ -301,10 +337,65 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20list(3)/" data-id="ckf18smew001z98u6dw75fco7" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20list(3)/" data-id="ckf437qqq000584u63c7z9qns" class="article-share-link">Share</a>
       
       
       
+    </footer>
+  </div>
+  
+</article>
+ 
+
+ 
+
+
+
+
+  
+    <article id="post-2019/PythonLearning/python function(5)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/07/2019/PythonLearning/python%20function(5)/" class="article-date">
+  <time datetime="2020-09-07T12:20:00.777Z" itemprop="datePublished">2020-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/2019/PythonLearning/python%20function(5)/">python 函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="def"><a href="#def" class="headerlink" title="def"></a>def</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def &lt;name&gt;(arg1, arg2,...,argN)</span><br><span class="line">	return &lt;value&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>def is an executable code. </li>
+<li>def creates an object and assigns it to a name. </li>
+<li>return sends a result object back to the caller. </li>
+</ul>
+<h2 id="参数列表匹配"><a href="#参数列表匹配" class="headerlink" title="参数列表匹配"></a>参数列表匹配</h2><p>Syntax    | Location    | Descruption<br>func(value)    | Caller    | Normal argument: matched by position<br>func(name=value)    | Caller    | Keyword argument: matched by name<br>func(<em>sequence)    | Caller    | Pass all object in sequence as individual positional arguments<br>func(*</em>dict)    | Caller    | Pass all key/value pairs in dict as individual keyword arguments<br>def func(name)    | Function    | Normal argument: matched any passed value by position or name<br>def func(name=value)    | Function    | Default argument value, if not passed in the call<br>def func(<em>name)    | Function    | Matches and collects remaining positional arguments in a tuple<br>def func(*</em>name)    | Function    | Matches and collects remaining keyword arguments in a dictionary<br>def func(*args, name)    | Function    | Arguments that must be passed by keyword only in calls</p>
+<p>‘<em>‘ 表示匹配任意多sequence item<br>‘</em> *’ 表示匹配任意多字典item</p>
+<h2 id="Collecting-and-Unpacking-Arguments"><a href="#Collecting-and-Unpacking-Arguments" class="headerlink" title="Collecting and Unpacking Arguments"></a>Collecting and Unpacking Arguments</h2><p>类似packing和unpacking</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://welovebeer.github.io/2020/09/07/2019/PythonLearning/python%20function(5)/" data-id="ckf437qqr000784u6hamh8obt" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a><span class="article-tag-list-count">2</span></li></ul>
+
     </footer>
   </div>
   
@@ -357,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/09/06/2020/09/%E5%9B%BD%E5%BA%86%E5%89%8D%E5%A4%95/" data-id="ckf18smer001h98u6421aajsz" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/09/06/2020/09/%E5%9B%BD%E5%BA%86%E5%89%8D%E5%A4%95/" data-id="ckf437qs0003584u6aljxbkyd" class="article-share-link">Share</a>
       
       
       
@@ -415,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/07/27/2020/07/Down%20and%20Down/" data-id="ckf18smeo001598u66e3a2m85" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/07/27/2020/07/Down%20and%20Down/" data-id="ckf437qrd001n84u62rthbaix" class="article-share-link">Share</a>
       
       
       
@@ -468,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/07/04/2020/07/20200704/" data-id="ckf18smem001198u627p2hyj1" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/07/04/2020/07/20200704/" data-id="ckf437qra001d84u6ag1earbf" class="article-share-link">Share</a>
       
       
       
@@ -528,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/" data-id="ckf18smeq001c98u678136ho3" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/Qt-Model-View-Delegate/" data-id="ckf437qr9001b84u64fb2fwcd" class="article-share-link">Share</a>
       
       
       
@@ -590,64 +681,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/" data-id="ckf18smep001998u6267x1nlv" class="article-share-link">Share</a>
+      <a data-url="https://welovebeer.github.io/2020/06/10/2020/06/QtLayout/" data-id="ckf437qrc001k84u6gsfuh9gv" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/" rel="tag">Qt</a><span class="article-tag-list-count">1</span></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
- 
-
-
-
-
-  
-    <article id="post-2020/05/5月最后一天" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" class="article-date">
-  <time datetime="2020-05-31T12:13:33.000Z" itemprop="datePublished">2020-05-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/">心情日记</a>►<a class="article-category-link" href="/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/">5月最后一天</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>赶在5月的最后一天来一发日记。<br>不知不觉，这一年又快一半了，感觉自己的成长真的很慢，学习新的东西没灵性，自己的逻辑思维能力真的有限，比不了江涛他们。而且从长远来看，这种缓慢的成长又对自己很不利，只能说逆水行舟，不进则退。自己写的代码总是有问题很容易让人有自卑感，确实，让人感到累的不是繁重的工作，而是不快乐。<br>我又一次感到不快乐，感到孤独，千辛万苦等到周末，而周末又是这么无聊地度过，像是打球不开心的缘故，又是周五下班前发现的一个bug?</p>
-<p>找到对象并不能让我开心，年薪百万也不能让我开心，会一万种技能不能让我开心；唯一能使我开心的是良好的人际关系，稳定的几个朋友，但是我没有，不是我不想，而是自己吧自己关了起来，即使别人表示好意，自己也去拒绝，是在自我保护。保护自己不会再像之前一样受伤，保护防御力低，攻击力为0的自己。总是在判断别人的行为有没有攻击行为。<br>长大的过程中，很少有人在我最需要保护的时候出现。能想的起来的那些人都是我很感激的人，在大学失恋的时候晓明饭桌上让我哭了出来，那是我走出失恋泥潭的转折点，我不止一次的想表达自己的感谢，但就是没有机会开口。而家里的长辈们只能说擅长养孩子，跟养阿猫阿狗一样，从来也没进入我的心里，也很少能感到亲近，这或许是自己亲密关系缺失的一个重要原因。小时候偷家里钱，被发现钻到被窝哭红了眼，在家人审判声中丧失尊严的时候自己默默承受；在上学的时候受欺负的时候自己默默承受；在恋爱时自己吃着面啪嗒啪嗒往碗里掉眼泪的时候自己默默承受。当个好人太难了，这让我成了一个记仇的人，没有发泄出去的怨念让我成为一个记仇的人，我记得践踏我尊严的那个场景，我记得受同学欺负时候老师没有站在我这边的时候的样子，我记得当住在自己心里的人狠狠地捅了自己一下的那种感觉。这是一个下行循环，而我却一直在这个循环里转悠。让我最受伤的是亲密关系，让自己最开心的也是亲密关系。<br>Still pretending .Pretending to be a good son; Pretending to be a good friend; Pretending to be a good employee.</p>
-<p>我只是感到很孤独。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://welovebeer.github.io/2020/05/31/2020/05/5%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9/" data-id="ckf18smef000e98u6aadu3pza" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mood/" rel="tag">mood</a><span class="article-tag-list-count">7</span></li></ul>
 
     </footer>
   </div>
@@ -687,6 +725,10 @@
       <ul>
         
           <li>
+            <a href="/2020/09/15/2020/09/%E7%BC%A0%E8%B6%B3/">20200915</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/13/2020/09/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E8%80%85/">完美主义者</a>
           </li>
         
@@ -695,15 +737,11 @@
           </li>
         
           <li>
-            <a href="/2020/09/07/2020/04/20200426/">平庸的一天</a>
+            <a href="/2020/09/07/2019/PythonLearning/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/">2019/PythonLearning/计算机英语单词</a>
           </li>
         
           <li>
-            <a href="/2020/09/07/2020/04/20200418/">2020/04/20200418</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/07/2019/PythonLearning/python%E4%BB%8B%E7%BB%8D/">2019/PythonLearning/python介绍</a>
+            <a href="/2020/09/07/2019/PythonLearning/python%E5%A4%9A%E6%80%81/">2019/PythonLearning/python多态</a>
           </li>
         
       </ul>
